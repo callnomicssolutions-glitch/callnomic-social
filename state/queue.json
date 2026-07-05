@@ -1,11 +1,25 @@
 {
-  "rotationIndex": 6,
+  "rotationIndex": 11,
   "recentPillars": [
     "pain-point",
-    "how-it-works"
+    "how-it-works",
+    "outcome"
   ],
-  "telegramOffset": 206298060,
+  "telegramOffset": 206298065,
   "posts": [
+    {
+      "id": "mr819dcfz1dj",
+      "platform": "linkedin",
+      "pillar": "outcome",
+      "headline": "Reply time: hours → seconds.",
+      "caption": "The single biggest lever on conversion isn't a better pitch. It's answering first.\n\nWhen your reply time drops from hours to seconds, more leads stay warm, more calls get booked, more deals close — with the same marketing spend.\n\nYou're not getting more leads. You're finally keeping the ones you have.\n\n#conversion #sales #responsetime #GCC #automation",
+      "imageFile": "mr819dcfz1dj-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-07-05T16:56:19.472Z",
+      "telegramMessageId": 11,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mr7x61jdw4ua",
       "platform": "linkedin",
@@ -13,11 +27,12 @@
       "headline": "An AI employee, not just a chatbot.",
       "caption": "A chatbot follows a script. An AI employee reasons.\n\nOurs reads your live business data, remembers the customer across visits, thinks before it speaks, and knows when to hand a hot lead to a human.\n\nThat's the difference between \"press 1 for sales\" and an assistant that actually helps.\n\n#AIemployee #conversationalAI #customerexperience #GCC",
       "imageFile": "mr7x61jdw4ua-linkedin.png",
-      "status": "pending",
+      "status": "posted",
       "createdAt": "2026-07-05T15:01:45.739Z",
       "telegramMessageId": 9,
-      "url": "",
-      "error": ""
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7479578921533968386",
+      "error": "",
+      "postedAt": "2026-07-05T16:56:19.055Z"
     },
     {
       "id": "mr72xnopood5",
@@ -34,6 +49,6 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 2,
-  "lastDraftAt": "2026-07-05T15:01:45.739Z"
+  "slotCount": 3,
+  "lastDraftAt": "2026-07-05T16:56:19.472Z"
 }
