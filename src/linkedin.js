@@ -17,16 +17,17 @@ function headers(extra = {}) {
 }
 
 export function linkedinReady() {
-  return has(CONFIG.linkedin.token) && has(CONFIG.linkedin.orgUrn);
+  return has(CONFIG.linkedin.token) && has(CONFIG.linkedin.authorUrn);
 }
 
 /**
- * Publish a post with a branded image to the organization page.
+ * Publish a post with a branded image. Author can be your personal profile
+ * (urn:li:person:…) or a company page (urn:li:organization:…).
  * @returns {Promise<{ok:boolean, url?:string, error?:string}>}
  */
 export async function postToLinkedIn(post) {
   if (!linkedinReady()) return { ok: false, error: "LinkedIn not configured" };
-  const owner = CONFIG.linkedin.orgUrn;
+  const owner = CONFIG.linkedin.authorUrn;
   try {
     // 1) Initialize an image upload
     const initRes = await fetch(`${BASE}/images?action=initializeUpload`, {

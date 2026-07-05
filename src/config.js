@@ -8,10 +8,13 @@ export const CONFIG = {
     chatId: process.env.TELEGRAM_CHAT_ID || "", // your personal chat id (where drafts are sent)
   },
 
-  // LinkedIn (organization page posting)
+  // LinkedIn posting. authorUrn can be a PERSON urn (post to your profile) OR an
+  // ORGANIZATION urn (post to a company page). Personal profile is the default here.
+  //   person: "urn:li:person:xxxx"        (needs scope w_member_social)
+  //   org:    "urn:li:organization:12345" (needs scope w_organization_social)
   linkedin: {
     token: process.env.LINKEDIN_ACCESS_TOKEN || "",
-    orgUrn: process.env.LINKEDIN_ORG_URN || "", // e.g. "urn:li:organization:123456789"
+    authorUrn: process.env.LINKEDIN_AUTHOR_URN || process.env.LINKEDIN_ORG_URN || "",
   },
 
   // Instagram (via Facebook Graph API content publishing)
