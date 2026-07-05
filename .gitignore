@@ -1,0 +1,5 @@
+node_modules/
+.env
+.env.*
+state/images/preview-*.png
+*.log

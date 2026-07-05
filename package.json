@@ -1,0 +1,15 @@
+{
+  "name": "callnomic-social",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Free, self-running social media engine for Callnomic Solutions (LinkedIn + Instagram). Draft -> Telegram approval -> auto-post. Runs on GitHub Actions.",
+  "scripts": {
+    "tick": "node src/run.js",
+    "draft": "node src/run.js --draft-only",
+    "preview": "node src/preview.js"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  }
+}
