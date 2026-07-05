@@ -213,6 +213,190 @@ export const LIBRARY = [
       "If you could hand one repetitive task to an AI employee tomorrow — the one that eats your team's day — what would it be?\n\nTell us in the comments. That's usually the perfect place to start.\n\nOr skip ahead: callnomicsolutions.com",
     tags: ["#automation", "#AIemployee", "#GCCbusiness", "#Callnomic"],
   },
+
+  // ================= BATCH 2 =================
+
+  // ---------- PAIN-POINT ----------
+  {
+    pillar: "pain-point",
+    headline: "Ramadan hours. Eid rush. Your inbox doesn't rest.",
+    caption:
+      "Seasonal peaks are when you make the year — and when your team is most stretched thin.\n\nAn AI agent absorbs the surge: it answers the flood of \"are you open?\" and \"do you deliver for Eid?\" instantly, so no order is lost while everyone's busy.\n\nBusy season should feel like opportunity, not chaos.",
+    tags: ["#Ramadan", "#Eid", "#GCCbusiness", "#automation", "#customerservice"],
+  },
+  {
+    pillar: "pain-point",
+    headline: "You're paying for ads that lead to a silent inbox.",
+    caption:
+      "Every dirham on ads sends people to message you. Then… no one replies for hours.\n\nThat's not a marketing problem. It's a response problem — and it quietly wastes your whole budget.\n\nAn AI agent answers every ad enquiry the second it lands, so the spend actually turns into bookings.",
+    tags: ["#marketing", "#adspend", "#leadresponse", "#GCC", "#ROI"],
+  },
+  {
+    pillar: "pain-point",
+    headline: "Your receptionist can only be in one place.",
+    caption:
+      "Phone rings while she's with a walk-in. WhatsApp buzzes while she's on the phone. Something always waits.\n\nAn AI agent handles every channel at once — calls, chat, WhatsApp — in parallel, in Arabic and English.\n\nNot to replace her. To clone the parts that don't need her.",
+    tags: ["#frontdesk", "#AIagent", "#smallbusiness", "#GCC"],
+  },
+  {
+    pillar: "pain-point",
+    headline: "\"Let me check and get back to you.\" (Never happens.)",
+    caption:
+      "The most expensive sentence in your business is a promise to follow up that no one keeps.\n\nAn AI agent that knows your prices, stock and availability just… answers. Right then. No callback, no forgotten note.\n\nCertainty closes. Silence loses.",
+    tags: ["#sales", "#customerexperience", "#automation", "#GCCbusiness"],
+  },
+
+  // ---------- HOW-IT-WORKS ----------
+  {
+    pillar: "how-it-works",
+    headline: "It knows when to call a human.",
+    caption:
+      "The smartest thing an AI agent does isn't answering — it's knowing its limits.\n\nWhen a conversation gets complex, sensitive, or high-value, ours hands it to your team with the full context attached.\n\nAI for the routine. Humans for the moments that matter. That's the whole design.",
+    tags: ["#AIagent", "#humanhandoff", "#customerexperience", "#GCC"],
+  },
+  {
+    pillar: "how-it-works",
+    headline: "It remembers your customers. Even the returning ones.",
+    caption:
+      "A good employee remembers the regular. So does ours.\n\nWhen a past customer comes back, the agent recalls who they are and what they wanted — no \"can I get your details again?\"\n\nThat memory is what turns a bot into someone worth talking to.",
+    tags: ["#customerexperience", "#AIagent", "#loyalty", "#GCCbusiness"],
+  },
+  {
+    pillar: "how-it-works",
+    headline: "It answers from YOUR facts, not the internet's.",
+    caption:
+      "Generic AI guesses. Ours doesn't.\n\nWe ground every agent in your real prices, services, hours and policies — so it answers with your truth, not a made-up one.\n\nNo hallucinated promises your team has to clean up later.",
+    tags: ["#AIagent", "#accuracy", "#customAI", "#GCC"],
+  },
+  {
+    pillar: "how-it-works",
+    headline: "Chat today. Phone calls next. Same brain.",
+    caption:
+      "Start with an AI agent on chat and WhatsApp. Add the AI phone caller when you're ready.\n\nBoth share the same knowledge and the same memory — so your customer gets one consistent voice, whichever way they reach you.\n\nGrow the workforce one hire at a time.",
+    tags: ["#AIcaller", "#AIagent", "#automation", "#GCCbusiness"],
+  },
+
+  // ---------- OUTCOME ----------
+  {
+    pillar: "outcome",
+    headline: "A full calendar, not a full inbox.",
+    caption:
+      "The dream isn't fewer messages. It's messages that turn into booked appointments while you focus on the work.\n\nAn AI agent qualifies, answers and books straight into your calendar — so you wake up to a schedule, not a backlog.\n\nLess triage. More business.",
+    tags: ["#booking", "#productivity", "#AIagent", "#GCC"],
+  },
+  {
+    pillar: "outcome",
+    headline: "Same team. Double the conversations handled.",
+    caption:
+      "You don't need to double your staff to double your reach.\n\nWith AI carrying the repetitive front-line load, the same team comfortably handles far more conversations — without the burnout that usually comes with growth.\n\nCapacity, without the payroll jump.",
+    tags: ["#scaling", "#productivity", "#AIemployee", "#GCCbusiness"],
+  },
+  {
+    pillar: "outcome",
+    headline: "Your after-hours leads finally get answered.",
+    caption:
+      "The enquiries that used to sit until morning? Handled the moment they arrive — 11 PM, Friday, a public holiday.\n\nFor a lot of GCC businesses that's a third of all leads, quietly recovered.\n\nThe growth was already there. You just weren't awake for it.",
+    tags: ["#leadgeneration", "#24x7", "#automation", "#GCC"],
+  },
+
+  // ---------- MYTH-BUST ----------
+  {
+    pillar: "myth-bust",
+    headline: "\"AI can't handle Arabic properly.\"",
+    caption:
+      "A fair worry — most tools treat Arabic as an afterthought and it shows.\n\nWe build Arabic in from the start: correct right-to-left, the way people actually phrase things locally, switching to English when the customer does.\n\nTest it in Arabic. That's the point.",
+    tags: ["#Arabic", "#AImyths", "#GCC", "#bilingual", "#UAE"],
+  },
+  {
+    pillar: "myth-bust",
+    headline: "\"It'll go rogue and say something wrong.\"",
+    caption:
+      "The horror stories come from AI let loose with no guardrails.\n\nOurs is grounded in your facts, kept on-topic, and hands off anything it's unsure about. It's built to say \"let me connect you\" instead of inventing an answer.\n\nControlled by design, not by luck.",
+    tags: ["#AIsafety", "#AIagent", "#reliability", "#GCCbusiness"],
+  },
+  {
+    pillar: "myth-bust",
+    headline: "\"We'll be locked into something we can't change.\"",
+    caption:
+      "Your business shifts — new services, new prices, new hours. Your AI should shift with it.\n\nBecause we run it as a managed service, updates are part of the deal. You tell us what changed; we keep the agent current.\n\nIt grows with you, not against you.",
+    tags: ["#managedservice", "#flexibility", "#AIagent", "#GCC"],
+  },
+
+  // ---------- BEHIND-THE-BUILD ----------
+  {
+    pillar: "behind-the-build",
+    headline: "We test our agents by trying to break them.",
+    caption:
+      "Before an agent meets your customers, we throw the worst at it: trick questions, mixed languages, angry messages, nonsense.\n\nIf it stays calm, accurate and helpful under pressure, it ships. If not, it doesn't.\n\nYour customers should only ever meet the version that passed.",
+    tags: ["#buildinpublic", "#reliability", "#AIagent", "#Callnomic"],
+  },
+  {
+    pillar: "behind-the-build",
+    headline: "One founder, obsessed with the details.",
+    caption:
+      "Callnomic isn't a faceless vendor. It's built hands-on, with the small stuff sweated — the pause before a reply, the right Arabic phrasing, the clean handoff.\n\nThose details are the difference between \"a bot\" and \"that was helpful.\"\n\nWe'd rather get one thing right than ten things loud.",
+    tags: ["#founder", "#Callnomic", "#craftsmanship", "#GCC"],
+  },
+  {
+    pillar: "behind-the-build",
+    headline: "We'd rather under-promise and over-deliver.",
+    caption:
+      "It's easy to sell magic in a slide deck. We'd rather show you the working thing.\n\nEvery client starts with a live demo built on their own business — so the decision is based on what it actually does, not what we claim.\n\nProof beats pitch.",
+    tags: ["#Callnomic", "#AIagent", "#trust", "#GCCbusiness"],
+  },
+
+  // ---------- QUICK-TIP ----------
+  {
+    pillar: "quick-tip",
+    headline: "Tip: reply in the language they messaged in.",
+    caption:
+      "Small thing, big trust: answer Arabic with Arabic, English with English.\n\nSwitching a customer's language mid-conversation is a subtle way to lose them.\n\nA bilingual AI agent gets this right automatically — every time, on every channel.",
+    tags: ["#customerexperience", "#Arabic", "#salestip", "#GCC"],
+  },
+  {
+    pillar: "quick-tip",
+    headline: "Tip: track your first-reply time this week.",
+    caption:
+      "Pick one number to improve: how long until a new enquiry gets its first reply.\n\nWrite it down for a week. Most owners find it's hours, not minutes — and that gap is where deals leak.\n\nYou can't fix what you don't measure.",
+    tags: ["#salestip", "#responsetime", "#businesstip", "#GCCbusiness"],
+  },
+  {
+    pillar: "quick-tip",
+    headline: "Tip: never make a customer repeat themselves.",
+    caption:
+      "Asking \"what did you need again?\" quietly signals you weren't paying attention.\n\nCapture the context once and carry it through the whole conversation — and across future ones.\n\nMemory is a feature customers feel, even if they can't name it.",
+    tags: ["#customerexperience", "#salestip", "#AIagent", "#GCC"],
+  },
+
+  // ---------- OFFER ----------
+  {
+    pillar: "offer",
+    headline: "We'll build a demo on YOUR business.",
+    caption:
+      "Not a generic sales call — a working AI agent set up around your actual services, so you can talk to it like your customer would.\n\nJudge it for real. If it's not obviously useful, no hard feelings.\n\nStart here: callnomicsolutions.com",
+    tags: ["#bookademo", "#AIagent", "#GCCbusiness", "#Callnomic"],
+  },
+  {
+    pillar: "offer",
+    headline: "Tired of losing leads after hours? Let's fix it.",
+    caption:
+      "If enquiries are slipping through at night, on weekends, or during the rush — that's the easiest revenue you'll ever recover.\n\nWe build an always-on AI agent around your business and run it for you. Setup, then a simple monthly service.\n\ncallnomicsolutions.com",
+    tags: ["#leadgeneration", "#automation", "#GCC", "#Callnomic"],
+  },
+  {
+    pillar: "offer",
+    headline: "Partner with us — resell AI to your clients.",
+    caption:
+      "Run a web, ERP or marketing agency in the GCC? Add AI agents and automation to what you already sell — we build and run them, you earn the commission.\n\nYour clients get more; you get a new revenue line with none of the tech overhead.\n\nLet's talk: callnomicsolutions.com",
+    tags: ["#partnership", "#resellers", "#GCC", "#Callnomic", "#agency"],
+  },
+  {
+    pillar: "offer",
+    headline: "Your competitors are already replying faster.",
+    caption:
+      "Speed is quietly becoming the deciding factor for GCC buyers — and the businesses that answer first are winning the ones that used to be yours.\n\nAn AI agent levels that overnight.\n\nSee what yours would sound like: callnomicsolutions.com",
+    tags: ["#competitiveedge", "#AIagent", "#GCCbusiness", "#Callnomic"],
+  },
 ];
 
 // Sanity: keep the library non-trivial so rotation feels fresh.
