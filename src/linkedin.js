@@ -4,7 +4,9 @@ import { readFileSync } from "node:fs";
 import { CONFIG, has } from "./config.js";
 import { imagePath } from "./state.js";
 
-const VERSION = process.env.LINKEDIN_VERSION || "202405";
+// LinkedIn retires monthly API versions after ~1 year. If posting fails with HTTP 426
+// (NONEXISTENT_VERSION), bump this or set the LINKEDIN_VERSION repo variable to an active one.
+const VERSION = process.env.LINKEDIN_VERSION || "202606";
 const BASE = "https://api.linkedin.com/rest";
 
 function headers(extra = {}) {
