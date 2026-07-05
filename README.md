@@ -22,7 +22,7 @@ You only ever tap a button. Everything else is automatic.
 
 ## How it behaves
 
-- Every **~30 min** the Action wakes up, checks your Telegram taps, and posts anything you approved.
+- Every **~5 min** the Action wakes up, checks your Telegram taps, and posts anything you approved.
 - Every **`POST_INTERVAL_HOURS`** (default **12h**) it creates a new draft and sends it to you.
 - It **alternates platforms**, so you get roughly **one LinkedIn + one Instagram post per day**.
 - If you don't answer a draft within `PENDING_TTL_HOURS` (default 48h) it quietly expires — no spam.
@@ -94,7 +94,7 @@ and tick **force_draft** to get your first draft in Telegram immediately.
 
 ## Using it day to day
 - A draft lands in Telegram: branded image + the exact caption.
-- **✅ Approve & post** → it publishes on the next run (within ~30 min).
+- **✅ Approve & post** → it publishes on the next run (within ~5 min).
 - **✏️ Redo** → discards it and sends a different draft.
 - **❌ Skip** → drops it; the next scheduled draft comes at the normal time.
 

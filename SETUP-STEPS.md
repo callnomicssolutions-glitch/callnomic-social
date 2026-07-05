@@ -11,7 +11,7 @@ There is **no server** and **no monthly cost**. GitHub runs your schedule in its
 
 ```
         ┌─────────────────────────── GitHub Actions (free cloud) ──────────────────────────┐
-        │  runs every ~30 min automatically                                                 │
+        │  runs every ~5 min automatically                                                 │
         │                                                                                   │
         │  1. Read your Telegram taps  ──►  did you Approve / Skip / Redo a draft?           │
         │  2. Publish approved posts   ──►  LinkedIn API + Instagram API                     │
@@ -34,7 +34,7 @@ GitHub, tapping ✅ makes the Action call LinkedIn/Instagram and publish for you
 1. Repo is live: `github.com/callnomicssolutions-glitch/callnomic-social`
 2. Telegram bot created: `@callnomicsocialmediabot`
 3. Secrets `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` are set (encrypted).
-4. The workflow runs every 30 min and DMs you drafts with working buttons.
+4. The workflow runs every 5 min and DMs you drafts with working buttons.
 
 The only thing missing is telling it *where to post* — that's Phase 2 below.
 
@@ -138,7 +138,7 @@ under repo → Settings → Secrets and variables → Actions.
 Once the 4 secrets exist:
 1. Repo → **Actions → Callnomic Social → Run workflow** → tick **force_draft** → Run.
 2. A fresh draft hits your Telegram → tap **✅ Approve & post**.
-3. Within ~30 min the next run publishes it and Telegram replies with the **live post link**.
+3. Within ~5 min the next run publishes it and Telegram replies with the **live post link**.
 
 That's the whole loop, automated. From then on you just approve.
 

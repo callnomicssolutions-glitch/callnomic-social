@@ -1,13 +1,13 @@
 name: Callnomic Social
 
-# Runs in GitHub's cloud for free. Every ~30 min it:
+# Runs in GitHub's cloud for free. Every ~5 min it:
 #  - reads your Telegram approvals (button taps) and publishes approved posts
 #  - generates the next draft when it's time and sends it to you for approval
 # Nothing runs on your machine; nothing costs a subscription.
 
 on:
   schedule:
-    - cron: "*/30 * * * *" # every 30 minutes (UTC). GitHub may delay under load.
+    - cron: "*/5 * * * *" # every 5 minutes (UTC) — GitHub's minimum cron interval. May still be delayed under load.
   workflow_dispatch:
     inputs:
       force_draft:
