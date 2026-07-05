@@ -12,11 +12,11 @@
       "headline": "Your best lead just messaged at 1 AM.",
       "caption": "Your best lead just messaged at 1 AM.\n\nBy 9 AM they've messaged three of your competitors too.\n\nIn the GCC, buyers expect an answer now — not next business day. An AI agent replies in seconds, in Arabic or English, captures the lead and books the call while you sleep.\n\nSpeed is the cheapest advantage you're not using yet.\n\n#GCCbusiness #AIautomation #customerexperience #UAE #SaudiArabia",
       "imageFile": "mr72xnopood5-linkedin.png",
-      "status": "failed",
+      "status": "approved",
       "createdAt": "2026-07-05T00:55:26.060Z",
       "telegramMessageId": 6,
       "url": "",
-      "error": "init upload 426: {\"status\":426,\"code\":\"NONEXISTENT_VERSION\",\"message\":\"Requested version 20240501 is not active\"}"
+      "error": ""
     }
   ],
   "slotCount": 1,
