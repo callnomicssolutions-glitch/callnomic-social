@@ -1,10 +1,24 @@
 {
-  "rotationIndex": 1,
+  "rotationIndex": 6,
   "recentPillars": [
-    "pain-point"
+    "pain-point",
+    "how-it-works"
   ],
   "telegramOffset": 206298060,
   "posts": [
+    {
+      "id": "mr7x61jdw4ua",
+      "platform": "linkedin",
+      "pillar": "how-it-works",
+      "headline": "An AI employee, not just a chatbot.",
+      "caption": "A chatbot follows a script. An AI employee reasons.\n\nOurs reads your live business data, remembers the customer across visits, thinks before it speaks, and knows when to hand a hot lead to a human.\n\nThat's the difference between \"press 1 for sales\" and an assistant that actually helps.\n\n#AIemployee #conversationalAI #customerexperience #GCC",
+      "imageFile": "mr7x61jdw4ua-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-07-05T15:01:45.739Z",
+      "telegramMessageId": 9,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mr72xnopood5",
       "platform": "linkedin",
@@ -20,6 +34,6 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 1,
-  "lastDraftAt": "2026-07-05T00:55:26.060Z"
+  "slotCount": 2,
+  "lastDraftAt": "2026-07-05T15:01:45.739Z"
 }
