@@ -1,10 +1,13 @@
-// Instagram posting via the Facebook Graph API (Content Publishing).
-// Requires: IG_USER_ID (Instagram Business account) + IG_ACCESS_TOKEN (long-lived page token).
+// Instagram posting via the Instagram API with Instagram Login (Content Publishing).
+// Requires: IG_USER_ID (your Instagram account id) + IG_ACCESS_TOKEN (Instagram user token
+// from the app's "Instagram business login → Generate token").
 // Instagram must FETCH the image from a public URL, so we point it at the committed
 // image in this repo (raw.githubusercontent.com), built from PUBLIC_IMAGE_BASE.
+// Override the host with IG_GRAPH_BASE if you ever switch to the Facebook-Page flow
+// (https://graph.facebook.com/v21.0).
 import { CONFIG, has } from "./config.js";
 
-const GRAPH = "https://graph.facebook.com/v21.0";
+const GRAPH = process.env.IG_GRAPH_BASE || "https://graph.instagram.com/v21.0";
 
 export function instagramReady() {
   return has(CONFIG.instagram.igUserId) && has(CONFIG.instagram.token);
