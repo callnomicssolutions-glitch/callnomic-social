@@ -111,10 +111,11 @@ async function processApprovals(state) {
       continue;
     }
     if (action === "approve") {
-      await answerCallback(cq.id, "Posting…");
-      if (cq.message) await markDecision(cq.message.message_id, "✅ Approved");
+      await answerCallback(cq.id, "Uploading…");
+      if (cq.message) await markDecision(cq.message.message_id, "⏳ Uploading…");
       post.status = "approved";
       saveState(state);
+      if (telegramReady()) await sendMessage(`⏳ Uploading to <b>${post.platform}</b> now…`);
       await doPublish(state, post);
     } else if (action === "skip") {
       await answerCallback(cq.id, "Skipped.");

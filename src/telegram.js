@@ -42,7 +42,8 @@ export async function sendDraft(post) {
 
   const header = `🗓 <b>Draft for ${post.platform.toUpperCase()}</b>  ·  ${post.pillar}`;
   const preview = post.caption.length > 850 ? post.caption.slice(0, 840) + "…" : post.caption;
-  form.append("caption", `${header}\n\n${escapeHtml(preview)}`);
+  const footer = "⏱ <i>Checked every ~5 min — after you tap ✅ it can take a few minutes before the upload confirmation arrives.</i>";
+  form.append("caption", `${header}\n\n${escapeHtml(preview)}\n\n${footer}`);
   form.append("parse_mode", "HTML");
   form.append(
     "reply_markup",
