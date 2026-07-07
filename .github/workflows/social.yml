@@ -64,6 +64,8 @@ jobs:
           PLATFORMS: ${{ vars.PLATFORMS }}
           POST_INTERVAL_HOURS: ${{ vars.POST_INTERVAL_HOURS }}
           FORCE_DRAFT: ${{ inputs.force_draft && '1' || '' }}
+          REMIND_AFTER_HOURS: ${{ vars.REMIND_AFTER_HOURS }}
+          REMIND_REPEAT_HOURS: ${{ vars.REMIND_REPEAT_HOURS }}
           # Educational Reels (Instagram only)
           REELS_ENABLED: ${{ vars.REELS_ENABLED }}
           REEL_INTERVAL_HOURS: ${{ vars.REEL_INTERVAL_HOURS }}

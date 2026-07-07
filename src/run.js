@@ -18,6 +18,8 @@ const HOURS = Number(process.env.POST_INTERVAL_HOURS || 12);
 const PENDING_TTL_H = Number(process.env.PENDING_TTL_HOURS || 48);
 const MAX_PENDING = Number(process.env.MAX_PENDING || 6);
 const MAX_PENDING_REELS = Number(process.env.MAX_PENDING_REELS || 2);
+const REMIND_AFTER_H = Number(process.env.REMIND_AFTER_HOURS || 2);
+const REMIND_REPEAT_H = Number(process.env.REMIND_REPEAT_HOURS || 6);
 const forceDraft = process.argv.includes("--draft-only") || process.env.FORCE_DRAFT === "1";
 const forceReel = process.argv.includes("--reel-only") || process.env.FORCE_REEL === "1";
 
@@ -200,6 +202,30 @@ function expireStale(state) {
   if (changed) saveState(state);
 }
 
+// Nudge you about drafts sitting pending for a while — catches the case where a
+// Telegram tap silently never reached the bot (phone-side delivery delay/background
+// throttling), so it doesn't just look like the system stopped working.
+async function remindStale(state) {
+  if (!telegramReady()) return;
+  let changed = false;
+  for (const p of state.posts) {
+    if (p.status !== "pending") continue;
+    const ageH = hoursSince(p.createdAt);
+    if (ageH < REMIND_AFTER_H) continue;
+    const sinceReminder = p.remindedAt ? hoursSince(p.remindedAt) : Infinity;
+    if (sinceReminder < REMIND_REPEAT_H) continue;
+    const label = p.type === "reel" ? "Reel" : p.platform;
+    await sendMessage(
+      `⏰ Still waiting on your approval — <b>${label}</b>: "${p.headline}"\n` +
+      `Pending ${Math.round(ageH)}h. If you already tapped a button and nothing happened, ` +
+      `reopen the Telegram app for a moment (background delivery can lag) — the tap should sync then.`,
+    );
+    p.remindedAt = now();
+    changed = true;
+  }
+  if (changed) saveState(state);
+}
+
 async function main() {
   const state = loadState();
   console.log(`[run] tick @ ${now()} · platforms=${CONFIG.platforms.join(",")}`);
@@ -217,6 +243,9 @@ async function main() {
 
   // 2) expire drafts you never answered so they don't block forever
   expireStale(state);
+
+  // 2b) nudge about drafts that have been sitting pending a while
+  await remindStale(state);
 
   // 3) publish anything already approved but not yet posted (safety net)
   for (const p of state.posts.filter((p) => p.status === "approved")) {
