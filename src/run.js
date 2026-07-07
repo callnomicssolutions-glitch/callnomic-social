@@ -14,6 +14,7 @@ import { postToInstagram, instagramReady } from "./instagram.js";
 
 const HOURS = Number(process.env.POST_INTERVAL_HOURS || 12);
 const PENDING_TTL_H = Number(process.env.PENDING_TTL_HOURS || 48);
+const MAX_PENDING = Number(process.env.MAX_PENDING || 6);
 const forceDraft = process.argv.includes("--draft-only") || process.env.FORCE_DRAFT === "1";
 
 function now() { return new Date().toISOString(); }
@@ -167,10 +168,11 @@ async function main() {
     await doPublish(state, p);
   }
 
-  // 4) generate the next draft if it's time and nothing is waiting on you
+  // 4) generate the next draft if it's time — doesn't wait for prior drafts to be approved,
+  // just caps how many can pile up unanswered so a long absence doesn't spam forever.
   const pendingCount = state.posts.filter((p) => p.status === "pending").length;
   const due = forceDraft || hoursSince(state.lastDraftAt) >= HOURS;
-  if (pendingCount === 0 && due && CONFIG.platforms.length) {
+  if (pendingCount < MAX_PENDING && due && CONFIG.platforms.length) {
     // alternate platforms each slot so you get ~1 post per platform per cycle
     const platform = CONFIG.platforms[(state.slotCount || 0) % CONFIG.platforms.length];
     const post = await makeDraft(state, platform);
