@@ -6,7 +6,7 @@
     "behind-the-build",
     "quick-tip"
   ],
-  "telegramOffset": 206298071,
+  "telegramOffset": 206298086,
   "posts": [
     {
       "id": "mrac9gowr8jg",
@@ -28,11 +28,12 @@
       "headline": "We build the AI we'd want to hire.",
       "caption": "Every agent we ship has to pass one test: would we put it in front of our own customers?\n\nThat's why ours think before they speak, remember returning customers, and hand off to a human at the right moment.\n\nWe're not shipping demos. We're shipping employees.\n\n#buildinpublic #AIemployee #Callnomic #GCC",
       "imageFile": "mr96owx88t2w-linkedin.png",
-      "status": "pending",
+      "status": "posted",
       "createdAt": "2026-07-06T12:16:08.942Z",
       "telegramMessageId": 15,
-      "url": "",
-      "error": ""
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7480165321836916737",
+      "error": "",
+      "postedAt": "2026-07-07T07:46:27.739Z"
     },
     {
       "id": "mr81tivtfw2s",
