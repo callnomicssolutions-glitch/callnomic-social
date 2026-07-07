@@ -11,7 +11,11 @@ on:
   workflow_dispatch:
     inputs:
       force_draft:
-        description: "Force a new draft this run (ignore the timer)"
+        description: "Force a new image-post draft this run (ignore the timer)"
+        type: boolean
+        default: false
+      force_reel:
+        description: "Force a new Reel draft this run (ignore the timer)"
         type: boolean
         default: false
 
@@ -57,6 +61,11 @@ jobs:
           PLATFORMS: ${{ vars.PLATFORMS }}
           POST_INTERVAL_HOURS: ${{ vars.POST_INTERVAL_HOURS }}
           FORCE_DRAFT: ${{ inputs.force_draft && '1' || '' }}
+          # Educational Reels (Instagram only)
+          REELS_ENABLED: ${{ vars.REELS_ENABLED }}
+          REEL_INTERVAL_HOURS: ${{ vars.REEL_INTERVAL_HOURS }}
+          MAX_PENDING_REELS: ${{ vars.MAX_PENDING_REELS }}
+          FORCE_REEL: ${{ inputs.force_reel && '1' || '' }}
           # So Instagram can fetch the committed image from this repo
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_REF_NAME: ${{ github.ref_name }}

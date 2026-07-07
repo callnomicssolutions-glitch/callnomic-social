@@ -1,20 +1,13 @@
 // Branded image renderer — ZERO tokens, zero external calls.
 // Draws an on-brand card from post text using @napi-rs/canvas.
-import { createCanvas, GlobalFonts, loadImage } from "@napi-rs/canvas";
+import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { join } from "node:path";
 import { writeFileSync } from "node:fs";
 import { ROOT, imagePath } from "./state.js";
 import { BRAND } from "../brand/brand.js";
+import { ensureFonts } from "./fonts.js";
 
-// Register the shipped Outfit weights under one family with weight variants.
-const FONT_DIR = join(ROOT, "brand", "font");
-try {
-  GlobalFonts.registerFromPath(join(FONT_DIR, "Outfit-800.ttf"), "Outfit800");
-  GlobalFonts.registerFromPath(join(FONT_DIR, "Outfit-600.ttf"), "Outfit600");
-  GlobalFonts.registerFromPath(join(FONT_DIR, "Outfit-400.ttf"), "Outfit400");
-} catch (e) {
-  console.warn("[image] font registration warning:", e.message);
-}
+ensureFonts();
 
 const SIZES = {
   instagram: { w: 1080, h: 1080 },

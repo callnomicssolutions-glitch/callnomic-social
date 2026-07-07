@@ -76,6 +76,38 @@ export async function getMe() {
   return data.result || {};
 }
 
+// Send a Reel draft: video + caption preview + action buttons (same shape as sendDraft).
+export async function sendVideoDraft(post) {
+  const form = new FormData();
+  form.append("chat_id", CONFIG.telegram.chatId);
+  const vid = readFileSync(imagePath(post.imageFile));
+  form.append("video", new Blob([vid], { type: "video/mp4" }), post.imageFile);
+
+  const header = `🎬 <b>Reel draft</b>  ·  ${post.pillar}`;
+  const preview = post.caption.length > 850 ? post.caption.slice(0, 840) + "…" : post.caption;
+  const footer = "⏱ <i>Checked every ~5 min — after you tap ✅ it can take a few minutes before the upload confirmation arrives.</i>";
+  form.append("caption", `${header}\n\n${escapeHtml(preview)}\n\n${footer}`);
+  form.append("parse_mode", "HTML");
+  form.append("supports_streaming", "true");
+  form.append(
+    "reply_markup",
+    JSON.stringify({
+      inline_keyboard: [
+        [
+          { text: "✅ Approve & post", callback_data: `approve:${post.id}` },
+          { text: "❌ Skip", callback_data: `skip:${post.id}` },
+        ],
+        [{ text: "✏️ Redo (new draft)", callback_data: `redo:${post.id}` }],
+      ],
+    }),
+  );
+
+  const r = await fetch(API("sendVideo"), { method: "POST", body: form });
+  const data = await r.json().catch(() => ({}));
+  if (!data.ok) console.warn("[telegram] sendVideo failed:", data.description);
+  return data.result?.message_id || null;
+}
+
 // Pull new updates since offset. Returns { updates, newOffset }.
 export async function getUpdates(offset) {
   const data = await call("getUpdates", {

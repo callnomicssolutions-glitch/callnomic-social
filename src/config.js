@@ -37,6 +37,13 @@ export const CONFIG = {
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean),
 
+  // Educational Reels (Instagram only). Heavier to produce than image posts, so they
+  // run on their own, slower cadence — default twice a week.
+  reels: {
+    enabled: process.env.REELS_ENABLED !== "0",
+    intervalHours: Number(process.env.REEL_INTERVAL_HOURS || 84),
+  },
+
   // If PUBLIC_IMAGE_BASE is set (e.g. GitHub raw URL), Instagram will fetch images
   // from there. Filled automatically by the workflow.
   publicImageBase: process.env.PUBLIC_IMAGE_BASE || "",

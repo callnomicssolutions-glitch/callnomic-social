@@ -1,6 +1,7 @@
 // Picks the next post. Default = free rotation through the content library with a
 // pillar-variety guard. Optional = a fresh AI-written post via Groq (only if AI_FRESH=1).
 import { LIBRARY } from "../content/library.js";
+import { REELS } from "../content/reels.js";
 import { BRAND, PILLARS } from "../brand/brand.js";
 import { CONFIG } from "./config.js";
 
@@ -18,6 +19,21 @@ export function pickFromLibrary(state) {
   }
   // fallback: just take the next one
   const item = LIBRARY[idx];
+  return { item, nextIndex: (idx + 1) % n };
+}
+
+// Same variety-guarded rotation, but through the REELS script library.
+export function pickReelScript(state) {
+  const n = REELS.length;
+  const recent = (state.recentReelPillars || []).slice(-3);
+  let idx = (state.reelRotationIndex || 0) % n;
+  for (let step = 0; step < n; step++) {
+    const cand = REELS[(idx + step) % n];
+    if (!recent.includes(cand.pillar)) {
+      return { item: cand, nextIndex: (idx + step + 1) % n };
+    }
+  }
+  const item = REELS[idx];
   return { item, nextIndex: (idx + 1) % n };
 }
 
@@ -75,4 +91,11 @@ export function composeCaption(item, platform) {
   const tags = (item.tags || []).join(" ");
   const foot = platform === "instagram" ? `\n\n🔗 ${BRAND.site}` : "";
   return `${item.caption}${foot}${tags ? "\n\n" + tags : ""}`.trim();
+}
+
+// Caption for a Reel: hook + body lines + cta + site link + hashtags.
+export function composeReelCaption(item) {
+  const body = [item.hook, ...item.lines, item.cta].join("\n");
+  const tags = (item.tags || []).join(" ");
+  return `${body}\n\n🔗 ${BRAND.site}${tags ? "\n\n" + tags : ""}`.trim();
 }

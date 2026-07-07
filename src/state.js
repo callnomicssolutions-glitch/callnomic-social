@@ -42,15 +42,24 @@ export function imagePath(fileName) {
   return join(IMAGES_DIR, fileName);
 }
 
-// Keep the repo small: drop image files older than the newest `keep` records.
-export function pruneImages(state, keep = 24) {
-  const alive = new Set();
+// Keep the repo small: drop image/video files older than the newest `keep` records.
+// Videos are much bigger than PNGs, so keep fewer of them around.
+export function pruneImages(state, keep = 24, keepVideos = 6) {
+  const aliveImages = new Set();
   for (const p of state.posts.slice(0, keep)) {
-    if (p.imageFile) alive.add(p.imageFile);
+    if (p.imageFile) aliveImages.add(p.imageFile);
+  }
+  const aliveVideos = new Set();
+  for (const p of state.posts.filter((p) => p.type === "reel").slice(0, keepVideos)) {
+    if (p.imageFile) aliveVideos.add(p.imageFile);
   }
   try {
     for (const f of readdirSync(IMAGES_DIR)) {
-      if (f.endsWith(".png") && !alive.has(f)) unlinkSync(join(IMAGES_DIR, f));
+      if (f.endsWith(".mp4")) {
+        if (!aliveVideos.has(f)) unlinkSync(join(IMAGES_DIR, f));
+      } else if (f.endsWith(".png") && !f.startsWith("preview-") && !aliveImages.has(f)) {
+        unlinkSync(join(IMAGES_DIR, f));
+      }
     }
   } catch {
     /* ignore */

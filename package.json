@@ -7,7 +7,9 @@
   "scripts": {
     "tick": "node src/run.js",
     "draft": "node src/run.js --draft-only",
-    "preview": "node src/preview.js"
+    "reel": "node src/run.js --reel-only",
+    "preview": "node src/preview.js",
+    "preview-reel": "node src/preview-reel.js"
   },
   "dependencies": {
     "@napi-rs/canvas": "^0.1.65"

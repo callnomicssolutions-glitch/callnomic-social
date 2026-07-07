@@ -4,24 +4,28 @@
 // All state is persisted to state/queue.json (+ images), committed by the workflow.
 import { CONFIG } from "./config.js";
 import { loadState, saveState, pruneImages, shortId } from "./state.js";
-import { pickFromLibrary, generateFresh, composeCaption } from "./generate.js";
+import { pickFromLibrary, generateFresh, composeCaption, pickReelScript, composeReelCaption } from "./generate.js";
 import { renderToFile } from "./image.js";
+import { renderReel, ffmpegAvailable } from "./reel.js";
 import {
-  telegramReady, sendDraft, getUpdates, answerCallback, markDecision, sendMessage,
+  telegramReady, sendDraft, sendVideoDraft, getUpdates, answerCallback, markDecision, sendMessage,
   getWebhookInfo, getMe,
 } from "./telegram.js";
 import { postToLinkedIn, linkedinReady } from "./linkedin.js";
-import { postToInstagram, instagramReady } from "./instagram.js";
+import { postToInstagram, postReelToInstagram, instagramReady } from "./instagram.js";
 
 const HOURS = Number(process.env.POST_INTERVAL_HOURS || 12);
 const PENDING_TTL_H = Number(process.env.PENDING_TTL_HOURS || 48);
 const MAX_PENDING = Number(process.env.MAX_PENDING || 6);
+const MAX_PENDING_REELS = Number(process.env.MAX_PENDING_REELS || 2);
 const forceDraft = process.argv.includes("--draft-only") || process.env.FORCE_DRAFT === "1";
+const forceReel = process.argv.includes("--reel-only") || process.env.FORCE_REEL === "1";
 
 function now() { return new Date().toISOString(); }
 function hoursSince(iso) { return iso ? (Date.now() - new Date(iso).getTime()) / 3.6e6 : Infinity; }
 
 async function publish(post) {
+  if (post.type === "reel") return postReelToInstagram(post);
   if (post.platform === "linkedin") return postToLinkedIn(post);
   if (post.platform === "instagram") return postToInstagram(post);
   return { ok: false, error: "unknown platform" };
@@ -100,6 +104,48 @@ async function makeDraft(state, platform) {
   return post;
 }
 
+// Build one educational Reel: pick a hook script, render the kinetic-caption video,
+// send it to Telegram. Instagram-only — always type "reel".
+async function makeReelDraft(state) {
+  const { item: script, nextIndex } = pickReelScript(state);
+  const id = shortId();
+  const imageFile = await renderReel({ id, script });
+
+  const post = {
+    id,
+    type: "reel",
+    platform: "instagram",
+    pillar: script.pillar,
+    headline: script.hook,
+    caption: composeReelCaption(script),
+    imageFile,
+    status: "pending",
+    createdAt: now(),
+    telegramMessageId: null,
+    url: "",
+    error: "",
+  };
+
+  state.reelRotationIndex = nextIndex;
+  state.recentReelPillars = [...(state.recentReelPillars || []), script.pillar].slice(-4);
+  state.lastReelAt = now();
+  state.posts.unshift(post);
+
+  if (CONFIG.autoApprove) {
+    saveState(state);
+    await doPublish(state, post);
+    return post;
+  }
+
+  if (telegramReady()) {
+    post.telegramMessageId = await sendVideoDraft(post);
+  } else {
+    console.log("[run] Telegram not configured — reel draft stored but not sent:", script.hook);
+  }
+  saveState(state);
+  return post;
+}
+
 async function processApprovals(state) {
   if (!telegramReady()) return;
   const { updates, newOffset } = await getUpdates(state.telegramOffset || 0);
@@ -135,7 +181,8 @@ async function processApprovals(state) {
       if (cq.message) await markDecision(cq.message.message_id, "✏️ Redone");
       post.status = "skipped";
       saveState(state);
-      await makeDraft(state, post.platform); // fresh draft, same platform
+      if (post.type === "reel") await makeReelDraft(state);
+      else await makeDraft(state, post.platform); // fresh draft, same platform
     }
   }
   state.telegramOffset = newOffset || state.telegramOffset;
@@ -187,6 +234,20 @@ async function main() {
     console.log(`[run] new draft for ${platform}: "${post.headline}"`);
   } else {
     console.log(`[run] no draft this tick (pending=${pendingCount}, due=${due})`);
+  }
+
+  // 5) educational Reels run on their own, slower cadence — Instagram only.
+  const pendingReelCount = state.posts.filter((p) => p.status === "pending" && p.type === "reel").length;
+  const reelDue = forceReel || hoursSince(state.lastReelAt) >= CONFIG.reels.intervalHours;
+  if (CONFIG.reels.enabled && instagramReady() && pendingReelCount < MAX_PENDING_REELS && reelDue) {
+    if (!ffmpegAvailable()) {
+      console.log("[run] ffmpeg not available on this runner — skipping reel draft");
+    } else {
+      const post = await makeReelDraft(state);
+      console.log(`[run] new reel draft: "${post.headline}"`);
+    }
+  } else {
+    console.log(`[run] no reel draft this tick (pendingReels=${pendingReelCount}, due=${reelDue}, enabled=${CONFIG.reels.enabled})`);
   }
 
   pruneImages(state);
