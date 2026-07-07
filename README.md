@@ -105,6 +105,22 @@ Open **`content/library.js`** and add items to the `LIBRARY` array:
 ```
 Preview the image design any time with `npm run preview` (writes to `state/images/`).
 
+## Reels (educational, Instagram only)
+Separate from the formal image posts: kinetic-caption videos that teach the business
+community *why* they need AI, not just promote Callnomic — built for reach/conversion.
+- Scripts live in **`content/reels.js`** (`REELS` array: `hook`, `lines[]`, `cta`, `tags`).
+  Add your own the same way as the post library.
+- Rendered with `@napi-rs/canvas` + `ffmpeg` (installed automatically on the runner) —
+  zero AI/video-gen cost. Runs on its own cadence, default every **84h** (`REEL_INTERVAL_HOURS`
+  repo variable), independent of the image-post schedule. Force one now: Actions →
+  Callnomic Social → Run workflow → tick **force_reel**.
+- **Audio is opt-in.** Drop licensed/royalty-free tracks into `brand/audio/` (`.mp3`/`.m4a`/`.wav`)
+  and the renderer mixes one in automatically. Empty folder = silent, caption-first Reels
+  (a legitimate, common style). We never auto-fetch "trending" audio — Instagram's trending
+  library isn't reachable via the publishing API anyway, and licensing is your call.
+- Preview the frame design without ffmpeg: `npm run preview-reel`.
+- Turn Reels off entirely: repo variable `REELS_ENABLED=0`.
+
 ## Maintenance (the only recurring chore)
 LinkedIn and Instagram tokens **expire ~every 60 days**. When posting starts failing, Telegram
 will message you the error. Just regenerate the token (steps 3–4) and update the secret. That's it.
