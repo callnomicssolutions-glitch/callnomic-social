@@ -101,12 +101,18 @@ async function makeDraft(state, platform) {
 async function processApprovals(state) {
   if (!telegramReady()) return;
   const { updates, newOffset } = await getUpdates(state.telegramOffset || 0);
+  console.log(`[telegram] offset=${state.telegramOffset || 0} fetched=${updates.length} updates`);
   for (const u of updates) {
     const cq = u.callback_query;
-    if (!cq) continue;
+    if (!cq) {
+      console.log(`[telegram] update ${u.update_id}: not a callback_query, keys=${Object.keys(u).join(",")}`);
+      continue;
+    }
     const [action, id] = String(cq.data || "").split(":");
+    console.log(`[telegram] update ${u.update_id}: callback data="${cq.data}" action=${action} id=${id}`);
     const post = state.posts.find((p) => p.id === id);
     if (!post || post.status !== "pending") {
+      console.log(`[telegram]   -> post ${id} not found or not pending (status=${post?.status})`);
       await answerCallback(cq.id, "Already handled.");
       continue;
     }
