@@ -281,7 +281,8 @@ export function ffmpegAvailable() {
   try {
     execFileSync("ffmpeg", ["-version"], { stdio: "ignore" });
     return true;
-  } catch {
+  } catch (e) {
+    console.warn("[reel] ffmpeg check failed:", e.message);
     return false;
   }
 }
