@@ -8,6 +8,7 @@ import { pickFromLibrary, generateFresh, composeCaption } from "./generate.js";
 import { renderToFile } from "./image.js";
 import {
   telegramReady, sendDraft, getUpdates, answerCallback, markDecision, sendMessage,
+  getWebhookInfo, getMe,
 } from "./telegram.js";
 import { postToLinkedIn, linkedinReady } from "./linkedin.js";
 import { postToInstagram, instagramReady } from "./instagram.js";
@@ -156,6 +157,13 @@ async function main() {
   const state = loadState();
   console.log(`[run] tick @ ${now()} · platforms=${CONFIG.platforms.join(",")}`);
   console.log(`[run] telegram=${telegramReady()} linkedin=${linkedinReady()} instagram=${instagramReady()}`);
+
+  if (telegramReady()) {
+    const me = await getMe();
+    console.log(`[telegram] bot: @${me.username} (id ${me.id})`);
+    const wh = await getWebhookInfo();
+    console.log(`[telegram] webhook: url="${wh.url || "(none)"}" pending_update_count=${wh.pending_update_count} last_error="${wh.last_error_message || ""}"`);
+  }
 
   // 1) approvals from your taps since last run
   await processApprovals(state);

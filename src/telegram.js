@@ -64,6 +64,18 @@ export async function sendDraft(post) {
   return data.result?.message_id || null;
 }
 
+export async function getWebhookInfo() {
+  const r = await fetch(API("getWebhookInfo"));
+  const data = await r.json().catch(() => ({}));
+  return data.result || {};
+}
+
+export async function getMe() {
+  const r = await fetch(API("getMe"));
+  const data = await r.json().catch(() => ({}));
+  return data.result || {};
+}
+
 // Pull new updates since offset. Returns { updates, newOffset }.
 export async function getUpdates(offset) {
   const data = await call("getUpdates", {
