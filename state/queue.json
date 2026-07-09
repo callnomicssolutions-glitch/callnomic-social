@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 28,
+  "rotationIndex": 32,
   "recentPillars": [
-    "behind-the-build",
     "quick-tip",
     "offer",
-    "pain-point"
+    "pain-point",
+    "how-it-works"
   ],
   "telegramOffset": 206298102,
   "posts": [
+    {
+      "id": "mrddhgtam9rj",
+      "platform": "linkedin",
+      "pillar": "how-it-works",
+      "headline": "It knows when to call a human.",
+      "caption": "The smartest thing an AI agent does isn't answering — it's knowing its limits.\n\nWhen a conversation gets complex, sensitive, or high-value, ours hands it to your team with the full context attached.\n\nAI for the routine. Humans for the moments that matter. That's the whole design.\n\n#AIagent #humanhandoff #customerexperience #GCC",
+      "imageFile": "mrddhgtam9rj-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-07-09T10:37:23.480Z",
+      "telegramMessageId": 34,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mrc3t3rbqrk8",
       "platform": "instagram",
@@ -20,7 +33,7 @@
       "telegramMessageId": 28,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-08T18:10:38.597Z"
+      "remindedAt": "2026-07-09T10:37:23.207Z"
     },
     {
       "id": "mrb8fo67ddbn",
@@ -34,7 +47,7 @@
       "telegramMessageId": 25,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-08T18:10:38.743Z"
+      "remindedAt": "2026-07-09T10:37:23.421Z"
     },
     {
       "id": "mrajl6xggdor",
@@ -58,7 +71,7 @@
       "headline": "Tip: answer within 5 minutes.",
       "caption": "A lead contacted in the first 5 minutes is dramatically more likely to convert than one contacted an hour later.\n\nMost businesses can't hit that consistently with humans alone — lunch, calls, sleep get in the way.\n\nThe fix isn't \"try harder.\" It's a system that never has an off-hour.\n\n🔗 callnomicsolutions.com\n\n#salestip #leadresponse #conversion #GCC",
       "imageFile": "mrac9gowr8jg-instagram.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-07-07T07:39:51.955Z",
       "telegramMessageId": 16,
       "url": "",
@@ -136,8 +149,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 8,
-  "lastDraftAt": "2026-07-08T13:18:44.123Z",
+  "slotCount": 9,
+  "lastDraftAt": "2026-07-09T10:37:23.480Z",
   "reelRotationIndex": 1,
   "recentReelPillars": [
     "urgency"
