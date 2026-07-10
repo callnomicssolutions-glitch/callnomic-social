@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 36,
+  "rotationIndex": 39,
   "recentPillars": [
-    "offer",
     "pain-point",
     "how-it-works",
-    "outcome"
+    "outcome",
+    "myth-bust"
   ],
   "telegramOffset": 206298102,
   "posts": [
+    {
+      "id": "mreu58445g5u",
+      "platform": "linkedin",
+      "pillar": "myth-bust",
+      "headline": "\"AI can't handle Arabic properly.\"",
+      "caption": "A fair worry — most tools treat Arabic as an afterthought and it shows.\n\nWe build Arabic in from the start: correct right-to-left, the way people actually phrase things locally, switching to English when the customer does.\n\nTest it in Arabic. That's the point.\n\n#Arabic #AImyths #GCC #bilingual #UAE",
+      "imageFile": "mreu58445g5u-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-07-10T11:11:31.992Z",
+      "telegramMessageId": 42,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mre3jj861en7",
       "platform": "instagram",
@@ -19,7 +32,8 @@
       "createdAt": "2026-07-09T22:46:49.961Z",
       "telegramMessageId": 38,
       "url": "",
-      "error": ""
+      "error": "",
+      "remindedAt": "2026-07-10T11:11:31.497Z"
     },
     {
       "id": "mrddhgtam9rj",
@@ -33,7 +47,7 @@
       "telegramMessageId": 34,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-09T17:33:26.923Z"
+      "remindedAt": "2026-07-10T11:11:31.740Z"
     },
     {
       "id": "mrc3t3rbqrk8",
@@ -47,7 +61,7 @@
       "telegramMessageId": 28,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-09T17:33:27.132Z"
+      "remindedAt": "2026-07-10T11:11:31.923Z"
     },
     {
       "id": "mrb8fo67ddbn",
@@ -163,8 +177,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 10,
-  "lastDraftAt": "2026-07-09T22:46:49.961Z",
+  "slotCount": 11,
+  "lastDraftAt": "2026-07-10T11:11:31.992Z",
   "reelRotationIndex": 1,
   "recentReelPillars": [
     "urgency"
