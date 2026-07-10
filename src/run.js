@@ -285,8 +285,10 @@ async function main() {
   // 1b) manual override (workflow_dispatch "approve_all"): approve every pending draft
   // so step 3 publishes them — the escape hatch when Telegram taps never arrive.
   if (approveAll) {
-    const pending = state.posts.filter((p) => p.status === "pending");
-    console.log(`[run] APPROVE_ALL: approving ${pending.length} pending draft(s)`);
+    // "failed" too: publishing never happened for a failed post (errors return before
+    // publish), so re-approving retries it — e.g. after fixing an expired/blocked token.
+    const pending = state.posts.filter((p) => p.status === "pending" || p.status === "failed");
+    console.log(`[run] APPROVE_ALL: approving ${pending.length} pending/failed draft(s)`);
     for (const p of pending) {
       p.status = "approved";
       if (telegramReady() && p.telegramMessageId) await markDecision(p.telegramMessageId, "✅ Approved (manual run)");
