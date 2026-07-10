@@ -22,6 +22,7 @@ const REMIND_AFTER_H = Number(process.env.REMIND_AFTER_HOURS || 2);
 const REMIND_REPEAT_H = Number(process.env.REMIND_REPEAT_HOURS || 6);
 const forceDraft = process.argv.includes("--draft-only") || process.env.FORCE_DRAFT === "1";
 const forceReel = process.argv.includes("--reel-only") || process.env.FORCE_REEL === "1";
+const approveAll = process.argv.includes("--approve-all") || process.env.APPROVE_ALL === "1";
 
 function now() { return new Date().toISOString(); }
 function hoursSince(iso) { return iso ? (Date.now() - new Date(iso).getTime()) / 3.6e6 : Infinity; }
@@ -148,6 +149,40 @@ async function makeReelDraft(state) {
   return post;
 }
 
+// Typed replies as approvals — a fallback for when button taps don't come through.
+// "post" / "yes" / "approve all" etc. approves EVERY pending draft; "skip all" discards them.
+const APPROVE_TEXT = /^(✅|yes|ok|okay|approve|accept|post|publish|go)(\s+(all|everything|it|them|now))?\s*[.!]?$/i;
+const SKIP_TEXT = /^(❌|skip|no|cancel|reject)(\s+(all|everything|it|them))?\s*[.!]?$/i;
+
+async function handleTextCommand(state, text) {
+  const pending = state.posts.filter((p) => p.status === "pending");
+  const t = text.trim();
+  if (APPROVE_TEXT.test(t)) {
+    if (!pending.length) return sendMessage("Nothing is pending right now — the next draft will come on schedule.");
+    for (const p of pending) {
+      p.status = "approved";
+      if (p.telegramMessageId) await markDecision(p.telegramMessageId, "✅ Approved");
+    }
+    saveState(state);
+    await sendMessage(`✅ Approved ${pending.length} pending draft(s) — uploading now…`);
+    for (const p of pending) await doPublish(state, p);
+  } else if (SKIP_TEXT.test(t)) {
+    if (!pending.length) return sendMessage("Nothing is pending right now.");
+    for (const p of pending) {
+      p.status = "skipped";
+      if (p.telegramMessageId) await markDecision(p.telegramMessageId, "❌ Skipped");
+    }
+    saveState(state);
+    await sendMessage(`❌ Skipped ${pending.length} pending draft(s).`);
+  } else {
+    const list = pending.map((p) => `• ${p.type === "reel" ? "Reel" : p.platform}: "${p.headline}"`).join("\n");
+    await sendMessage(
+      `Pending drafts: ${pending.length}\n${list}\n\n` +
+      `Reply <b>post all</b> to publish everything, <b>skip all</b> to discard, or use the buttons on each draft.`,
+    );
+  }
+}
+
 async function processApprovals(state) {
   if (!telegramReady()) return;
   const { updates, newOffset } = await getUpdates(state.telegramOffset || 0);
@@ -155,7 +190,13 @@ async function processApprovals(state) {
   for (const u of updates) {
     const cq = u.callback_query;
     if (!cq) {
-      console.log(`[telegram] update ${u.update_id}: not a callback_query, keys=${Object.keys(u).join(",")}`);
+      const msg = u.message;
+      if (msg && typeof msg.text === "string" && String(msg.chat?.id) === String(CONFIG.telegram.chatId)) {
+        console.log(`[telegram] update ${u.update_id}: text command "${msg.text}"`);
+        await handleTextCommand(state, msg.text);
+      } else {
+        console.log(`[telegram] update ${u.update_id}: ignored, keys=${Object.keys(u).join(",")}`);
+      }
       continue;
     }
     const [action, id] = String(cq.data || "").split(":");
@@ -240,6 +281,18 @@ async function main() {
 
   // 1) approvals from your taps since last run
   await processApprovals(state);
+
+  // 1b) manual override (workflow_dispatch "approve_all"): approve every pending draft
+  // so step 3 publishes them — the escape hatch when Telegram taps never arrive.
+  if (approveAll) {
+    const pending = state.posts.filter((p) => p.status === "pending");
+    console.log(`[run] APPROVE_ALL: approving ${pending.length} pending draft(s)`);
+    for (const p of pending) {
+      p.status = "approved";
+      if (telegramReady() && p.telegramMessageId) await markDecision(p.telegramMessageId, "✅ Approved (manual run)");
+    }
+    if (pending.length) saveState(state);
+  }
 
   // 2) expire drafts you never answered so they don't block forever
   expireStale(state);

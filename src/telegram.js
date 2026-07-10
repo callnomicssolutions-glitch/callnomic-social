@@ -113,7 +113,9 @@ export async function getUpdates(offset) {
   const data = await call("getUpdates", {
     offset: offset ? offset + 1 : undefined,
     timeout: 0,
-    allowed_updates: ["callback_query"],
+    // "message" too: typed replies like "post all" work as approvals — with only
+    // callback_query allowed, Telegram silently drops every text you send the bot.
+    allowed_updates: ["callback_query", "message"],
   });
   const updates = data.result || [];
   const newOffset = updates.length ? updates[updates.length - 1].update_id : offset;

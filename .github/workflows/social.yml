@@ -7,9 +7,15 @@ name: Callnomic Social
 
 on:
   schedule:
-    - cron: "*/5 * * * *" # every 5 minutes (UTC) — GitHub's minimum cron interval. May still be delayed under load.
+    # Off-peak minutes on purpose: GitHub heavily drops/delays crons on the crowded
+    # */5 slots (this repo was getting ~6 runs/day instead of 288). Odd offsets fare better.
+    - cron: "7,19,31,43,55 * * * *"
   workflow_dispatch:
     inputs:
+      approve_all:
+        description: "Approve & publish ALL pending drafts right now (skips Telegram approval)"
+        type: boolean
+        default: false
       force_draft:
         description: "Force a new image-post draft this run (ignore the timer)"
         type: boolean
@@ -64,6 +70,7 @@ jobs:
           PLATFORMS: ${{ vars.PLATFORMS }}
           POST_INTERVAL_HOURS: ${{ vars.POST_INTERVAL_HOURS }}
           FORCE_DRAFT: ${{ inputs.force_draft && '1' || '' }}
+          APPROVE_ALL: ${{ inputs.approve_all && '1' || '' }}
           REMIND_AFTER_HOURS: ${{ vars.REMIND_AFTER_HOURS }}
           REMIND_REPEAT_HOURS: ${{ vars.REMIND_REPEAT_HOURS }}
           # Educational Reels (Instagram only)

@@ -94,9 +94,17 @@ and tick **force_draft** to get your first draft in Telegram immediately.
 
 ## Using it day to day
 - A draft lands in Telegram: branded image + the exact caption.
-- **✅ Approve & post** → it publishes on the next run (within ~5 min).
+- **✅ Approve & post** → it publishes on the next run.
 - **✏️ Redo** → discards it and sends a different draft.
 - **❌ Skip** → drops it; the next scheduled draft comes at the normal time.
+- You can also just **type to the bot**: reply **`post all`** (or `yes`, `approve`, `publish`)
+  to approve every pending draft, **`skip all`** to discard them, or anything else to get a
+  list of what's pending. Handy when button taps don't sync from your phone.
+- Emergency lever: **Actions → Callnomic Social → Run workflow → tick `approve_all`** —
+  publishes every pending draft immediately, no Telegram needed.
+- ⚠️ Timing reality: GitHub often delays/drops high-frequency scheduled runs on free
+  runners, so a tap can take a while to be picked up (sometimes hours, not 5 min).
+  The `approve_all` manual run is the instant path.
 
 ## Add your own posts
 Open **`content/library.js`** and add items to the `LIBRARY` array:
