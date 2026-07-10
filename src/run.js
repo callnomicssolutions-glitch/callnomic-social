@@ -40,6 +40,7 @@ async function doPublish(state, post) {
     post.status = "posted";
     post.postedAt = now();
     post.url = res.url || "";
+    post.error = ""; // clear any error left over from a failed attempt that was retried
     if (telegramReady()) await sendMessage(`✅ Posted to <b>${post.platform}</b>\n${post.url || ""}`);
   } else {
     post.status = "failed";
