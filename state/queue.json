@@ -15,12 +15,13 @@
       "headline": "\"AI can't handle Arabic properly.\"",
       "caption": "A fair worry — most tools treat Arabic as an afterthought and it shows.\n\nWe build Arabic in from the start: correct right-to-left, the way people actually phrase things locally, switching to English when the customer does.\n\nTest it in Arabic. That's the point.\n\n#Arabic #AImyths #GCC #bilingual #UAE",
       "imageFile": "mreu58445g5u-linkedin.png",
-      "status": "pending",
+      "status": "posted",
       "createdAt": "2026-07-10T11:11:31.992Z",
       "telegramMessageId": 42,
-      "url": "",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7481408751862726656",
       "error": "",
-      "remindedAt": "2026-07-10T17:23:35.343Z"
+      "remindedAt": "2026-07-10T17:23:35.343Z",
+      "postedAt": "2026-07-10T18:07:24.532Z"
     },
     {
       "id": "mre3jj861en7",
@@ -29,11 +30,11 @@
       "headline": "A full calendar, not a full inbox.",
       "caption": "The dream isn't fewer messages. It's messages that turn into booked appointments while you focus on the work.\n\nAn AI agent qualifies, answers and books straight into your calendar — so you wake up to a schedule, not a backlog.\n\nLess triage. More business.\n\n🔗 callnomicsolutions.com\n\n#booking #productivity #AIagent #GCC",
       "imageFile": "mre3jj861en7-instagram.png",
-      "status": "pending",
+      "status": "failed",
       "createdAt": "2026-07-09T22:46:49.961Z",
       "telegramMessageId": 38,
       "url": "",
-      "error": "",
+      "error": "container 400: {\"message\":\"API access blocked.\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AUJLh92wpLwYbPsaZrFptgW\"}",
       "remindedAt": "2026-07-10T17:23:35.487Z"
     },
     {
@@ -43,12 +44,13 @@
       "headline": "It knows when to call a human.",
       "caption": "The smartest thing an AI agent does isn't answering — it's knowing its limits.\n\nWhen a conversation gets complex, sensitive, or high-value, ours hands it to your team with the full context attached.\n\nAI for the routine. Humans for the moments that matter. That's the whole design.\n\n#AIagent #humanhandoff #customerexperience #GCC",
       "imageFile": "mrddhgtam9rj-linkedin.png",
-      "status": "pending",
+      "status": "posted",
       "createdAt": "2026-07-09T10:37:23.480Z",
       "telegramMessageId": 34,
-      "url": "",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7481408759207100416",
       "error": "",
-      "remindedAt": "2026-07-10T17:23:35.611Z"
+      "remindedAt": "2026-07-10T17:23:35.611Z",
+      "postedAt": "2026-07-10T18:07:26.297Z"
     },
     {
       "id": "mrc3t3rbqrk8",
