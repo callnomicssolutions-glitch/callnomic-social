@@ -1,13 +1,40 @@
 {
-  "rotationIndex": 39,
+  "rotationIndex": 42,
   "recentPillars": [
-    "pain-point",
     "how-it-works",
     "outcome",
-    "myth-bust"
+    "myth-bust",
+    "behind-the-build"
   ],
   "telegramOffset": 206298102,
   "posts": [
+    {
+      "id": "mrfylvqe3ke9",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "myth-bust",
+      "headline": "\"AI is only for big companies.\"",
+      "caption": "\"AI is only for big companies.\"\nThat was true 5 years ago.\nToday a single AI agent can answer, qualify and book customers all day —\nat a fraction of what a full-time hire costs.\nYou don't need a tech team. You need the right AI employee.\n\n🔗 callnomicsolutions.com\n\n#AImyths #smallbusiness #GCCbusiness #automation",
+      "imageFile": "mrfylvqe3ke9-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-07-11T06:04:18.257Z",
+      "telegramMessageId": 54,
+      "url": "",
+      "error": ""
+    },
+    {
+      "id": "mrfylv66y0l7",
+      "platform": "instagram",
+      "pillar": "behind-the-build",
+      "headline": "We test our agents by trying to break them.",
+      "caption": "Before an agent meets your customers, we throw the worst at it: trick questions, mixed languages, angry messages, nonsense.\n\nIf it stays calm, accurate and helpful under pressure, it ships. If not, it doesn't.\n\nYour customers should only ever meet the version that passed.\n\n🔗 callnomicsolutions.com\n\n#buildinpublic #reliability #AIagent #Callnomic",
+      "imageFile": "mrfylv66y0l7-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-07-11T06:04:13.024Z",
+      "telegramMessageId": 53,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mreu58445g5u",
       "platform": "linkedin",
@@ -20,7 +47,7 @@
       "telegramMessageId": 42,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-10T17:23:35.343Z"
+      "remindedAt": "2026-07-11T06:04:12.681Z"
     },
     {
       "id": "mre3jj861en7",
@@ -34,7 +61,7 @@
       "telegramMessageId": 38,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-10T17:23:35.487Z"
+      "remindedAt": "2026-07-11T06:04:12.810Z"
     },
     {
       "id": "mrddhgtam9rj",
@@ -48,7 +75,7 @@
       "telegramMessageId": 34,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-10T17:23:35.611Z"
+      "remindedAt": "2026-07-11T06:04:12.941Z"
     },
     {
       "id": "mrc3t3rbqrk8",
@@ -178,11 +205,12 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 11,
-  "lastDraftAt": "2026-07-10T11:11:31.992Z",
-  "reelRotationIndex": 1,
+  "slotCount": 12,
+  "lastDraftAt": "2026-07-11T06:04:13.024Z",
+  "reelRotationIndex": 2,
   "recentReelPillars": [
-    "urgency"
+    "urgency",
+    "myth-bust"
   ],
-  "lastReelAt": "2026-07-07T11:05:01.396Z"
+  "lastReelAt": "2026-07-11T06:04:18.257Z"
 }
