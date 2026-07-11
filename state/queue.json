@@ -20,7 +20,8 @@
       "createdAt": "2026-07-11T06:04:18.257Z",
       "telegramMessageId": 54,
       "url": "",
-      "error": ""
+      "error": "",
+      "remindedAt": "2026-07-11T10:40:09.205Z"
     },
     {
       "id": "mrfylv66y0l7",
@@ -33,7 +34,8 @@
       "createdAt": "2026-07-11T06:04:13.024Z",
       "telegramMessageId": 53,
       "url": "",
-      "error": ""
+      "error": "",
+      "remindedAt": "2026-07-11T10:40:09.372Z"
     },
     {
       "id": "mreu58445g5u",
@@ -70,7 +72,7 @@
       "headline": "It knows when to call a human.",
       "caption": "The smartest thing an AI agent does isn't answering — it's knowing its limits.\n\nWhen a conversation gets complex, sensitive, or high-value, ours hands it to your team with the full context attached.\n\nAI for the routine. Humans for the moments that matter. That's the whole design.\n\n#AIagent #humanhandoff #customerexperience #GCC",
       "imageFile": "mrddhgtam9rj-linkedin.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-07-09T10:37:23.480Z",
       "telegramMessageId": 34,
       "url": "",
