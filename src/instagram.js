@@ -21,6 +21,24 @@ export function publicImageUrl(imageFile) {
   return "";
 }
 
+// Wait until a media container finishes server-side processing. Publishing before
+// status_code=FINISHED fails with code 9007 "Media ID is not available" — this
+// happens for images too, not just video.
+async function waitForContainer(creationId, token, deadlineMs) {
+  const statusUrl = new URL(`${GRAPH}/${creationId}`);
+  statusUrl.searchParams.set("fields", "status_code");
+  statusUrl.searchParams.set("access_token", token);
+  let statusCode = "IN_PROGRESS";
+  const deadline = Date.now() + deadlineMs;
+  while (statusCode === "IN_PROGRESS" && Date.now() < deadline) {
+    const sRes = await fetch(statusUrl);
+    const sJson = await sRes.json().catch(() => ({}));
+    statusCode = sJson.status_code || "IN_PROGRESS";
+    if (statusCode === "IN_PROGRESS") await new Promise((r) => setTimeout(r, 5000));
+  }
+  return statusCode;
+}
+
 async function fetchPermalink(mediaId, token, fallbackUrl) {
   try {
     const u = new URL(`${GRAPH}/${mediaId}`);
@@ -61,7 +79,13 @@ export async function postToInstagram(post) {
     }
     const creationId = createJson.id;
 
-    // 2) Publish it
+    // 2) Wait for the container to be ready (images usually finish in seconds)
+    const statusCode = await waitForContainer(creationId, token, 60_000);
+    if (statusCode !== "FINISHED") {
+      return { ok: false, error: `image not ready in time (status=${statusCode})` };
+    }
+
+    // 3) Publish it
     const pubUrl = new URL(`${GRAPH}/${uid}/media_publish`);
     pubUrl.searchParams.set("creation_id", creationId);
     pubUrl.searchParams.set("access_token", token);
@@ -107,17 +131,7 @@ export async function postReelToInstagram(post) {
     const creationId = createJson.id;
 
     // 2) Poll until Instagram finishes processing the video (or times out)
-    const statusUrl = new URL(`${GRAPH}/${creationId}`);
-    statusUrl.searchParams.set("fields", "status_code");
-    statusUrl.searchParams.set("access_token", token);
-    let statusCode = "IN_PROGRESS";
-    const deadline = Date.now() + 120_000;
-    while (statusCode === "IN_PROGRESS" && Date.now() < deadline) {
-      await new Promise((r) => setTimeout(r, 5000));
-      const sRes = await fetch(statusUrl);
-      const sJson = await sRes.json().catch(() => ({}));
-      statusCode = sJson.status_code || "IN_PROGRESS";
-    }
+    const statusCode = await waitForContainer(creationId, token, 120_000);
     if (statusCode !== "FINISHED") {
       return { ok: false, error: `video not ready in time (status=${statusCode})` };
     }
