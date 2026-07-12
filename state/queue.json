@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 48,
+  "rotationIndex": 1,
   "recentPillars": [
-    "myth-bust",
     "behind-the-build",
     "quick-tip",
-    "offer"
+    "offer",
+    "pain-point"
   ],
   "telegramOffset": 206298102,
   "posts": [
+    {
+      "id": "mri7e7twrpms",
+      "platform": "linkedin",
+      "pillar": "pain-point",
+      "headline": "Your best lead just messaged at 1 AM.",
+      "caption": "Your best lead just messaged at 1 AM.\n\nBy 9 AM they've messaged three of your competitors too.\n\nIn the GCC, buyers expect an answer now — not next business day. An AI agent replies in seconds, in Arabic or English, captures the lead and books the call while you sleep.\n\nSpeed is the cheapest advantage you're not using yet.\n\n#GCCbusiness #AIautomation #customerexperience #UAE #SaudiArabia",
+      "imageFile": "mri7e7twrpms-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-07-12T19:45:45.062Z",
+      "telegramMessageId": 85,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mrhgkit9txrn",
       "platform": "instagram",
@@ -235,8 +248,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 14,
-  "lastDraftAt": "2026-07-12T07:14:49.600Z",
+  "slotCount": 15,
+  "lastDraftAt": "2026-07-12T19:45:45.062Z",
   "reelRotationIndex": 2,
   "recentReelPillars": [
     "urgency",
