@@ -19,7 +19,8 @@
       "createdAt": "2026-07-13T07:53:54.512Z",
       "telegramMessageId": 96,
       "url": "",
-      "error": ""
+      "error": "",
+      "remindedAt": "2026-07-13T12:35:49.085Z"
     },
     {
       "id": "mri7e7twrpms",
@@ -33,7 +34,7 @@
       "telegramMessageId": 85,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-13T04:40:14.009Z"
+      "remindedAt": "2026-07-13T12:35:49.251Z"
     },
     {
       "id": "mrhgkit9txrn",
@@ -47,7 +48,7 @@
       "telegramMessageId": 71,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-13T04:40:14.182Z"
+      "remindedAt": "2026-07-13T12:35:49.459Z"
     },
     {
       "id": "mrgpirnowejp",
