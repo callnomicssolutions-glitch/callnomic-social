@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 1,
+  "rotationIndex": 6,
   "recentPillars": [
-    "behind-the-build",
     "quick-tip",
     "offer",
-    "pain-point"
+    "pain-point",
+    "how-it-works"
   ],
   "telegramOffset": 206298102,
   "posts": [
+    {
+      "id": "mrixemt6hrvl",
+      "platform": "instagram",
+      "pillar": "how-it-works",
+      "headline": "An AI employee, not just a chatbot.",
+      "caption": "A chatbot follows a script. An AI employee reasons.\n\nOurs reads your live business data, remembers the customer across visits, thinks before it speaks, and knows when to hand a hot lead to a human.\n\nThat's the difference between \"press 1 for sales\" and an assistant that actually helps.\n\n🔗 callnomicsolutions.com\n\n#AIemployee #conversationalAI #customerexperience #GCC",
+      "imageFile": "mrixemt6hrvl-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-07-13T07:53:54.512Z",
+      "telegramMessageId": 96,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mri7e7twrpms",
       "platform": "linkedin",
@@ -48,7 +61,7 @@
       "telegramMessageId": 61,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-13T01:04:30.466Z"
+      "remindedAt": "2026-07-13T07:53:54.426Z"
     },
     {
       "id": "mrfylvqe3ke9",
@@ -58,7 +71,7 @@
       "headline": "\"AI is only for big companies.\"",
       "caption": "\"AI is only for big companies.\"\nThat was true 5 years ago.\nToday a single AI agent can answer, qualify and book customers all day —\nat a fraction of what a full-time hire costs.\nYou don't need a tech team. You need the right AI employee.\n\n🔗 callnomicsolutions.com\n\n#AImyths #smallbusiness #GCCbusiness #automation",
       "imageFile": "mrfylvqe3ke9-instagram-reel.mp4",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-07-11T06:04:18.257Z",
       "telegramMessageId": 54,
       "url": "",
@@ -72,7 +85,7 @@
       "headline": "We test our agents by trying to break them.",
       "caption": "Before an agent meets your customers, we throw the worst at it: trick questions, mixed languages, angry messages, nonsense.\n\nIf it stays calm, accurate and helpful under pressure, it ships. If not, it doesn't.\n\nYour customers should only ever meet the version that passed.\n\n🔗 callnomicsolutions.com\n\n#buildinpublic #reliability #AIagent #Callnomic",
       "imageFile": "mrfylv66y0l7-instagram.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-07-11T06:04:13.024Z",
       "telegramMessageId": 53,
       "url": "",
@@ -249,8 +262,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 15,
-  "lastDraftAt": "2026-07-12T19:45:45.062Z",
+  "slotCount": 16,
+  "lastDraftAt": "2026-07-13T07:53:54.512Z",
   "reelRotationIndex": 2,
   "recentReelPillars": [
     "urgency",
