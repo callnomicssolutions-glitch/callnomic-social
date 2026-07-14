@@ -9,6 +9,20 @@
   "telegramOffset": 206298148,
   "posts": [
     {
+      "id": "mrl07q59hmpz",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "cost-of-inaction",
+      "headline": "Every missed call is a customer calling someone else.",
+      "caption": "Every missed call is a customer calling someone else.\nLunch break. Prayer time. After hours.\nYour phone doesn't stop ringing just because your team is busy.\nEvery unanswered call is revenue walking to a competitor.\nAn AI phone agent never misses a call — ever.\n\n🔗 callnomicsolutions.com\n\n#missedcalls #AIcaller #GCC #revenue",
+      "imageFile": "mrl07q59hmpz-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-07-14T18:48:06.343Z",
+      "telegramMessageId": 122,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "mrki6f3xyddt",
       "platform": "instagram",
       "pillar": "myth-bust",
@@ -295,10 +309,11 @@
   ],
   "slotCount": 18,
   "lastDraftAt": "2026-07-14T10:23:09.397Z",
-  "reelRotationIndex": 2,
+  "reelRotationIndex": 3,
   "recentReelPillars": [
     "urgency",
-    "myth-bust"
+    "myth-bust",
+    "cost-of-inaction"
   ],
-  "lastReelAt": "2026-07-11T06:04:18.257Z"
+  "lastReelAt": "2026-07-14T18:48:06.343Z"
 }
