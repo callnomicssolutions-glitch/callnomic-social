@@ -6,7 +6,7 @@
     "outcome",
     "myth-bust"
   ],
-  "telegramOffset": 206298102,
+  "telegramOffset": 206298148,
   "posts": [
     {
       "id": "mrki6f3xyddt",
@@ -15,11 +15,11 @@
       "headline": "\"AI will sound robotic.\" Not anymore.",
       "caption": "The old chatbots earned their bad reputation — rigid, scripted, useless past the second question.\n\nModern AI agents hold a real conversation, understand context, and switch languages naturally. Most customers can't tell until you tell them.\n\nJudge today's AI by today's AI, not the 2019 version.\n\n🔗 callnomicsolutions.com\n\n#AImyths #conversationalAI #customerexperience #GCC",
       "imageFile": "mrki6f3xyddt-instagram.png",
-      "status": "pending",
+      "status": "failed",
       "createdAt": "2026-07-14T10:23:09.397Z",
       "telegramMessageId": 112,
       "url": "",
-      "error": "",
+      "error": "publish 400: {\"message\":\"Media ID is not available\",\"type\":\"OAuthException\",\"code\":9007,\"error_subcode\":2207027,\"is_transient\":false,\"error_user_title\":\"Cannot Publish\",\"error_user_msg\":\"The media is not ready for",
       "remindedAt": "2026-07-14T13:07:06.196Z"
     },
     {
@@ -29,12 +29,13 @@
       "headline": "Reply time: hours → seconds.",
       "caption": "The single biggest lever on conversion isn't a better pitch. It's answering first.\n\nWhen your reply time drops from hours to seconds, more leads stay warm, more calls get booked, more deals close — with the same marketing spend.\n\nYou're not getting more leads. You're finally keeping the ones you have.\n\n#conversion #sales #responsetime #GCC #automation",
       "imageFile": "mrjowtbe53li-linkedin.png",
-      "status": "pending",
+      "status": "posted",
       "createdAt": "2026-07-13T20:43:52.353Z",
       "telegramMessageId": 104,
-      "url": "",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7482832594917621760",
       "error": "",
-      "remindedAt": "2026-07-14T13:07:06.400Z"
+      "remindedAt": "2026-07-14T13:07:06.400Z",
+      "postedAt": "2026-07-14T16:25:15.282Z"
     },
     {
       "id": "mrixemt6hrvl",
@@ -48,7 +49,7 @@
       "telegramMessageId": 96,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-14T10:23:09.081Z"
+      "remindedAt": "2026-07-14T16:25:15.753Z"
     },
     {
       "id": "mri7e7twrpms",
@@ -57,12 +58,13 @@
       "headline": "Your best lead just messaged at 1 AM.",
       "caption": "Your best lead just messaged at 1 AM.\n\nBy 9 AM they've messaged three of your competitors too.\n\nIn the GCC, buyers expect an answer now — not next business day. An AI agent replies in seconds, in Arabic or English, captures the lead and books the call while you sleep.\n\nSpeed is the cheapest advantage you're not using yet.\n\n#GCCbusiness #AIautomation #customerexperience #UAE #SaudiArabia",
       "imageFile": "mri7e7twrpms-linkedin.png",
-      "status": "pending",
+      "status": "posted",
       "createdAt": "2026-07-12T19:45:45.062Z",
       "telegramMessageId": 85,
-      "url": "",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7482832558229983232",
       "error": "",
-      "remindedAt": "2026-07-14T10:23:09.308Z"
+      "remindedAt": "2026-07-14T10:23:09.308Z",
+      "postedAt": "2026-07-14T16:25:06.754Z"
     },
     {
       "id": "mrhgkit9txrn",
