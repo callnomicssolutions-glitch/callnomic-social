@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 19,
+  "rotationIndex": 22,
   "recentPillars": [
-    "how-it-works",
     "outcome",
     "myth-bust",
-    "behind-the-build"
+    "behind-the-build",
+    "quick-tip"
   ],
   "telegramOffset": 206298148,
   "posts": [
+    {
+      "id": "mrm0tkqyi6o9",
+      "platform": "instagram",
+      "pillar": "quick-tip",
+      "headline": "Tip: answer within 5 minutes.",
+      "caption": "A lead contacted in the first 5 minutes is dramatically more likely to convert than one contacted an hour later.\n\nMost businesses can't hit that consistently with humans alone — lunch, calls, sleep get in the way.\n\nThe fix isn't \"try harder.\" It's a system that never has an off-hour.\n\n🔗 callnomicsolutions.com\n\n#salestip #leadresponse #conversion #GCC",
+      "imageFile": "mrm0tkqyi6o9-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-07-15T11:52:49.054Z",
+      "telegramMessageId": 131,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mrl9nk3xqqw9",
       "platform": "linkedin",
@@ -322,8 +335,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 19,
-  "lastDraftAt": "2026-07-14T23:12:18.637Z",
+  "slotCount": 20,
+  "lastDraftAt": "2026-07-15T11:52:49.054Z",
   "reelRotationIndex": 3,
   "recentReelPillars": [
     "urgency",
