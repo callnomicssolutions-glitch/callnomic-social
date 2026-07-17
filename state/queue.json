@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 32,
+  "rotationIndex": 36,
   "recentPillars": [
-    "quick-tip",
     "offer",
     "pain-point",
-    "how-it-works"
+    "how-it-works",
+    "outcome"
   ],
   "telegramOffset": 206298148,
   "posts": [
+    {
+      "id": "mrp5vvj6n8gu",
+      "platform": "instagram",
+      "pillar": "outcome",
+      "headline": "A full calendar, not a full inbox.",
+      "caption": "The dream isn't fewer messages. It's messages that turn into booked appointments while you focus on the work.\n\nAn AI agent qualifies, answers and books straight into your calendar — so you wake up to a schedule, not a backlog.\n\nLess triage. More business.\n\n🔗 callnomicsolutions.com\n\n#booking #productivity #AIagent #GCC",
+      "imageFile": "mrp5vvj6n8gu-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-07-17T16:37:52.953Z",
+      "telegramMessageId": 163,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mrofsbp0knzr",
       "platform": "linkedin",
@@ -378,8 +391,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 23,
-  "lastDraftAt": "2026-07-17T04:27:17.221Z",
+  "slotCount": 24,
+  "lastDraftAt": "2026-07-17T16:37:52.953Z",
   "reelRotationIndex": 3,
   "recentReelPillars": [
     "urgency",
