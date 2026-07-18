@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 39,
+  "rotationIndex": 42,
   "recentPillars": [
-    "pain-point",
     "how-it-works",
     "outcome",
-    "myth-bust"
+    "myth-bust",
+    "behind-the-build"
   ],
   "telegramOffset": 206298148,
   "posts": [
+    {
+      "id": "mrqoo2t0cp2o",
+      "platform": "instagram",
+      "pillar": "behind-the-build",
+      "headline": "We test our agents by trying to break them.",
+      "caption": "Before an agent meets your customers, we throw the worst at it: trick questions, mixed languages, angry messages, nonsense.\n\nIf it stays calm, accurate and helpful under pressure, it ships. If not, it doesn't.\n\nYour customers should only ever meet the version that passed.\n\n🔗 callnomicsolutions.com\n\n#buildinpublic #reliability #AIagent #Callnomic",
+      "imageFile": "mrqoo2t0cp2o-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-07-18T18:11:28.010Z",
+      "telegramMessageId": 182,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mrq33sk6mt8s",
       "type": "reel",
@@ -421,8 +434,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 25,
-  "lastDraftAt": "2026-07-18T06:09:08.469Z",
+  "slotCount": 26,
+  "lastDraftAt": "2026-07-18T18:11:28.010Z",
   "reelRotationIndex": 4,
   "recentReelPillars": [
     "urgency",
