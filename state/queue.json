@@ -9,6 +9,20 @@
   "telegramOffset": 206298148,
   "posts": [
     {
+      "id": "mrq33sk6mt8s",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "what-customers-expect",
+      "headline": "Customers don't compare you to your competitor anymore.",
+      "caption": "Customers don't compare you to your competitor anymore.\nThey compare you to the fastest business they dealt with today.\nInstant replies. Clear answers. No waiting.\nThat's the new bar — set by AI-first businesses.\nMeet that bar, or lose the customer to whoever does.\n\n🔗 callnomicsolutions.com\n\n#customerexperience #AIforbusiness #GCCbusiness",
+      "imageFile": "mrq33sk6mt8s-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-07-18T08:07:53.330Z",
+      "telegramMessageId": 173,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "mrpyv5tfmpzx",
       "platform": "linkedin",
       "pillar": "myth-bust",
@@ -33,7 +47,7 @@
       "telegramMessageId": 163,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-18T00:57:20.855Z"
+      "remindedAt": "2026-07-18T08:07:49.549Z"
     },
     {
       "id": "mrofsbp0knzr",
@@ -407,11 +421,12 @@
   ],
   "slotCount": 25,
   "lastDraftAt": "2026-07-18T06:09:08.469Z",
-  "reelRotationIndex": 3,
+  "reelRotationIndex": 4,
   "recentReelPillars": [
     "urgency",
     "myth-bust",
-    "cost-of-inaction"
+    "cost-of-inaction",
+    "what-customers-expect"
   ],
-  "lastReelAt": "2026-07-14T18:48:06.343Z"
+  "lastReelAt": "2026-07-18T08:07:53.330Z"
 }
