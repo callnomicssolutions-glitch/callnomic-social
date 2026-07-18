@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 36,
+  "rotationIndex": 39,
   "recentPillars": [
-    "offer",
     "pain-point",
     "how-it-works",
-    "outcome"
+    "outcome",
+    "myth-bust"
   ],
   "telegramOffset": 206298148,
   "posts": [
+    {
+      "id": "mrpyv5tfmpzx",
+      "platform": "linkedin",
+      "pillar": "myth-bust",
+      "headline": "\"AI can't handle Arabic properly.\"",
+      "caption": "A fair worry — most tools treat Arabic as an afterthought and it shows.\n\nWe build Arabic in from the start: correct right-to-left, the way people actually phrase things locally, switching to English when the customer does.\n\nTest it in Arabic. That's the point.\n\n#Arabic #AImyths #GCC #bilingual #UAE",
+      "imageFile": "mrpyv5tfmpzx-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-07-18T06:09:08.469Z",
+      "telegramMessageId": 171,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mrp5vvj6n8gu",
       "platform": "instagram",
@@ -392,8 +405,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 24,
-  "lastDraftAt": "2026-07-17T16:37:52.953Z",
+  "slotCount": 25,
+  "lastDraftAt": "2026-07-18T06:09:08.469Z",
   "reelRotationIndex": 3,
   "recentReelPillars": [
     "urgency",
