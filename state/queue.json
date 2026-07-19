@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 42,
+  "rotationIndex": 45,
   "recentPillars": [
-    "how-it-works",
     "outcome",
     "myth-bust",
-    "behind-the-build"
+    "behind-the-build",
+    "quick-tip"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mrrexn6p9930",
+      "platform": "linkedin",
+      "pillar": "quick-tip",
+      "headline": "Tip: reply in the language they messaged in.",
+      "caption": "Small thing, big trust: answer Arabic with Arabic, English with English.\n\nSwitching a customer's language mid-conversation is a subtle way to lose them.\n\nA bilingual AI agent gets this right automatically — every time, on every channel.\n\n#customerexperience #Arabic #salestip #GCC",
+      "imageFile": "mrrexn6p9930-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-07-19T06:26:44.317Z",
+      "telegramMessageId": 193,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mrqoo2t0cp2o",
       "platform": "instagram",
@@ -35,7 +48,7 @@
       "telegramMessageId": 173,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-19T00:10:10.409Z"
+      "remindedAt": "2026-07-19T06:26:44.068Z"
     },
     {
       "id": "mrpyv5tfmpzx",
@@ -49,7 +62,7 @@
       "telegramMessageId": 171,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-18T23:10:05.483Z"
+      "remindedAt": "2026-07-19T06:26:44.256Z"
     },
     {
       "id": "mrp5vvj6n8gu",
@@ -436,8 +449,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 26,
-  "lastDraftAt": "2026-07-18T18:11:28.010Z",
+  "slotCount": 27,
+  "lastDraftAt": "2026-07-19T06:26:44.317Z",
   "reelRotationIndex": 4,
   "recentReelPillars": [
     "urgency",
