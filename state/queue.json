@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 45,
+  "rotationIndex": 48,
   "recentPillars": [
-    "outcome",
     "myth-bust",
     "behind-the-build",
-    "quick-tip"
+    "quick-tip",
+    "offer"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mrs728pt138b",
+      "platform": "instagram",
+      "pillar": "offer",
+      "headline": "We'll build a demo on YOUR business.",
+      "caption": "Not a generic sales call — a working AI agent set up around your actual services, so you can talk to it like your customer would.\n\nJudge it for real. If it's not obviously useful, no hard feelings.\n\nStart here: callnomicsolutions.com\n\n🔗 callnomicsolutions.com\n\n#bookademo #AIagent #GCCbusiness #Callnomic",
+      "imageFile": "mrs728pt138b-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-07-19T19:34:08.113Z",
+      "telegramMessageId": 203,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mrrexn6p9930",
       "platform": "linkedin",
@@ -49,7 +62,7 @@
       "telegramMessageId": 173,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-19T12:32:18.549Z"
+      "remindedAt": "2026-07-19T19:34:07.803Z"
     },
     {
       "id": "mrpyv5tfmpzx",
@@ -63,7 +76,7 @@
       "telegramMessageId": 171,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-19T12:32:18.813Z"
+      "remindedAt": "2026-07-19T19:34:08.032Z"
     },
     {
       "id": "mrp5vvj6n8gu",
@@ -450,8 +463,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 27,
-  "lastDraftAt": "2026-07-19T06:26:44.317Z",
+  "slotCount": 28,
+  "lastDraftAt": "2026-07-19T19:34:08.113Z",
   "reelRotationIndex": 4,
   "recentReelPillars": [
     "urgency",
