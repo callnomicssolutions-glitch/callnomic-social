@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 48,
+  "rotationIndex": 1,
   "recentPillars": [
-    "myth-bust",
     "behind-the-build",
     "quick-tip",
-    "offer"
+    "offer",
+    "pain-point"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mrsxb93uqzbf",
+      "platform": "linkedin",
+      "pillar": "pain-point",
+      "headline": "Your best lead just messaged at 1 AM.",
+      "caption": "Your best lead just messaged at 1 AM.\n\nBy 9 AM they've messaged three of your competitors too.\n\nIn the GCC, buyers expect an answer now — not next business day. An AI agent replies in seconds, in Arabic or English, captures the lead and books the call while you sleep.\n\nSpeed is the cheapest advantage you're not using yet.\n\n#GCCbusiness #AIautomation #customerexperience #UAE #SaudiArabia",
+      "imageFile": "mrsxb93uqzbf-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-07-20T07:48:58.526Z",
+      "telegramMessageId": 212,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mrs728pt138b",
       "platform": "instagram",
@@ -48,7 +61,7 @@
       "telegramMessageId": 182,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-19T23:30:27.278Z"
+      "remindedAt": "2026-07-20T07:48:58.457Z"
     },
     {
       "id": "mrq33sk6mt8s",
@@ -72,7 +85,7 @@
       "headline": "\"AI can't handle Arabic properly.\"",
       "caption": "A fair worry — most tools treat Arabic as an afterthought and it shows.\n\nWe build Arabic in from the start: correct right-to-left, the way people actually phrase things locally, switching to English when the customer does.\n\nTest it in Arabic. That's the point.\n\n#Arabic #AImyths #GCC #bilingual #UAE",
       "imageFile": "mrpyv5tfmpzx-linkedin.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-07-18T06:09:08.469Z",
       "telegramMessageId": 171,
       "url": "",
@@ -464,8 +477,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 28,
-  "lastDraftAt": "2026-07-19T19:34:08.113Z",
+  "slotCount": 29,
+  "lastDraftAt": "2026-07-20T07:48:58.526Z",
   "reelRotationIndex": 4,
   "recentReelPillars": [
     "urgency",
