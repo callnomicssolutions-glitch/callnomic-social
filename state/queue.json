@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 1,
+  "rotationIndex": 6,
   "recentPillars": [
-    "behind-the-build",
     "quick-tip",
     "offer",
-    "pain-point"
+    "pain-point",
+    "how-it-works"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mrtnqmj0a0l8",
+      "platform": "instagram",
+      "pillar": "how-it-works",
+      "headline": "An AI employee, not just a chatbot.",
+      "caption": "A chatbot follows a script. An AI employee reasons.\n\nOurs reads your live business data, remembers the customer across visits, thinks before it speaks, and knows when to hand a hot lead to a human.\n\nThat's the difference between \"press 1 for sales\" and an assistant that actually helps.\n\n🔗 callnomicsolutions.com\n\n#AIemployee #conversationalAI #customerexperience #GCC",
+      "imageFile": "mrtnqmj0a0l8-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-07-20T20:08:45.790Z",
+      "telegramMessageId": 220,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mrsxb93uqzbf",
       "platform": "linkedin",
@@ -34,7 +47,7 @@
       "telegramMessageId": 203,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-20T12:38:03.853Z"
+      "remindedAt": "2026-07-20T20:08:45.564Z"
     },
     {
       "id": "mrrexn6p9930",
@@ -48,7 +61,7 @@
       "telegramMessageId": 193,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-20T12:38:04.078Z"
+      "remindedAt": "2026-07-20T20:08:45.708Z"
     },
     {
       "id": "mrqoo2t0cp2o",
@@ -478,8 +491,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 29,
-  "lastDraftAt": "2026-07-20T07:48:58.526Z",
+  "slotCount": 30,
+  "lastDraftAt": "2026-07-20T20:08:45.790Z",
   "reelRotationIndex": 4,
   "recentReelPillars": [
     "urgency",
