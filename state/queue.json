@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 11,
+  "rotationIndex": 15,
   "recentPillars": [
-    "offer",
     "pain-point",
     "how-it-works",
-    "outcome"
+    "outcome",
+    "myth-bust"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mrv6uqw7hecx",
+      "platform": "instagram",
+      "pillar": "myth-bust",
+      "headline": "\"AI will sound robotic.\" Not anymore.",
+      "caption": "The old chatbots earned their bad reputation — rigid, scripted, useless past the second question.\n\nModern AI agents hold a real conversation, understand context, and switch languages naturally. Most customers can't tell until you tell them.\n\nJudge today's AI by today's AI, not the 2019 version.\n\n🔗 callnomicsolutions.com\n\n#AImyths #conversationalAI #customerexperience #GCC",
+      "imageFile": "mrv6uqw7hecx-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-07-21T21:51:36.957Z",
+      "telegramMessageId": 237,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mrv4p2nqqpq3",
       "type": "reel",
@@ -48,7 +61,7 @@
       "telegramMessageId": 220,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-21T15:10:59.835Z"
+      "remindedAt": "2026-07-21T21:51:36.734Z"
     },
     {
       "id": "mrsxb93uqzbf",
@@ -62,7 +75,7 @@
       "telegramMessageId": 212,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-21T15:11:00.046Z"
+      "remindedAt": "2026-07-21T21:51:36.870Z"
     },
     {
       "id": "mrs728pt138b",
@@ -520,8 +533,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 31,
-  "lastDraftAt": "2026-07-21T09:40:08.380Z",
+  "slotCount": 32,
+  "lastDraftAt": "2026-07-21T21:51:36.957Z",
   "reelRotationIndex": 5,
   "recentReelPillars": [
     "myth-bust",
