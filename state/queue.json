@@ -9,6 +9,20 @@
   "telegramOffset": 206298156,
   "posts": [
     {
+      "id": "mrv4p2nqqpq3",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "signs-you-need-ai",
+      "headline": "3 signs your business needs an AI employee.",
+      "caption": "3 signs your business needs an AI employee.\n1. Your team answers the same questions all day.\n2. Leads sit in WhatsApp for hours before anyone replies.\n3. You've lost count of the calls you missed this week.\nIf even one of these is true, you're already losing customers to speed.\n\n🔗 callnomicsolutions.com\n\n#AIemployee #businesstips #GCCbusiness #leadgeneration",
+      "imageFile": "mrv4p2nqqpq3-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-07-21T20:51:17.626Z",
+      "telegramMessageId": 234,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "mrugq29nfc6g",
       "platform": "linkedin",
       "pillar": "outcome",
@@ -508,12 +522,12 @@
   ],
   "slotCount": 31,
   "lastDraftAt": "2026-07-21T09:40:08.380Z",
-  "reelRotationIndex": 4,
+  "reelRotationIndex": 5,
   "recentReelPillars": [
-    "urgency",
     "myth-bust",
     "cost-of-inaction",
-    "what-customers-expect"
+    "what-customers-expect",
+    "signs-you-need-ai"
   ],
-  "lastReelAt": "2026-07-18T08:07:53.330Z"
+  "lastReelAt": "2026-07-21T20:51:17.626Z"
 }
