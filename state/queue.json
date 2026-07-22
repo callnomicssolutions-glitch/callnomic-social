@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 15,
+  "rotationIndex": 19,
   "recentPillars": [
-    "pain-point",
     "how-it-works",
     "outcome",
-    "myth-bust"
+    "myth-bust",
+    "behind-the-build"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mrw06bs3i1wc",
+      "platform": "linkedin",
+      "pillar": "behind-the-build",
+      "headline": "We build the AI we'd want to hire.",
+      "caption": "Every agent we ship has to pass one test: would we put it in front of our own customers?\n\nThat's why ours think before they speak, remember returning customers, and hand off to a human at the right moment.\n\nWe're not shipping demos. We're shipping employees.\n\n#buildinpublic #AIemployee #Callnomic #GCC",
+      "imageFile": "mrw06bs3i1wc-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-07-22T11:32:26.084Z",
+      "telegramMessageId": 247,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mrv6uqw7hecx",
       "platform": "instagram",
@@ -49,7 +62,7 @@
       "telegramMessageId": 227,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-22T04:34:31.212Z"
+      "remindedAt": "2026-07-22T11:32:25.782Z"
     },
     {
       "id": "mrtnqmj0a0l8",
@@ -63,7 +76,7 @@
       "telegramMessageId": 220,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-22T04:34:31.406Z"
+      "remindedAt": "2026-07-22T11:32:26.018Z"
     },
     {
       "id": "mrsxb93uqzbf",
@@ -535,8 +548,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 32,
-  "lastDraftAt": "2026-07-21T21:51:36.957Z",
+  "slotCount": 33,
+  "lastDraftAt": "2026-07-22T11:32:26.084Z",
   "reelRotationIndex": 5,
   "recentReelPillars": [
     "myth-bust",
