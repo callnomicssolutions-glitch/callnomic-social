@@ -19,7 +19,8 @@
       "createdAt": "2026-07-24T09:37:00.703Z",
       "telegramMessageId": 275,
       "url": "",
-      "error": ""
+      "error": "",
+      "remindedAt": "2026-07-24T12:53:49.680Z"
     },
     {
       "id": "mry0tn3we5h7",
@@ -56,7 +57,7 @@
       "headline": "We build the AI we'd want to hire.",
       "caption": "Every agent we ship has to pass one test: would we put it in front of our own customers?\n\nThat's why ours think before they speak, remember returning customers, and hand off to a human at the right moment.\n\nWe're not shipping demos. We're shipping employees.\n\n#buildinpublic #AIemployee #Callnomic #GCC",
       "imageFile": "mrw06bs3i1wc-linkedin.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-07-22T11:32:26.084Z",
       "telegramMessageId": 247,
       "url": "",
