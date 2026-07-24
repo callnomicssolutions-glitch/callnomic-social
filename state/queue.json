@@ -19,7 +19,8 @@
       "createdAt": "2026-07-24T21:45:52.595Z",
       "telegramMessageId": 283,
       "url": "",
-      "error": ""
+      "error": "",
+      "remindedAt": "2026-07-24T23:47:27.431Z"
     },
     {
       "id": "mryqxlfv51hr",
@@ -56,7 +57,7 @@
       "headline": "Tip: answer within 5 minutes.",
       "caption": "A lead contacted in the first 5 minutes is dramatically more likely to convert than one contacted an hour later.\n\nMost businesses can't hit that consistently with humans alone — lunch, calls, sleep get in the way.\n\nThe fix isn't \"try harder.\" It's a system that never has an off-hour.\n\n🔗 callnomicsolutions.com\n\n#salestip #leadresponse #conversion #GCC",
       "imageFile": "mrwqekf2a8lg-instagram.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-07-22T23:46:40.544Z",
       "telegramMessageId": 256,
       "url": "",
