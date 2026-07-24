@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 28,
+  "rotationIndex": 32,
   "recentPillars": [
-    "behind-the-build",
     "quick-tip",
     "offer",
-    "pain-point"
+    "pain-point",
+    "how-it-works"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mrzgyx773j9f",
+      "platform": "linkedin",
+      "pillar": "how-it-works",
+      "headline": "It knows when to call a human.",
+      "caption": "The smartest thing an AI agent does isn't answering — it's knowing its limits.\n\nWhen a conversation gets complex, sensitive, or high-value, ours hands it to your team with the full context attached.\n\nAI for the routine. Humans for the moments that matter. That's the whole design.\n\n#AIagent #humanhandoff #customerexperience #GCC",
+      "imageFile": "mrzgyx773j9f-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-07-24T21:45:52.595Z",
+      "telegramMessageId": 283,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mryqxlfv51hr",
       "platform": "instagram",
@@ -34,7 +47,7 @@
       "telegramMessageId": 270,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-24T14:49:16.013Z"
+      "remindedAt": "2026-07-24T21:45:52.530Z"
     },
     {
       "id": "mrwqekf2a8lg",
@@ -591,8 +604,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 36,
-  "lastDraftAt": "2026-07-24T09:37:00.703Z",
+  "slotCount": 37,
+  "lastDraftAt": "2026-07-24T21:45:52.595Z",
   "reelRotationIndex": 5,
   "recentReelPillars": [
     "myth-bust",
