@@ -9,6 +9,20 @@
   "telegramOffset": 206298156,
   "posts": [
     {
+      "id": "ms05a4ixj37g",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "how-it-works",
+      "headline": "An AI employee isn't a chatbot with a script.",
+      "caption": "An AI employee isn't a chatbot with a script.\nIt reads your real business data.\nIt remembers the customer across conversations.\nIt knows when to close the loop — and when to hand off to a human.\nThat's the difference between \"press 1 for sales\" and something that actually helps.\n\n🔗 callnomicsolutions.com\n\n#AIemployee #conversationalAI #GCCbusiness",
+      "imageFile": "ms05a4ixj37g-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-07-25T09:06:30.902Z",
+      "telegramMessageId": 289,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "mrzgyx773j9f",
       "platform": "linkedin",
       "pillar": "how-it-works",
@@ -34,7 +48,7 @@
       "telegramMessageId": 275,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-25T01:16:06.314Z"
+      "remindedAt": "2026-07-25T09:06:25.465Z"
     },
     {
       "id": "mry0tn3we5h7",
@@ -607,12 +621,12 @@
   ],
   "slotCount": 37,
   "lastDraftAt": "2026-07-24T21:45:52.595Z",
-  "reelRotationIndex": 5,
+  "reelRotationIndex": 6,
   "recentReelPillars": [
-    "myth-bust",
     "cost-of-inaction",
     "what-customers-expect",
-    "signs-you-need-ai"
+    "signs-you-need-ai",
+    "how-it-works"
   ],
-  "lastReelAt": "2026-07-21T20:51:17.626Z"
+  "lastReelAt": "2026-07-25T09:06:30.902Z"
 }
