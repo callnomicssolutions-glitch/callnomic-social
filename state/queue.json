@@ -15,12 +15,13 @@
       "headline": "\"AI can't handle Arabic properly.\"",
       "caption": "A fair worry — most tools treat Arabic as an afterthought and it shows.\n\nWe build Arabic in from the start: correct right-to-left, the way people actually phrase things locally, switching to English when the customer does.\n\nTest it in Arabic. That's the point.\n\n#Arabic #AImyths #GCC #bilingual #UAE",
       "imageFile": "ms10jwewpqns-linkedin.png",
-      "status": "approved",
+      "status": "posted",
       "createdAt": "2026-07-25T23:41:50.237Z",
       "telegramMessageId": 301,
-      "url": "",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7487099181585727488",
       "error": "",
-      "remindedAt": "2026-07-26T04:46:42.743Z"
+      "remindedAt": "2026-07-26T04:46:42.743Z",
+      "postedAt": "2026-07-26T10:59:08.810Z"
     },
     {
       "id": "ms08pf6xhmit",
@@ -29,11 +30,11 @@
       "headline": "A full calendar, not a full inbox.",
       "caption": "The dream isn't fewer messages. It's messages that turn into booked appointments while you focus on the work.\n\nAn AI agent qualifies, answers and books straight into your calendar — so you wake up to a schedule, not a backlog.\n\nLess triage. More business.\n\n🔗 callnomicsolutions.com\n\n#booking #productivity #AIagent #GCC",
       "imageFile": "ms08pf6xhmit-instagram.png",
-      "status": "approved",
+      "status": "failed",
       "createdAt": "2026-07-25T10:42:18.619Z",
       "telegramMessageId": 291,
       "url": "",
-      "error": "",
+      "error": "publish 400: {\"message\":\"Media ID is not available\",\"type\":\"OAuthException\",\"code\":9007,\"error_subcode\":2207027,\"is_transient\":false,\"error_user_title\":\"Cannot Publish\",\"error_user_msg\":\"The media is not ready for",
       "remindedAt": "2026-07-26T04:46:43.013Z"
     },
     {
@@ -44,12 +45,13 @@
       "headline": "An AI employee isn't a chatbot with a script.",
       "caption": "An AI employee isn't a chatbot with a script.\nIt reads your real business data.\nIt remembers the customer across conversations.\nIt knows when to close the loop — and when to hand off to a human.\nThat's the difference between \"press 1 for sales\" and something that actually helps.\n\n🔗 callnomicsolutions.com\n\n#AIemployee #conversationalAI #GCCbusiness",
       "imageFile": "ms05a4ixj37g-instagram-reel.mp4",
-      "status": "approved",
+      "status": "posted",
       "createdAt": "2026-07-25T09:06:30.902Z",
       "telegramMessageId": 289,
-      "url": "",
+      "url": "https://www.instagram.com/reel/DbQOxnnAOfi/",
       "error": "",
-      "remindedAt": "2026-07-26T07:26:58.863Z"
+      "remindedAt": "2026-07-26T07:26:58.863Z",
+      "postedAt": "2026-07-26T10:59:41.101Z"
     },
     {
       "id": "mrzgyx773j9f",
@@ -58,12 +60,13 @@
       "headline": "It knows when to call a human.",
       "caption": "The smartest thing an AI agent does isn't answering — it's knowing its limits.\n\nWhen a conversation gets complex, sensitive, or high-value, ours hands it to your team with the full context attached.\n\nAI for the routine. Humans for the moments that matter. That's the whole design.\n\n#AIagent #humanhandoff #customerexperience #GCC",
       "imageFile": "mrzgyx773j9f-linkedin.png",
-      "status": "approved",
+      "status": "posted",
       "createdAt": "2026-07-24T21:45:52.595Z",
       "telegramMessageId": 283,
-      "url": "",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7487099323504185344",
       "error": "",
-      "remindedAt": "2026-07-26T04:46:43.234Z"
+      "remindedAt": "2026-07-26T04:46:43.234Z",
+      "postedAt": "2026-07-26T10:59:42.552Z"
     },
     {
       "id": "mryqxlfv51hr",
@@ -72,11 +75,11 @@
       "headline": "Ramadan hours. Eid rush. Your inbox doesn't rest.",
       "caption": "Seasonal peaks are when you make the year — and when your team is most stretched thin.\n\nAn AI agent absorbs the surge: it answers the flood of \"are you open?\" and \"do you deliver for Eid?\" instantly, so no order is lost while everyone's busy.\n\nBusy season should feel like opportunity, not chaos.\n\n🔗 callnomicsolutions.com\n\n#Ramadan #Eid #GCCbusiness #automation #customerservice",
       "imageFile": "mryqxlfv51hr-instagram.png",
-      "status": "approved",
+      "status": "failed",
       "createdAt": "2026-07-24T09:37:00.703Z",
       "telegramMessageId": 275,
       "url": "",
-      "error": "",
+      "error": "publish 400: {\"message\":\"Media ID is not available\",\"type\":\"OAuthException\",\"code\":9007,\"error_subcode\":2207027,\"is_transient\":false,\"error_user_title\":\"Cannot Publish\",\"error_user_msg\":\"The media is not ready for",
       "remindedAt": "2026-07-26T04:46:43.438Z"
     },
     {
