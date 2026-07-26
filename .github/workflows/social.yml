@@ -18,6 +18,10 @@ on:
         description: "Force a new Reel draft this run (ignore the timer)"
         type: boolean
         default: false
+      flagship:
+        description: "Stage the hand-picked flagship launch set (approved). Publish with a normal run after."
+        type: boolean
+        default: false
 
 # Never let two runs mutate state at the same time.
 concurrency:
@@ -43,7 +47,15 @@ jobs:
       - name: Ensure ffmpeg (for Reels; no-op if already present)
         run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
 
+      - name: Stage flagship launch set (one-shot)
+        if: ${{ inputs.flagship }}
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+        run: node src/flagship.js
+
       - name: Run engine
+        if: ${{ !inputs.flagship }}
         env:
           # Telegram approval bot
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
