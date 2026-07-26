@@ -187,4 +187,75 @@ export const REELS = [
     cta: "Free your team for the conversations that actually need a human.",
     tags: ["#productivity", "#AIforbusiness", "#GCCbusiness", "#businesstips"],
   },
+
+  // ========== PORTAL / PLATFORM (the flagship product) ==========
+  // Grounded in the real Callnomics portal: one omnichannel place with a selling
+  // AI concierge, CRM, campaigns, commerce, content studio, analytics — fully
+  // managed. Never imply the client "owns" it. Don't name specific clients.
+  {
+    pillar: "portal-omnichannel",
+    hook: "You're running your business from 4 different inboxes.",
+    lines: [
+      "WhatsApp on one phone. Instagram DMs on another.",
+      "Messenger somewhere. Website chat nobody's watching.",
+      "Messages slip through every crack between them.",
+    ],
+    cta: "One portal. Every channel. One AI concierge answering all of it.",
+    tags: ["#omnichannel", "#WhatsApp", "#GCCbusiness", "#AIforbusiness"],
+  },
+  {
+    pillar: "portal-concierge",
+    hook: "A chatbot deflects customers. This one closes them.",
+    lines: [
+      "It's trained on your real catalogue — not a canned FAQ.",
+      "It recommends the right product and answers \"where's my order?\" live.",
+      "Then it hands the hot lead to your team at the right moment.",
+    ],
+    cta: "That's a concierge that sells — not a bot that stalls.",
+    tags: ["#AIconcierge", "#conversationalcommerce", "#sales", "#GCCbusiness"],
+  },
+  {
+    pillar: "portal-grounded",
+    hook: "The real reason business owners don't trust AI:",
+    lines: [
+      "They've seen it confidently make up a wrong answer.",
+      "Ours reads your actual catalogue and policies before it replies.",
+      "And it says \"let me get a person\" when it should.",
+    ],
+    cta: "Grounded answers, in Arabic or English, every single time.",
+    tags: ["#AIforbusiness", "#trust", "#customersupport", "#GCC"],
+  },
+  {
+    pillar: "portal-doneforyou",
+    hook: "\"We don't have a tech team to set this up.\"",
+    lines: [
+      "You don't need one.",
+      "We build it, deploy it, and run it for you.",
+      "Your only job: tweak the greeting and upload what you already know.",
+    ],
+    cta: "Done-for-you AI. You stay in sales — we handle the wiring.",
+    tags: ["#doneforyou", "#AIforbusiness", "#smallbusiness", "#GCCbusiness"],
+  },
+  {
+    pillar: "portal-analytics",
+    hook: "\"We sent the campaign\" is not a result.",
+    lines: [
+      "127 read it. 41 replied. 9 bought.",
+      "THAT'S a result you can act on.",
+      "The portal shows the real funnel behind every broadcast.",
+    ],
+    cta: "Stop guessing which message worked. Start seeing it.",
+    tags: ["#marketinganalytics", "#WhatsAppmarketing", "#ROI", "#GCCbusiness"],
+  },
+  {
+    pillar: "portal-voice",
+    hook: "It's not just chat. It answers the phone too.",
+    lines: [
+      "Every missed call is a customer calling a competitor.",
+      "The portal's AI voice agent picks up every time,",
+      "books the appointment, and logs it — in Arabic or English.",
+    ],
+    cta: "Chat, calls, CRM, campaigns — one portal, fully managed.",
+    tags: ["#AIcaller", "#missedcalls", "#GCCbusiness", "#automation"],
+  },
 ];

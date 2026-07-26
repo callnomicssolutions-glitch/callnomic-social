@@ -397,6 +397,82 @@ export const LIBRARY = [
       "Speed is quietly becoming the deciding factor for GCC buyers — and the businesses that answer first are winning the ones that used to be yours.\n\nAn AI agent levels that overnight.\n\nSee what yours would sound like: callnomicsolutions.com",
     tags: ["#competitiveedge", "#AIagent", "#GCCbusiness", "#Callnomic"],
   },
+
+  // ========== PORTAL / PLATFORM (the flagship product) ==========
+  // Grounded in what the Callnomics portal actually does: one omnichannel place
+  // (WhatsApp + Instagram + Messenger + web chat + AI voice) with a selling AI
+  // concierge, CRM, campaigns, commerce, content studio and analytics — fully
+  // managed. Never imply the client "owns" it; setup fee + monthly service.
+  {
+    pillar: "how-it-works",
+    headline: "One inbox for every channel.",
+    caption:
+      "WhatsApp. Instagram. Messenger. Your website chat.\n\nMost businesses juggle them in four different apps — and miss messages in all four.\n\nThe Callnomics portal puts every conversation in one place, answered by one AI concierge that knows your business. Your team stops app-switching and starts closing.\n\ncallnomicsolutions.com",
+    tags: ["#omnichannel", "#WhatsApp", "#customerexperience", "#GCCbusiness", "#Callnomic"],
+  },
+  {
+    pillar: "how-it-works",
+    headline: "Not a chatbot. A concierge that sells.",
+    caption:
+      "A chatbot answers FAQs. Our concierge closes.\n\nIt's trained on your real catalogue and policies, recommends the right product, answers \"where's my order?\" from your live system, and passes a hot lead to a human at the right moment.\n\nThat's the difference between deflecting customers and converting them.\n\ncallnomicsolutions.com",
+    tags: ["#conversationalcommerce", "#AIconcierge", "#sales", "#GCCbusiness", "#Callnomic"],
+  },
+  {
+    pillar: "how-it-works",
+    headline: "Answers from your data. Not made up.",
+    caption:
+      "The fear with AI: it invents an answer and embarrasses your brand.\n\nOurs doesn't guess. It reads your actual catalogue, pricing and policies before it replies — and says \"let me get a person\" when it should.\n\nGrounded answers, in Arabic or English, every time.\n\ncallnomicsolutions.com",
+    tags: ["#AIforbusiness", "#trust", "#customersupport", "#GCC", "#Callnomic"],
+  },
+  {
+    pillar: "outcome",
+    headline: "\"Where's my order?\" — answered instantly.",
+    caption:
+      "The most common message any store gets. Usually it means a staff member stops what they're doing to go check.\n\nIn the Callnomics portal, the AI reads your live order system and answers in seconds — day or night, in the customer's language.\n\nLess busywork for your team. Calmer customers.\n\ncallnomicsolutions.com",
+    tags: ["#ecommerce", "#customersupport", "#ordertracking", "#GCCbusiness", "#Callnomic"],
+  },
+  {
+    pillar: "how-it-works",
+    headline: "One place. Chat, calls, CRM, campaigns.",
+    caption:
+      "The Callnomics portal isn't just a bot. It's the whole front desk:\n\n• every chat channel in one inbox\n• an AI voice agent that answers the phone\n• a CRM that captures every lead\n• campaigns with real delivered/read/replied numbers\n• a content studio to schedule your posts\n\nManaged by us. Run by you.\n\ncallnomicsolutions.com",
+    tags: ["#SaaS", "#businessautomation", "#CRM", "#GCCbusiness", "#Callnomic"],
+  },
+  {
+    pillar: "how-it-works",
+    headline: "This post was scheduled by the platform.",
+    caption:
+      "Meta moment: the content studio inside the Callnomics portal is what queues and publishes posts like this one.\n\nPlan your week of WhatsApp, Instagram and story content in one place — alongside the AI agents actually talking to your customers.\n\nMarketing and support, finally under one roof.\n\ncallnomicsolutions.com",
+    tags: ["#contentmarketing", "#socialmediamarketing", "#automation", "#GCCbusiness", "#Callnomic"],
+  },
+  {
+    pillar: "myth-bust",
+    headline: "\"Setting this up will take my team months.\"",
+    caption:
+      "Not with us. Callnomics is done-for-you.\n\nWe build it, deploy it and run it. Your only job: tweak the greeting and upload what you already know about your business.\n\nNo dev team. No integrations to babysit. No system for your staff to maintain.\n\ncallnomicsolutions.com",
+    tags: ["#doneforyou", "#AIforbusiness", "#smallbusiness", "#GCC", "#Callnomic"],
+  },
+  {
+    pillar: "outcome",
+    headline: "Know which message actually sold.",
+    caption:
+      "\"We sent the campaign\" isn't a result. \"127 read it, 41 replied, 9 bought\" is.\n\nThe Callnomics portal shows the real funnel behind every broadcast — sent, delivered, read, clicked, replied — so you stop guessing and start doubling down on what works.\n\ncallnomicsolutions.com",
+    tags: ["#marketinganalytics", "#WhatsAppmarketing", "#ROI", "#GCCbusiness", "#Callnomic"],
+  },
+  {
+    pillar: "outcome",
+    headline: "Bilingual by default. Not an add-on.",
+    caption:
+      "Your customers write in Arabic and English — often in the same sentence.\n\nEvery agent in the Callnomics portal replies fluently in both, with full right-to-left support, without you hiring for it.\n\nOne system, both languages, every hour.\n\ncallnomicsolutions.com",
+    tags: ["#bilingual", "#Arabic", "#customerexperience", "#GCC", "#Callnomic"],
+  },
+  {
+    pillar: "offer",
+    headline: "See your own AI concierge, live.",
+    caption:
+      "It's easier to believe when you talk to it.\n\nWe'll set up a working AI concierge on your catalogue and let you message it yourself — before you commit to anything.\n\nBook a walkthrough: callnomicsolutions.com",
+    tags: ["#demo", "#AIconcierge", "#GCCbusiness", "#Callnomic", "#conversationalAI"],
+  },
 ];
 
 // Sanity: keep the library non-trivial so rotation feels fresh.
