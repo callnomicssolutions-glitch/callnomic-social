@@ -30,11 +30,11 @@
       "headline": "A full calendar, not a full inbox.",
       "caption": "The dream isn't fewer messages. It's messages that turn into booked appointments while you focus on the work.\n\nAn AI agent qualifies, answers and books straight into your calendar — so you wake up to a schedule, not a backlog.\n\nLess triage. More business.\n\n🔗 callnomicsolutions.com\n\n#booking #productivity #AIagent #GCC",
       "imageFile": "ms08pf6xhmit-instagram.png",
-      "status": "failed",
+      "status": "approved",
       "createdAt": "2026-07-25T10:42:18.619Z",
       "telegramMessageId": 291,
       "url": "",
-      "error": "publish 400: {\"message\":\"Media ID is not available\",\"type\":\"OAuthException\",\"code\":9007,\"error_subcode\":2207027,\"is_transient\":false,\"error_user_title\":\"Cannot Publish\",\"error_user_msg\":\"The media is not ready for",
+      "error": "",
       "remindedAt": "2026-07-26T04:46:43.013Z"
     },
     {
@@ -75,11 +75,11 @@
       "headline": "Ramadan hours. Eid rush. Your inbox doesn't rest.",
       "caption": "Seasonal peaks are when you make the year — and when your team is most stretched thin.\n\nAn AI agent absorbs the surge: it answers the flood of \"are you open?\" and \"do you deliver for Eid?\" instantly, so no order is lost while everyone's busy.\n\nBusy season should feel like opportunity, not chaos.\n\n🔗 callnomicsolutions.com\n\n#Ramadan #Eid #GCCbusiness #automation #customerservice",
       "imageFile": "mryqxlfv51hr-instagram.png",
-      "status": "failed",
+      "status": "approved",
       "createdAt": "2026-07-24T09:37:00.703Z",
       "telegramMessageId": 275,
       "url": "",
-      "error": "publish 400: {\"message\":\"Media ID is not available\",\"type\":\"OAuthException\",\"code\":9007,\"error_subcode\":2207027,\"is_transient\":false,\"error_user_title\":\"Cannot Publish\",\"error_user_msg\":\"The media is not ready for",
+      "error": "",
       "remindedAt": "2026-07-26T04:46:43.438Z"
     },
     {
