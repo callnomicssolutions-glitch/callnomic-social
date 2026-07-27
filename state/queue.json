@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 45,
+  "rotationIndex": 48,
   "recentPillars": [
-    "outcome",
     "myth-bust",
     "behind-the-build",
-    "quick-tip"
+    "quick-tip",
+    "offer"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "ms3c6o1f0v5p",
+      "platform": "instagram",
+      "pillar": "offer",
+      "headline": "We'll build a demo on YOUR business.",
+      "caption": "Not a generic sales call — a working AI agent set up around your actual services, so you can talk to it like your customer would.\n\nJudge it for real. If it's not obviously useful, no hard feelings.\n\nStart here: callnomicsolutions.com\n\n🔗 callnomicsolutions.com\n\n#bookademo #AIagent #GCCbusiness #Callnomic",
+      "imageFile": "ms3c6o1f0v5p-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-07-27T14:43:00.615Z",
+      "telegramMessageId": 329,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "ms2jhwo2kckz",
       "platform": "linkedin",
@@ -727,8 +740,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 41,
-  "lastDraftAt": "2026-07-27T01:19:56.133Z",
+  "slotCount": 42,
+  "lastDraftAt": "2026-07-27T14:43:00.615Z",
   "reelRotationIndex": 6,
   "recentReelPillars": [
     "cost-of-inaction",
