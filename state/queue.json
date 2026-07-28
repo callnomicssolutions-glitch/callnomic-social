@@ -20,7 +20,7 @@
       "telegramMessageId": 336,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-28T07:06:12.691Z"
+      "remindedAt": "2026-07-28T13:21:38.407Z"
     },
     {
       "id": "ms3c6o1f0v5p",
@@ -34,7 +34,7 @@
       "telegramMessageId": 329,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-28T07:06:12.825Z"
+      "remindedAt": "2026-07-28T13:21:38.558Z"
     },
     {
       "id": "ms2jhwo2kckz",
@@ -48,7 +48,7 @@
       "telegramMessageId": 324,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-28T07:06:12.995Z"
+      "remindedAt": "2026-07-28T13:21:38.701Z"
     },
     {
       "id": "ms1zyo2tg8p0",
@@ -103,7 +103,7 @@
       "headline": "We test our agents by trying to break them.",
       "caption": "Before an agent meets your customers, we throw the worst at it: trick questions, mixed languages, angry messages, nonsense.\n\nIf it stays calm, accurate and helpful under pressure, it ships. If not, it doesn't.\n\nYour customers should only ever meet the version that passed.\n\n🔗 callnomicsolutions.com\n\n#buildinpublic #reliability #AIagent #Callnomic",
       "imageFile": "ms1rffilm64f-instagram.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-07-26T12:14:11.360Z",
       "telegramMessageId": 315,
       "url": "",
