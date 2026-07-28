@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 52,
+  "rotationIndex": 55,
   "recentPillars": [
-    "behind-the-build",
     "quick-tip",
     "offer",
-    "how-it-works"
+    "how-it-works",
+    "outcome"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "ms4wvd6efnuq",
+      "platform": "instagram",
+      "pillar": "outcome",
+      "headline": "\"Where's my order?\" — answered instantly.",
+      "caption": "The most common message any store gets. Usually it means a staff member stops what they're doing to go check.\n\nIn the Callnomics portal, the AI reads your live order system and answers in seconds — day or night, in the customer's language.\n\nLess busywork for your team. Calmer customers.\n\ncallnomicsolutions.com\n\n🔗 callnomicsolutions.com\n\n#ecommerce #customersupport #ordertracking #GCCbusiness #Callnomic",
+      "imageFile": "ms4wvd6efnuq-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-07-28T17:09:51.431Z",
+      "telegramMessageId": 344,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "ms45ekpvojh1",
       "platform": "linkedin",
@@ -755,8 +768,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 43,
-  "lastDraftAt": "2026-07-28T04:20:58.404Z",
+  "slotCount": 44,
+  "lastDraftAt": "2026-07-28T17:09:51.431Z",
   "reelRotationIndex": 6,
   "recentReelPillars": [
     "cost-of-inaction",
