@@ -9,6 +9,20 @@
   "telegramOffset": 206298156,
   "posts": [
     {
+      "id": "ms55uyf10yro",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "competitor-fear",
+      "headline": "Somewhere in your market, a competitor already replies in seconds.",
+      "caption": "Somewhere in your market, a competitor already replies in seconds.\nNot because they work harder.\nBecause an AI agent is doing it for them, around the clock.\nSpeed is quietly becoming the deciding factor in who wins the customer.\nThe businesses adopting AI first aren't smarter — they're just earlier.\n\n🔗 callnomicsolutions.com\n\n#AIforbusiness #GCCbusiness #competition",
+      "imageFile": "ms55uyf10yro-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-07-28T21:21:33.506Z",
+      "telegramMessageId": 349,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "ms4wvd6efnuq",
       "platform": "instagram",
       "pillar": "outcome",
@@ -771,12 +785,12 @@
   ],
   "slotCount": 44,
   "lastDraftAt": "2026-07-28T17:09:51.431Z",
-  "reelRotationIndex": 6,
+  "reelRotationIndex": 7,
   "recentReelPillars": [
-    "cost-of-inaction",
     "what-customers-expect",
     "signs-you-need-ai",
-    "how-it-works"
+    "how-it-works",
+    "competitor-fear"
   ],
-  "lastReelAt": "2026-07-25T09:06:30.902Z"
+  "lastReelAt": "2026-07-28T21:21:33.506Z"
 }
