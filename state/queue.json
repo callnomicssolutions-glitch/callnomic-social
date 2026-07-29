@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 55,
+  "rotationIndex": 58,
   "recentPillars": [
-    "quick-tip",
     "offer",
     "how-it-works",
-    "outcome"
+    "outcome",
+    "myth-bust"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "ms5r8j3foboz",
+      "platform": "linkedin",
+      "pillar": "myth-bust",
+      "headline": "\"Setting this up will take my team months.\"",
+      "caption": "Not with us. Callnomics is done-for-you.\n\nWe build it, deploy it and run it. Your only job: tweak the greeting and upload what you already know about your business.\n\nNo dev team. No integrations to babysit. No system for your staff to maintain.\n\ncallnomicsolutions.com\n\n#doneforyou #AIforbusiness #smallbusiness #GCC #Callnomic",
+      "imageFile": "ms5r8j3foboz-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-07-29T07:19:54.092Z",
+      "telegramMessageId": 355,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "ms55uyf10yro",
       "type": "reel",
@@ -21,7 +34,7 @@
       "telegramMessageId": 349,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-28T23:33:30.039Z"
+      "remindedAt": "2026-07-29T07:19:54.026Z"
     },
     {
       "id": "ms4wvd6efnuq",
@@ -784,8 +797,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 44,
-  "lastDraftAt": "2026-07-28T17:09:51.431Z",
+  "slotCount": 45,
+  "lastDraftAt": "2026-07-29T07:19:54.092Z",
   "reelRotationIndex": 7,
   "recentReelPillars": [
     "what-customers-expect",
