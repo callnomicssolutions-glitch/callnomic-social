@@ -19,7 +19,8 @@
       "createdAt": "2026-07-29T19:56:58.333Z",
       "telegramMessageId": 364,
       "url": "",
-      "error": ""
+      "error": "",
+      "remindedAt": "2026-07-29T22:07:24.947Z"
     },
     {
       "id": "ms5r8j3foboz",
@@ -33,7 +34,7 @@
       "telegramMessageId": 355,
       "url": "",
       "error": "",
-      "remindedAt": "2026-07-29T16:05:33.714Z"
+      "remindedAt": "2026-07-29T22:07:25.133Z"
     },
     {
       "id": "ms55uyf10yro",
