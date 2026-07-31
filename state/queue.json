@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 6,
+  "rotationIndex": 11,
   "recentPillars": [
-    "myth-bust",
     "offer",
     "pain-point",
-    "how-it-works"
+    "how-it-works",
+    "outcome"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "ms8u2pvggr10",
+      "platform": "linkedin",
+      "pillar": "outcome",
+      "headline": "Reply time: hours → seconds.",
+      "caption": "The single biggest lever on conversion isn't a better pitch. It's answering first.\n\nWhen your reply time drops from hours to seconds, more leads stay warm, more calls get booked, more deals close — with the same marketing spend.\n\nYou're not getting more leads. You're finally keeping the ones you have.\n\n#conversion #sales #responsetime #GCC #automation",
+      "imageFile": "ms8u2pvggr10-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-07-31T11:02:40.317Z",
+      "telegramMessageId": 391,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "ms81pl0enevk",
       "platform": "instagram",
@@ -840,8 +853,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 48,
-  "lastDraftAt": "2026-07-30T21:48:38.240Z",
+  "slotCount": 49,
+  "lastDraftAt": "2026-07-31T11:02:40.317Z",
   "reelRotationIndex": 7,
   "recentReelPillars": [
     "what-customers-expect",
