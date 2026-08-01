@@ -9,6 +9,20 @@
   "telegramOffset": 206298156,
   "posts": [
     {
+      "id": "msa970z7jpyd",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "myth-bust",
+      "headline": "\"Customers won't want to talk to AI.\"",
+      "caption": "\"Customers won't want to talk to AI.\"\nMost customers don't care WHO answers.\nThey care that someone answers now, in their language, correctly.\nA slow human reply loses to a fast, accurate AI reply — every time.\nSpeed and accuracy win. Not who's on the other end.\n\n🔗 callnomicsolutions.com\n\n#AImyths #customerexperience #GCCbusiness",
+      "imageFile": "msa970z7jpyd-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-08-01T10:53:46.363Z",
+      "telegramMessageId": 407,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "ms9kxsajoaks",
       "platform": "instagram",
       "pillar": "myth-bust",
@@ -20,7 +34,7 @@
       "telegramMessageId": 399,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-01T04:35:05.805Z"
+      "remindedAt": "2026-08-01T10:53:40.904Z"
     },
     {
       "id": "ms8u2pvggr10",
@@ -34,7 +48,7 @@
       "telegramMessageId": 391,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-01T04:35:05.951Z"
+      "remindedAt": "2026-08-01T10:53:41.138Z"
     },
     {
       "id": "ms81pl0enevk",
@@ -48,7 +62,7 @@
       "telegramMessageId": 383,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-01T04:35:06.086Z"
+      "remindedAt": "2026-08-01T10:53:41.397Z"
     },
     {
       "id": "ms79v5h9yiv1",
@@ -870,12 +884,12 @@
   ],
   "slotCount": 50,
   "lastDraftAt": "2026-07-31T23:34:39.821Z",
-  "reelRotationIndex": 7,
+  "reelRotationIndex": 8,
   "recentReelPillars": [
-    "what-customers-expect",
     "signs-you-need-ai",
     "how-it-works",
-    "competitor-fear"
+    "competitor-fear",
+    "myth-bust"
   ],
-  "lastReelAt": "2026-07-28T21:21:33.506Z"
+  "lastReelAt": "2026-08-01T10:53:46.363Z"
 }
