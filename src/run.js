@@ -27,6 +27,13 @@ const MAX_PENDING_REELS = Number(process.env.MAX_PENDING_REELS || 2);
 const REMIND_AFTER_H = Number(process.env.REMIND_AFTER_HOURS || 2);
 const REMIND_REPEAT_H = Number(process.env.REMIND_REPEAT_HOURS || 6);
 const MAX_PUBLISH_ATTEMPTS = Number(process.env.MAX_PUBLISH_ATTEMPTS || 3);
+// How long to hold a post when the platform itself is blocking (expired token,
+// restricted account), and how rarely to repeat that alert on Telegram.
+const BLOCKED_RETRY_H = Number(process.env.BLOCKED_RETRY_HOURS || 3);
+const BLOCKED_NOTIFY_H = Number(process.env.BLOCKED_NOTIFY_HOURS || 12);
+// Publishing a backlog as one burst is what gets an account flagged in the first
+// place. Cap how many go out per platform in a single run; the rest wait.
+const MAX_PER_PLATFORM_PER_RUN = Number(process.env.MAX_PER_PLATFORM_PER_RUN || 2);
 const WATCH_MINUTES = Number(process.env.WATCH_MINUTES || 0);
 const forceDraft = process.argv.includes("--draft-only") || process.env.FORCE_DRAFT === "1";
 const forceReel = process.argv.includes("--reel-only") || process.env.FORCE_REEL === "1";
@@ -99,6 +106,27 @@ async function doPublish(state, post) {
       if (post.telegramMessageId) await markDecision(post.telegramMessageId, "✅ Posted");
       await sendMessage(`✅ Posted to <b>${label(post)}</b>\n${post.url || ""}`);
     }
+  } else if (res.retryable === false) {
+    // The platform is refusing for a reason retrying can't change — an expired token,
+    // or Meta restricting the account. Park the post (it publishes itself once the
+    // block clears) and say plainly what needs fixing, once, instead of silently
+    // grinding through retries and marking good content as failed.
+    post.attempts -= 1;
+    post.error = res.error;
+    post.status = "approved";
+    post.publishAfter = new Date(Date.now() + BLOCKED_RETRY_H * 3600_000).toISOString();
+    saveState(state);
+    console.log(`[run] ${post.platform} is blocking publication, parked ${post.id}: ${res.error}`);
+    if (telegramReady() && hoursSince(state.blockedNotifiedAt) >= BLOCKED_NOTIFY_H) {
+      state.blockedNotifiedAt = now();
+      saveState(state);
+      await sendMessage(
+        `🚫 <b>${label(post)} is refusing to publish</b> — this one needs you, not a retry.\n\n` +
+        `<code>${escapeish(res.error)}</code>\n\n` +
+        `Queued posts are held and will publish themselves automatically once it's cleared. ` +
+        `Send /status any time to see what's waiting.`,
+      );
+    }
   } else {
     post.error = res.error;
     const retriesLeft = MAX_PUBLISH_ATTEMPTS - post.attempts;
@@ -121,6 +149,10 @@ async function doPublish(state, post) {
 // Publish everything approved whose hold time has passed and whose media is already
 // on the CDN (media rendered during *this* run only lands there once the workflow
 // commits, so it waits for the next run).
+// Counted for the lifetime of the process, so the watch loop can't sneak past the cap
+// by calling this repeatedly.
+const publishedThisRun = new Map();
+
 async function publishApproved(state) {
   const thisRun = CONFIG.sha || "local";
   const due = state.posts.filter(
@@ -129,8 +161,20 @@ async function publishApproved(state) {
       p.awaitingCdn !== thisRun &&
       (!p.publishAfter || new Date(p.publishAfter).getTime() <= Date.now()),
   );
-  for (const p of due) await doPublish(state, p);
-  return due.length;
+  let done = 0;
+  for (const p of due) {
+    const sent = publishedThisRun.get(p.platform) || 0;
+    if (sent >= MAX_PER_PLATFORM_PER_RUN) {
+      console.log(`[run] holding ${p.id}: already published ${sent} to ${p.platform} this run`);
+      continue;
+    }
+    await doPublish(state, p);
+    // Only a real publish counts against the cap — a parked or retried post didn't
+    // put anything on the account.
+    if (p.status === "posted") publishedThisRun.set(p.platform, sent + 1);
+    done += 1;
+  }
+  return done;
 }
 
 // Build one draft for a platform, render its image, send to Telegram.

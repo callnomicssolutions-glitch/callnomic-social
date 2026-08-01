@@ -38,7 +38,13 @@ export async function postToLinkedIn(post) {
       body: JSON.stringify({ initializeUploadRequest: { owner } }),
     });
     const initJson = await initRes.json().catch(() => ({}));
-    if (!initRes.ok) return { ok: false, error: `init upload ${initRes.status}: ${JSON.stringify(initJson).slice(0, 200)}` };
+    if (!initRes.ok) {
+      return {
+        ok: false,
+        error: `init upload ${initRes.status}: ${JSON.stringify(initJson).slice(0, 400)}`,
+        retryable: ![401, 403, 426].includes(initRes.status),
+      };
+    }
     const uploadUrl = initJson.value?.uploadUrl;
     const imageUrn = initJson.value?.image;
     if (!uploadUrl || !imageUrn) return { ok: false, error: "no upload url/urn" };
@@ -69,7 +75,13 @@ export async function postToLinkedIn(post) {
     });
     if (!postRes.ok) {
       const t = await postRes.text();
-      return { ok: false, error: `create post ${postRes.status}: ${t.slice(0, 200)}` };
+      return {
+        ok: false,
+        error: `create post ${postRes.status}: ${t.slice(0, 400)}`,
+        // 401/403 = the ~60-day token has expired or lost its scope; 426 = the pinned
+        // LinkedIn-Version was retired. All need a human, so don't burn retries on them.
+        retryable: ![401, 403, 426].includes(postRes.status),
+      };
     }
     const postId = postRes.headers.get("x-restli-id") || postRes.headers.get("x-linkedin-id") || "";
     const url = postId ? `https://www.linkedin.com/feed/update/${postId}` : "https://www.linkedin.com/company";

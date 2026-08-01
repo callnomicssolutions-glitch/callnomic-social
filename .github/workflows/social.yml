@@ -59,7 +59,12 @@ jobs:
 
       - run: npm ci
 
+      # Only NEW Reels need ffmpeg — publishing an already-rendered one doesn't. A slow
+      # or wedged apt mirror must not stop the run from publishing what's queued, so
+      # this is capped and allowed to fail; the engine skips reel rendering without it.
       - name: Ensure ffmpeg (for Reels; no-op if already present)
+        timeout-minutes: 4
+        continue-on-error: true
         run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
 
       - name: Stage flagship launch set (one-shot)

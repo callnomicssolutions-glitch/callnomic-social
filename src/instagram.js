@@ -13,6 +13,27 @@ export function instagramReady() {
   return has(CONFIG.instagram.igUserId) && has(CONFIG.instagram.token);
 }
 
+// Graph errors that no amount of retrying will fix: the token is dead, or Meta has
+// restricted the account from publishing. These need a human, so they're reported as
+// non-retryable and the engine parks the post instead of burning its attempts.
+// 190 = invalid/expired token, 10 + 200 = missing permission, 25 = account restricted.
+const BLOCKING_CODES = new Set([10, 25, 190, 200]);
+
+function graphError(prefix, status, json) {
+  const e = json?.error || json || {};
+  const parts = [
+    e.message || JSON.stringify(json).slice(0, 200),
+    e.code != null ? `code ${e.code}${e.error_subcode ? `/${e.error_subcode}` : ""}` : "",
+    e.error_user_msg || "",
+  ].filter(Boolean);
+  return {
+    ok: false,
+    error: `${prefix} ${status}: ${parts.join(" · ")}`,
+    // A restricted account or dead token stays broken until someone fixes it.
+    retryable: !BLOCKING_CODES.has(e.code),
+  };
+}
+
 // Public URL Instagram can fetch. PUBLIC_IMAGE_BASE is set by the workflow to the
 // raw path of this repo's state/images folder.
 export function publicImageUrl(imageFile) {
@@ -80,9 +101,7 @@ export async function postToInstagram(post) {
     createUrl.searchParams.set("access_token", token);
     const createRes = await fetch(createUrl, { method: "POST" });
     const createJson = await createRes.json().catch(() => ({}));
-    if (!createRes.ok || !createJson.id) {
-      return { ok: false, error: `container ${createRes.status}: ${JSON.stringify(createJson.error || createJson).slice(0, 200)}` };
-    }
+    if (!createRes.ok || !createJson.id) return graphError("container", createRes.status, createJson);
     const creationId = createJson.id;
 
     // 2) Wait for Instagram to finish fetching/processing the image, then publish.
@@ -95,9 +114,7 @@ export async function postToInstagram(post) {
     pubUrl.searchParams.set("access_token", token);
     const pubRes = await fetch(pubUrl, { method: "POST" });
     const pubJson = await pubRes.json().catch(() => ({}));
-    if (!pubRes.ok || !pubJson.id) {
-      return { ok: false, error: `publish ${pubRes.status}: ${JSON.stringify(pubJson.error || pubJson).slice(0, 200)}` };
-    }
+    if (!pubRes.ok || !pubJson.id) return graphError("publish", pubRes.status, pubJson);
     const url = await fetchPermalink(pubJson.id, token, `https://www.instagram.com/p/${pubJson.id}`);
     return { ok: true, url };
   } catch (e) {
@@ -129,9 +146,7 @@ export async function postReelToInstagram(post) {
     createUrl.searchParams.set("access_token", token);
     const createRes = await fetch(createUrl, { method: "POST" });
     const createJson = await createRes.json().catch(() => ({}));
-    if (!createRes.ok || !createJson.id) {
-      return { ok: false, error: `container ${createRes.status}: ${JSON.stringify(createJson.error || createJson).slice(0, 200)}` };
-    }
+    if (!createRes.ok || !createJson.id) return graphError("container", createRes.status, createJson);
     const creationId = createJson.id;
 
     // 2) Poll until Instagram finishes processing the video (video needs longer)
@@ -146,9 +161,7 @@ export async function postReelToInstagram(post) {
     pubUrl.searchParams.set("access_token", token);
     const pubRes = await fetch(pubUrl, { method: "POST" });
     const pubJson = await pubRes.json().catch(() => ({}));
-    if (!pubRes.ok || !pubJson.id) {
-      return { ok: false, error: `publish ${pubRes.status}: ${JSON.stringify(pubJson.error || pubJson).slice(0, 200)}` };
-    }
+    if (!pubRes.ok || !pubJson.id) return graphError("publish", pubRes.status, pubJson);
     const url = await fetchPermalink(pubJson.id, token, `https://www.instagram.com/reel/${pubJson.id}`);
     return { ok: true, url };
   } catch (e) {

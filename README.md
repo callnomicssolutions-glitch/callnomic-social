@@ -152,6 +152,20 @@ community *why* they need AI, not just promote Callnomic — built for reach/con
 LinkedIn and Instagram tokens **expire ~every 60 days**. When posting starts failing, Telegram
 will message you the error. Just regenerate the token (steps 3–4) and update the secret. That's it.
 
+### When a platform refuses to publish
+Some failures aren't transient and retrying makes them worse. If LinkedIn returns 401/403/426,
+or Instagram returns an OAuth error (code 10/25/190/200 — expired token, missing permission, or
+**"The Instagram account is restricted"**), the engine:
+- **holds** the post instead of burning its retries and marking your content failed,
+- messages you once with the exact platform error,
+- **publishes it automatically** as soon as the block clears — nothing is lost.
+
+Instagram's `code 25 / subcode 2207050` means Meta has restricted the account from publishing
+via the API. It is usually a temporary integrity action, often triggered by posting a burst in a
+short window. It clears on its own; check Instagram → *Settings → Account status* for details.
+No amount of retrying speeds it up — which is why publishing is now capped at
+`MAX_PER_PLATFORM_PER_RUN` (default 2) per platform per run, and backlog recovery drips.
+
 ## Cost
 - GitHub Actions: **free** (public repo).
 - Images: **free** (local templates, no AI).
