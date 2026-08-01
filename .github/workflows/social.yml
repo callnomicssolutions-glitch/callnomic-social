@@ -137,10 +137,14 @@ jobs:
           fi
           git commit -m "social: update state [skip ci]"
           # Runs are long now, so the branch can move underneath us. Never lose the
-          # record of what was already published to a rejected push.
+          # record of what was already published to a rejected push — that record is
+          # the only thing stopping the same post going out twice. checkout leaves a
+          # detached HEAD, so always push with an explicit refspec, and merge (not
+          # rebase) with -X ours so a conflict resolves in favour of THIS run's state.
           for i in 1 2 3; do
-            git push && exit 0
-            git pull --rebase --autostash origin "$GITHUB_REF_NAME" || true
+            git push origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            git fetch origin "$GITHUB_REF_NAME"
+            git merge -X ours --no-edit "origin/$GITHUB_REF_NAME" || git merge --abort || true
             sleep 5
           done
-          git push
+          git push origin "HEAD:$GITHUB_REF_NAME"
