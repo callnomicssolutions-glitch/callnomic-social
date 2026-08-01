@@ -34,6 +34,12 @@ const BLOCKED_NOTIFY_H = Number(process.env.BLOCKED_NOTIFY_HOURS || 12);
 // Publishing a backlog as one burst is what gets an account flagged in the first
 // place. Cap how many go out per platform in a single run; the rest wait.
 const MAX_PER_PLATFORM_PER_RUN = Number(process.env.MAX_PER_PLATFORM_PER_RUN || 2);
+// Minimum spacing between two posts on the same platform, for backlog posts that were
+// staged with pacing on (`paced`). Enforced against the real last-published time rather
+// than only the scheduled slot, so a backlog that came due while a platform was blocked
+// still goes out spread apart instead of all at once the moment the block lifts.
+// Approvals you tap yourself are never delayed by this.
+const MIN_GAP_H = Number(process.env.MIN_GAP_HOURS || 3);
 const WATCH_MINUTES = Number(process.env.WATCH_MINUTES || 0);
 const forceDraft = process.argv.includes("--draft-only") || process.env.FORCE_DRAFT === "1";
 const forceReel = process.argv.includes("--reel-only") || process.env.FORCE_REEL === "1";
@@ -45,6 +51,16 @@ const REVIVABLE = new Set(["pending", "expired", "skipped", "failed"]);
 function now() { return new Date().toISOString(); }
 function hoursSince(iso) { return iso ? (Date.now() - new Date(iso).getTime()) / 3.6e6 : Infinity; }
 function label(post) { return post.type === "reel" ? "Instagram Reel" : post.platform; }
+
+// When something last actually went live on a platform, "" if never.
+function lastPostedAt(state, platform) {
+  let latest = "";
+  for (const p of state.posts) {
+    if (p.status !== "posted" || p.platform !== platform || !p.postedAt) continue;
+    if (!latest || p.postedAt > latest) latest = p.postedAt;
+  }
+  return latest;
+}
 
 // Re-render media that pruning (or a lost run) removed, so an old draft is still
 // publishable. Returns { ok, rendered } — `rendered` means the file is new on disk
@@ -167,6 +183,13 @@ async function publishApproved(state) {
     if (sent >= MAX_PER_PLATFORM_PER_RUN) {
       console.log(`[run] holding ${p.id}: already published ${sent} to ${p.platform} this run`);
       continue;
+    }
+    if (p.paced) {
+      const gap = hoursSince(lastPostedAt(state, p.platform));
+      if (gap < MIN_GAP_H) {
+        console.log(`[run] holding ${p.id}: last ${p.platform} post was ${gap.toFixed(1)}h ago (min ${MIN_GAP_H}h)`);
+        continue;
+      }
     }
     await doPublish(state, p);
     // Only a real publish counts against the cap — a parked or retried post didn't

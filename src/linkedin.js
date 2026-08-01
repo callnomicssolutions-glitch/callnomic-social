@@ -28,7 +28,7 @@ export function linkedinReady() {
  * @returns {Promise<{ok:boolean, url?:string, error?:string}>}
  */
 export async function postToLinkedIn(post) {
-  if (!linkedinReady()) return { ok: false, error: "LinkedIn not configured" };
+  if (!linkedinReady()) return { ok: false, error: "LinkedIn not configured", retryable: false };
   const owner = CONFIG.linkedin.authorUrn;
   try {
     // 1) Initialize an image upload

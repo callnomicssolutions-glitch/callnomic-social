@@ -78,9 +78,9 @@ jobs:
         if: ${{ inputs.backlog == 'pending' || inputs.backlog == 'expired' }}
         run: |
           if [ "${{ inputs.backlog }}" = "expired" ]; then
-            node src/backlog.js --pending --expired --per-day 2 --skip-duplicates
+            node src/backlog.js --pending --expired --skip-duplicates
           else
-            node src/backlog.js --pending
+            node src/backlog.js --pending --skip-duplicates
           fi
 
       - name: Run engine
@@ -106,6 +106,8 @@ jobs:
           POST_INTERVAL_HOURS: ${{ vars.POST_INTERVAL_HOURS }}
           PENDING_TTL_HOURS: ${{ vars.PENDING_TTL_HOURS }}
           MAX_PENDING: ${{ vars.MAX_PENDING }}
+          MIN_GAP_HOURS: ${{ vars.MIN_GAP_HOURS }}
+          MAX_PER_PLATFORM_PER_RUN: ${{ vars.MAX_PER_PLATFORM_PER_RUN }}
           FORCE_DRAFT: ${{ inputs.force_draft && '1' || '' }}
           REMIND_AFTER_HOURS: ${{ vars.REMIND_AFTER_HOURS }}
           REMIND_REPEAT_HOURS: ${{ vars.REMIND_REPEAT_HOURS }}

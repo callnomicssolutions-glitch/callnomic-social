@@ -84,7 +84,7 @@ async function fetchPermalink(mediaId, token, fallbackUrl) {
  * @returns {Promise<{ok:boolean, url?:string, error?:string}>}
  */
 export async function postToInstagram(post) {
-  if (!instagramReady()) return { ok: false, error: "Instagram not configured" };
+  if (!instagramReady()) return { ok: false, error: "Instagram not configured", retryable: false };
   const imageUrl = publicImageUrl(post.imageFile);
   if (!imageUrl) return { ok: false, error: "no public image URL (set PUBLIC_IMAGE_BASE)" };
 
@@ -128,7 +128,7 @@ export async function postToInstagram(post) {
  * @returns {Promise<{ok:boolean, url?:string, error?:string}>}
  */
 export async function postReelToInstagram(post) {
-  if (!instagramReady()) return { ok: false, error: "Instagram not configured" };
+  if (!instagramReady()) return { ok: false, error: "Instagram not configured", retryable: false };
   const videoUrl = publicImageUrl(post.imageFile);
   if (!videoUrl) return { ok: false, error: "no public video URL (set PUBLIC_IMAGE_BASE)" };
 
