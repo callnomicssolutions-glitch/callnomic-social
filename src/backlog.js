@@ -62,7 +62,16 @@ if (skipDuplicates) {
   const before = staged.length;
   const seen = new Set();
   staged = staged.filter((p) => {
-    if (publishedKeys.has(key(p)) || seen.has(key(p))) return false;
+    if (publishedKeys.has(key(p)) || seen.has(key(p))) {
+      // Actually take it out of the queue. A duplicate left sitting in "approved"
+      // would publish anyway, unpaced — skipping it has to mean skipping it.
+      if (p.status === "pending" || p.status === "approved") {
+        p.status = "skipped";
+        p.publishAfter = "";
+        console.log(`  ✕ ${p.platform} ${p.id} — already published on ${p.platform}: "${p.headline}"`);
+      }
+      return false;
+    }
     seen.add(key(p));
     return true;
   });
