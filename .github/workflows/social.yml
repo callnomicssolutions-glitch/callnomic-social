@@ -22,6 +22,18 @@ on:
         description: "Stage the hand-picked flagship launch set (approved). Publish with a normal run after."
         type: boolean
         default: false
+      backlog:
+        description: "Recover unpublished drafts before the engine runs"
+        type: choice
+        default: "none"
+        options:
+          - none
+          - pending # approve everything still pending, publish this run
+          - expired # revive expired drafts too, dripped ~2/day
+      watch_minutes:
+        description: "Minutes to stay online long-polling Telegram (blank = repo default)"
+        type: string
+        default: ""
 
 # Never let two runs mutate state at the same time.
 concurrency:
@@ -34,6 +46,9 @@ permissions:
 jobs:
   tick:
     runs-on: ubuntu-latest
+    # The run holds itself open watching Telegram, so cap it well under the default
+    # 6h in case a long-poll ever wedges and blocks the concurrency group.
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -53,6 +68,15 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_REF_NAME: ${{ github.ref_name }}
         run: node src/flagship.js
+
+      - name: Recover unpublished backlog (one-shot)
+        if: ${{ inputs.backlog == 'pending' || inputs.backlog == 'expired' }}
+        run: |
+          if [ "${{ inputs.backlog }}" = "expired" ]; then
+            node src/backlog.js --pending --expired --per-day 2 --skip-duplicates
+          else
+            node src/backlog.js --pending
+          fi
 
       - name: Run engine
         if: ${{ !inputs.flagship }}
@@ -75,9 +99,15 @@ jobs:
           # Behaviour knobs (Repository Variables, all optional)
           PLATFORMS: ${{ vars.PLATFORMS }}
           POST_INTERVAL_HOURS: ${{ vars.POST_INTERVAL_HOURS }}
+          PENDING_TTL_HOURS: ${{ vars.PENDING_TTL_HOURS }}
+          MAX_PENDING: ${{ vars.MAX_PENDING }}
           FORCE_DRAFT: ${{ inputs.force_draft && '1' || '' }}
           REMIND_AFTER_HOURS: ${{ vars.REMIND_AFTER_HOURS }}
           REMIND_REPEAT_HOURS: ${{ vars.REMIND_REPEAT_HOURS }}
+          # Stay online long-polling Telegram so a button tap is acted on in seconds.
+          # GitHub throttles the 5-minute cron to roughly one run an hour, so without
+          # this the approval you tap sits unprocessed long enough to look broken.
+          WATCH_MINUTES: ${{ inputs.watch_minutes || vars.WATCH_MINUTES || '20' }}
           # Educational Reels (Instagram only)
           REELS_ENABLED: ${{ vars.REELS_ENABLED }}
           REEL_INTERVAL_HOURS: ${{ vars.REEL_INTERVAL_HOURS }}
@@ -89,13 +119,21 @@ jobs:
         run: node src/run.js
 
       - name: Commit updated state
+        if: always()
         run: |
           git config user.name "callnomic-bot"
           git config user.email "bot@callnomicsolutions.com"
           git add state/
           if git diff --cached --quiet; then
             echo "No state changes."
-          else
-            git commit -m "social: update state [skip ci]"
-            git push
+            exit 0
           fi
+          git commit -m "social: update state [skip ci]"
+          # Runs are long now, so the branch can move underneath us. Never lose the
+          # record of what was already published to a rejected push.
+          for i in 1 2 3; do
+            git push && exit 0
+            git pull --rebase --autostash origin "$GITHUB_REF_NAME" || true
+            sleep 5
+          done
+          git push

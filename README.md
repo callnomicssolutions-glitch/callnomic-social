@@ -22,10 +22,17 @@ You only ever tap a button. Everything else is automatic.
 
 ## How it behaves
 
-- Every **~5 min** the Action wakes up, checks your Telegram taps, and posts anything you approved.
+- The Action wakes on a cron **and then stays online for `WATCH_MINUTES` (default 20)**
+  long-polling Telegram, so a button tap is acted on within **seconds**.
+  (The `*/5` cron alone is not enough: GitHub throttles frequent schedules down to
+  roughly one run an hour, which made approvals feel like they did nothing.)
 - Every **`POST_INTERVAL_HOURS`** (default **12h**) it creates a new draft and sends it to you.
 - It **alternates platforms**, so you get roughly **one LinkedIn + one Instagram post per day**.
-- If you don't answer a draft within `PENDING_TTL_HOURS` (default 48h) it quietly expires — no spam.
+- If you don't answer a draft within `PENDING_TTL_HOURS` (default **168h / 7 days**) it
+  expires — but **tapping ✅ on an expired draft still publishes it**; the media is
+  re-rendered if it was cleaned up in the meantime.
+- A publish that fails is **retried automatically** (up to `MAX_PUBLISH_ATTEMPTS`, default 3)
+  before it's reported as failed.
 - The default runs on the built-in **content library** (`content/library.js`) at **zero API cost**.
   Turn on `AI_FRESH=1` only if you want Groq to write fresh posts (uses your Groq free tier).
 
@@ -94,9 +101,29 @@ and tick **force_draft** to get your first draft in Telegram immediately.
 
 ## Using it day to day
 - A draft lands in Telegram: branded image + the exact caption.
-- **✅ Approve & post** → it publishes on the next run (within ~5 min).
+- **✅ Approve & post** → it publishes within seconds if the run is watching, otherwise
+  on the next run. Works on old drafts too.
 - **✏️ Redo** → discards it and sends a different draft.
 - **❌ Skip** → drops it; the next scheduled draft comes at the normal time.
+
+### Typed commands (fallback when a tap doesn't land)
+Send these to the bot in the same chat:
+
+| Command | What it does |
+|---|---|
+| `/status` | everything waiting or failed, with ids |
+| `/postall` | approve & publish **everything pending**, now |
+| `/approve <id>` | publish one (id from `/status`) |
+| `/skip <id>` | drop one |
+| `/retry` | retry anything that failed |
+| `/help` | the list above |
+
+### Recovering a backlog
+If drafts piled up unanswered, Actions → **Callnomic Social → Run workflow** and set
+**backlog**:
+- `pending` — approve & publish everything still pending, this run.
+- `expired` — also revive expired drafts whose media still exists, **dripped ~2/day**
+  so a backlog doesn't land as one spam-looking burst. Content already published is skipped.
 
 ## Add your own posts
 Open **`content/library.js`** and add items to the `LIBRARY` array:

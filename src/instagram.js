@@ -17,7 +17,11 @@ export function instagramReady() {
 // raw path of this repo's state/images folder.
 export function publicImageUrl(imageFile) {
   if (CONFIG.publicImageBase) return `${CONFIG.publicImageBase.replace(/\/$/, "")}/${imageFile}`;
-  if (CONFIG.repo) return `https://raw.githubusercontent.com/${CONFIG.repo}/${CONFIG.ref}/state/images/${imageFile}`;
+  // Pin to the commit this run checked out. Branch names containing "/" (e.g. a
+  // claude/… working branch) are not resolvable on raw.githubusercontent.com, and a
+  // sha also survives a later prune commit removing the file from the branch tip.
+  const rev = CONFIG.sha || CONFIG.ref;
+  if (CONFIG.repo) return `https://raw.githubusercontent.com/${CONFIG.repo}/${rev}/state/images/${imageFile}`;
   return "";
 }
 

@@ -109,11 +109,15 @@ export async function sendVideoDraft(post) {
 }
 
 // Pull new updates since offset. Returns { updates, newOffset }.
-export async function getUpdates(offset) {
+// `timeout` seconds enables Telegram long-polling: the request blocks on Telegram's
+// side until something arrives, so a tap is picked up within a second instead of
+// waiting for the next cron tick. `message` is allowed too so typed commands
+// (/status, /postall, …) work as a fallback when the inline buttons misbehave.
+export async function getUpdates(offset, timeout = 0) {
   const data = await call("getUpdates", {
     offset: offset ? offset + 1 : undefined,
-    timeout: 0,
-    allowed_updates: ["callback_query"],
+    timeout,
+    allowed_updates: ["callback_query", "message"],
   });
   const updates = data.result || [];
   const newOffset = updates.length ? updates[updates.length - 1].update_id : offset;

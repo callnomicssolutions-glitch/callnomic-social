@@ -42,8 +42,13 @@ export function imagePath(fileName) {
   return join(IMAGES_DIR, fileName);
 }
 
+// A post that hasn't been published yet still needs its media: deleting it strands
+// the draft (nothing left to upload) even though the queue still lists it.
+const LIVE = new Set(["pending", "approved", "failed"]);
+
 // Keep the repo small: drop image/video files older than the newest `keep` records.
-// Videos are much bigger than PNGs, so keep fewer of them around.
+// Videos are much bigger than PNGs, so keep fewer of them around. Media belonging to
+// a post that is still awaiting publication is never dropped, whatever its age.
 export function pruneImages(state, keep = 24, keepVideos = 6) {
   const aliveImages = new Set();
   for (const p of state.posts.slice(0, keep)) {
@@ -52,6 +57,11 @@ export function pruneImages(state, keep = 24, keepVideos = 6) {
   const aliveVideos = new Set();
   for (const p of state.posts.filter((p) => p.type === "reel").slice(0, keepVideos)) {
     if (p.imageFile) aliveVideos.add(p.imageFile);
+  }
+  for (const p of state.posts) {
+    if (!p.imageFile || !LIVE.has(p.status)) continue;
+    if (p.type === "reel") aliveVideos.add(p.imageFile);
+    else aliveImages.add(p.imageFile);
   }
   try {
     for (const f of readdirSync(IMAGES_DIR)) {

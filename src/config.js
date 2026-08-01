@@ -51,9 +51,12 @@ export const CONFIG = {
   // Safety: never post automatically without an approval unless AUTO_APPROVE=1 (not recommended).
   autoApprove: process.env.AUTO_APPROVE === "1",
 
-  // Set by the workflow so we know how to build raw image URLs.
+  // Set by the workflow so we know how to build raw image URLs. Prefer the commit sha:
+  // raw.githubusercontent.com can't resolve a branch name containing "/" (it 404s), and
+  // a sha keeps working even after a later commit prunes the file off the branch tip.
   repo: process.env.GITHUB_REPOSITORY || "", // "owner/name"
   ref: process.env.GITHUB_REF_NAME || "main",
+  sha: process.env.GITHUB_SHA || "",
 };
 
 export function has(v) {
