@@ -1,11 +1,11 @@
 // Backlog recovery. Drafts that were never answered pile up as "pending" and then
 // "expired" — content that was written and rendered but never published. This stages
 // them back into the queue as "approved" and paced; the normal engine run publishes
-// them, leaving at least MIN_GAP_HOURS between two posts on the same platform.
+// them one per bucket per day, in the morning window.
 //
 //   node src/backlog.js --pending                       everything unpublished, paced
 //   node src/backlog.js --pending --expired             revive expired drafts too
-//   node src/backlog.js --pending --gap-hours 3 --skip-duplicates --dry-run
+//   node src/backlog.js --pending --daily-hour 5 --per-bucket 1 --skip-duplicates --dry-run
 //
 // Nothing is published here — this only edits state/queue.json, so a mistake is a
 // revert away rather than a post on a live account.
@@ -21,7 +21,8 @@ function opt(name, fallback) {
 
 const doPending = has("--pending");
 const doExpired = has("--expired");
-const gapHours = Number(opt("--gap-hours", 3));
+const dailyHour = Number(opt("--daily-hour", process.env.DAILY_HOUR_UTC || 5));
+const perBucket = Number(opt("--per-bucket", process.env.DAILY_PER_BUCKET || 1));
 const skipDuplicates = has("--skip-duplicates");
 const dryRun = has("--dry-run");
 
@@ -78,29 +79,41 @@ if (skipDuplicates) {
   console.log(`[backlog] skipped ${before - staged.length} draft(s) already published on that platform`);
 }
 
-// Pace per platform: each platform gets its own clock, so LinkedIn and Instagram
-// don't wait on each other, but neither one posts twice inside the gap. The first
-// slot for a platform starts from its last real publish, not from now, so a platform
-// that posted 10 minutes ago doesn't immediately post again.
-const gapMs = gapHours * 3600_000;
-const nextSlot = new Map();
-for (const p of state.posts) {
-  if (p.status !== "posted" || !p.postedAt) continue;
-  const t = new Date(p.postedAt).getTime() + gapMs;
-  if (t > (nextSlot.get(p.platform) || 0)) nextSlot.set(p.platform, t);
+// One slot per bucket per day, at the morning hour. Buckets are LinkedIn, Instagram
+// feed and Instagram Reels, so a typical morning is one of each — they don't queue
+// behind one another. The engine enforces the same caps at publish time; these dates
+// just make the plan visible and fix the order.
+const bucket = (p) => (p.type === "reel" ? "instagram-reel" : p.platform);
+const DAY_MS = 86_400_000;
+
+// The first morning slot still ahead of us; every later slot is a whole day past it.
+// (Resolving "is it in the past?" per offset instead would put offsets 0 and 1 on the
+// same morning.)
+const firstMorning = (() => {
+  const d = new Date();
+  d.setUTCHours(dailyHour, 5, 0, 0);
+  return d.getTime() <= Date.now() ? d.getTime() + DAY_MS : d.getTime();
+})();
+
+function morningOn(dayOffset) {
+  return firstMorning + dayOffset * DAY_MS;
 }
 
+const dayIndex = new Map();
 for (const p of staged) {
-  const slot = Math.max(nextSlot.get(p.platform) || 0, Date.now());
+  const b = bucket(p);
+  const i = dayIndex.get(b) || 0;
   p.status = "approved";
   p.attempts = 0;
   p.paced = true;
-  p.publishAfter = new Date(slot).toISOString();
-  nextSlot.set(p.platform, slot + gapMs);
-  console.log(`  • ${p.publishAfter.slice(0, 16).replace("T", " ")}Z  ${p.platform}${p.type === "reel" ? " (reel)" : ""}  ${p.id} — "${p.headline}"`);
+  p.publishStartedAt = "";
+  p.publishAfter = new Date(morningOn(i)).toISOString();
+  dayIndex.set(b, i + 1);
+  console.log(`  • ${p.publishAfter.slice(0, 16).replace("T", " ")}Z  ${bucket(p).padEnd(15)} ${p.id} — "${p.headline}"`);
 }
 
-console.log(`[backlog] staged ${staged.length} post(s), min ${gapHours}h between posts on the same platform`);
+const days = Math.max(0, ...dayIndex.values());
+console.log(`[backlog] staged ${staged.length} post(s) — ${perBucket}/bucket/day from ${dailyHour}:00 UTC, clearing in ~${days} day(s)`);
 
 if (dryRun) {
   console.log("[backlog] dry run — state not written");

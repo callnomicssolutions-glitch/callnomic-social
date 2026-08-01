@@ -1,6 +1,7 @@
 // Persistent state, committed back to the repo by the GitHub Action.
 // This is how the engine "remembers" across cron runs with no database.
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, unlinkSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -78,4 +79,30 @@ export function pruneImages(state, keep = 24, keepVideos = 6) {
 
 export function shortId() {
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+}
+
+// Commit and push state/ right now, mid-run, instead of waiting for the workflow's
+// final step. Publishing is not undoable: if a run posts to Instagram and then loses
+// its state (rejected push, cancelled job, crashed runner), the next run sees the post
+// as still-approved and posts it AGAIN. That is exactly how the same Reel went out
+// three times. So the record of "about to publish" / "published" has to be durable
+// before and after the irreversible part, not only at the end of the job.
+// Returns true only if the push actually landed.
+export function commitState(message) {
+  if (process.env.GITHUB_ACTIONS !== "true") return true; // local runs: nothing to push to
+  const ref = process.env.GITHUB_REF_NAME || "main";
+  try {
+    execFileSync("git", ["config", "user.name", "callnomic-bot"], { cwd: ROOT });
+    execFileSync("git", ["config", "user.email", "bot@callnomicsolutions.com"], { cwd: ROOT });
+    execFileSync("git", ["add", "state/"], { cwd: ROOT });
+    const staged = execFileSync("git", ["diff", "--cached", "--name-only"], { cwd: ROOT, encoding: "utf8" });
+    if (!staged.trim()) return true; // nothing changed — already durable
+    execFileSync("git", ["commit", "-m", `${message} [skip ci]`], { cwd: ROOT });
+    // Detached HEAD is normal after actions/checkout, so always name the target ref.
+    execFileSync("git", ["push", "origin", `HEAD:${ref}`], { cwd: ROOT, stdio: "pipe" });
+    return true;
+  } catch (e) {
+    console.warn(`[state] could not push state (${message}):`, String(e.stderr || e.message).slice(0, 300));
+    return false;
+  }
 }

@@ -41,8 +41,9 @@
       "error": "container 400: {\"message\":\"User access is restricted\",\"type\":\"OAuthException\",\"code\":25,\"error_subcode\":2207050,\"is_transient\":false,\"error_user_title\":\"User is restricted\",\"error_user_msg\":\"The Instagram account is",
       "remindedAt": "2026-08-01T13:45:57.996Z",
       "attempts": 0,
-      "publishAfter": "2026-08-02T21:20:03.821Z",
-      "paced": true
+      "publishAfter": "2026-08-04T05:05:00.000Z",
+      "paced": true,
+      "publishStartedAt": ""
     },
     {
       "id": "ms9kxsajoaks",
@@ -92,8 +93,9 @@
       "error": "container 400: {\"message\":\"User access is restricted\",\"type\":\"OAuthException\",\"code\":25,\"error_subcode\":2207050,\"is_transient\":false,\"error_user_title\":\"User is restricted\",\"error_user_msg\":\"The Instagram account is",
       "remindedAt": "2026-08-01T17:44:13.280Z",
       "attempts": 0,
-      "publishAfter": "2026-08-02T18:20:03.821Z",
-      "paced": true
+      "publishAfter": "2026-08-07T05:05:00.000Z",
+      "paced": true,
+      "publishStartedAt": ""
     },
     {
       "id": "ms79v5h9yiv1",
@@ -124,7 +126,8 @@
       "remindedAt": "2026-07-31T15:27:48.302Z",
       "attempts": 0,
       "paced": true,
-      "publishAfter": "2026-08-02T15:20:03.821Z"
+      "publishAfter": "2026-08-06T05:05:00.000Z",
+      "publishStartedAt": ""
     },
     {
       "id": "ms5r8j3foboz",
@@ -141,7 +144,8 @@
       "remindedAt": "2026-07-31T01:52:16.993Z",
       "attempts": 0,
       "paced": true,
-      "publishAfter": "2026-08-02T06:11:22.989Z"
+      "publishAfter": "2026-08-05T05:05:00.000Z",
+      "publishStartedAt": ""
     },
     {
       "id": "ms55uyf10yro",
@@ -159,7 +163,8 @@
       "remindedAt": "2026-07-30T17:53:32.061Z",
       "attempts": 0,
       "paced": true,
-      "publishAfter": "2026-08-02T12:20:03.821Z"
+      "publishAfter": "2026-08-03T05:05:00.000Z",
+      "publishStartedAt": ""
     },
     {
       "id": "ms4wvd6efnuq",
@@ -176,7 +181,8 @@
       "remindedAt": "2026-07-30T10:54:48.843Z",
       "attempts": 0,
       "paced": true,
-      "publishAfter": "2026-08-02T09:20:03.821Z"
+      "publishAfter": "2026-08-05T05:05:00.000Z",
+      "publishStartedAt": ""
     },
     {
       "id": "ms45ekpvojh1",
@@ -193,7 +199,8 @@
       "remindedAt": "2026-07-30T03:30:37.193Z",
       "attempts": 0,
       "paced": true,
-      "publishAfter": "2026-08-02T03:11:22.989Z"
+      "publishAfter": "2026-08-04T05:05:00.000Z",
+      "publishStartedAt": ""
     },
     {
       "id": "ms3c6o1f0v5p",
@@ -210,7 +217,8 @@
       "remindedAt": "2026-07-29T12:11:52.802Z",
       "attempts": 0,
       "paced": true,
-      "publishAfter": "2026-08-02T06:20:03.821Z"
+      "publishAfter": "2026-08-04T05:05:00.000Z",
+      "publishStartedAt": ""
     },
     {
       "id": "ms2jhwo2kckz",
@@ -227,7 +235,8 @@
       "remindedAt": "2026-07-28T20:08:29.392Z",
       "attempts": 0,
       "paced": true,
-      "publishAfter": "2026-08-02T00:11:22.989Z"
+      "publishAfter": "2026-08-03T05:05:00.000Z",
+      "publishStartedAt": ""
     },
     {
       "id": "ms1zyo2tg8p0",
@@ -290,7 +299,8 @@
       "remindedAt": "2026-07-28T07:06:13.146Z",
       "attempts": 0,
       "paced": true,
-      "publishAfter": "2026-08-02T03:20:03.821Z"
+      "publishAfter": "2026-08-03T05:05:00.000Z",
+      "publishStartedAt": ""
     },
     {
       "id": "ms10jwewpqns",
@@ -383,7 +393,8 @@
       "remindedAt": "2026-07-25T17:37:32.403Z",
       "attempts": 0,
       "paced": true,
-      "publishAfter": "2026-08-01T21:11:22.989Z"
+      "publishAfter": "2026-08-02T05:05:00.000Z",
+      "publishStartedAt": ""
     },
     {
       "id": "mrwqekf2a8lg",
@@ -400,7 +411,8 @@
       "remindedAt": "2026-07-24T17:52:32.231Z",
       "attempts": 0,
       "paced": true,
-      "publishAfter": "2026-08-02T00:20:03.821Z"
+      "publishAfter": "2026-08-02T05:05:00.000Z",
+      "publishStartedAt": ""
     },
     {
       "id": "mrw06bs3i1wc",
@@ -446,7 +458,8 @@
       "remindedAt": "2026-07-23T11:35:14.630Z",
       "attempts": 0,
       "paced": true,
-      "publishAfter": "2026-08-01T21:20:03.821Z"
+      "publishAfter": "2026-08-02T05:05:00.000Z",
+      "publishStartedAt": ""
     },
     {
       "id": "mrugq29nfc6g",

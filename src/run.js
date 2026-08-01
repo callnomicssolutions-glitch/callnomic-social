@@ -6,7 +6,7 @@
 // All state is persisted to state/queue.json (+ images), committed by the workflow.
 import { existsSync } from "node:fs";
 import { CONFIG } from "./config.js";
-import { loadState, saveState, pruneImages, shortId, imagePath } from "./state.js";
+import { loadState, saveState, commitState, pruneImages, shortId, imagePath } from "./state.js";
 import { pickFromLibrary, generateFresh, composeCaption, pickReelScript, composeReelCaption } from "./generate.js";
 import { REELS } from "../content/reels.js";
 import { renderToFile } from "./image.js";
@@ -39,18 +39,46 @@ const MAX_PER_PLATFORM_PER_RUN = Number(process.env.MAX_PER_PLATFORM_PER_RUN || 
 // than only the scheduled slot, so a backlog that came due while a platform was blocked
 // still goes out spread apart instead of all at once the moment the block lifts.
 // Approvals you tap yourself are never delayed by this.
-const MIN_GAP_H = Number(process.env.MIN_GAP_HOURS || 3);
+const MIN_GAP_H = Number(process.env.MIN_GAP_HOURS || 1);
 const WATCH_MINUTES = Number(process.env.WATCH_MINUTES || 0);
+// Daily morning publishing. Queued (paced) content goes out in one morning window
+// rather than round the clock: default 05:00–09:00 UTC = 09:00–13:00 Gulf time, wide
+// enough that GitHub's cron throttling can't make the engine miss the day entirely.
+// Each bucket — LinkedIn, Instagram feed, Instagram Reels — gets DAILY_PER_BUCKET
+// slots per day, so a normal morning is one LinkedIn post, one Instagram post and
+// one Reel. Nothing you approve by hand is affected; this only paces the queue.
+// An unset repo variable arrives as "" from the workflow, and Number("") is 0 — which
+// would silently move the morning window to midnight. Fall back on empty, not just null.
+const numEnv = (v, fallback) => (v === undefined || v === null || v === "" ? fallback : Number(v));
+const DAILY_HOUR_UTC = numEnv(process.env.DAILY_HOUR_UTC, 5);
+const DAILY_WINDOW_H = Number(process.env.DAILY_WINDOW_HOURS || 4);
+const DAILY_PER_BUCKET = Number(process.env.DAILY_PER_BUCKET || 1);
 const forceDraft = process.argv.includes("--draft-only") || process.env.FORCE_DRAFT === "1";
 const forceReel = process.argv.includes("--reel-only") || process.env.FORCE_REEL === "1";
 
 // Statuses a post can be brought back from. Expired/skipped drafts still hold their
 // headline + caption, so a late tap on the Telegram message should still work.
-const REVIVABLE = new Set(["pending", "expired", "skipped", "failed"]);
+const REVIVABLE = new Set(["pending", "expired", "skipped", "failed", "publishing"]);
 
 function now() { return new Date().toISOString(); }
 function hoursSince(iso) { return iso ? (Date.now() - new Date(iso).getTime()) / 3.6e6 : Infinity; }
 function label(post) { return post.type === "reel" ? "Instagram Reel" : post.platform; }
+
+// Reels are their own bucket: a Reel and a feed post on the same morning is a normal
+// day's output, two feed posts is not.
+function bucket(post) { return post.type === "reel" ? "instagram-reel" : post.platform; }
+
+function inMorningWindow(d = new Date()) {
+  const h = d.getUTCHours();
+  return h >= DAILY_HOUR_UTC && h < DAILY_HOUR_UTC + DAILY_WINDOW_H;
+}
+
+function publishedTodayIn(state, b) {
+  const today = new Date().toISOString().slice(0, 10);
+  return state.posts.filter(
+    (p) => p.status === "posted" && (p.postedAt || "").slice(0, 10) === today && bucket(p) === b,
+  ).length;
+}
 
 // When something last actually went live on a platform, "" if never.
 function lastPostedAt(state, platform) {
@@ -110,7 +138,23 @@ async function doPublish(state, post) {
     return;
   }
 
+  // Claim the post BEFORE the irreversible part, and make that claim durable. If the
+  // push fails we do not publish at all: a missed post is recoverable, a duplicate on
+  // a live account is not.
   post.attempts = (post.attempts || 0) + 1;
+  post.status = "publishing";
+  post.publishStartedAt = now();
+  saveState(state);
+  if (!commitState(`social: publishing ${post.id}`)) {
+    post.status = "approved";
+    post.attempts -= 1;
+    post.publishStartedAt = "";
+    post.publishAfter = new Date(Date.now() + 15 * 60_000).toISOString();
+    saveState(state);
+    console.log(`[run] could not record intent for ${post.id} — not publishing, will retry`);
+    return;
+  }
+
   const res = await publish(post);
   if (res.ok) {
     post.status = "posted";
@@ -118,9 +162,31 @@ async function doPublish(state, post) {
     post.url = res.url || "";
     post.error = "";
     post.awaitingCdn = "";
+    post.publishStartedAt = "";
+    // Record the publish immediately. Everything after this point (Telegram messages,
+    // later posts in the same run, the workflow's own commit step) can fail without
+    // putting this post back in the queue.
+    saveState(state);
+    commitState(`social: posted ${post.id}`);
     if (telegramReady()) {
       if (post.telegramMessageId) await markDecision(post.telegramMessageId, "✅ Posted");
       await sendMessage(`✅ Posted to <b>${label(post)}</b>\n${post.url || ""}`);
+    }
+  } else if (res.ambiguous) {
+    // The call failed in a way that doesn't tell us whether the platform accepted it.
+    // Leave it claimed rather than guessing: an unpublished post you can release with
+    // /retry beats a second copy on the account that nobody can take back.
+    post.error = `${res.error} — unclear whether it went out; left on hold`;
+    saveState(state);
+    commitState(`social: uncertain publish ${post.id}`);
+    console.log(`[run] ambiguous failure for ${post.id}, holding: ${res.error}`);
+    if (telegramReady()) {
+      await sendMessage(
+        `❓ <b>${label(post)}</b> — the upload failed in a way that doesn't say whether it went out.\n\n` +
+        `<code>${escapeish(res.error)}</code>\n\n` +
+        `It's on hold so it can't post twice. Check the account: if it's <b>not</b> there, send ` +
+        `<code>/retry</code>. If it is, send <code>/skip ${post.id}</code>.`,
+      );
     }
   } else if (res.retryable === false) {
     // The platform is refusing for a reason retrying can't change — an expired token,
@@ -130,8 +196,10 @@ async function doPublish(state, post) {
     post.attempts -= 1;
     post.error = res.error;
     post.status = "approved";
+    post.publishStartedAt = "";
     post.publishAfter = new Date(Date.now() + BLOCKED_RETRY_H * 3600_000).toISOString();
     saveState(state);
+    commitState(`social: parked ${post.id}`);
     console.log(`[run] ${post.platform} is blocking publication, parked ${post.id}: ${res.error}`);
     if (telegramReady() && hoursSince(state.blockedNotifiedAt) >= BLOCKED_NOTIFY_H) {
       state.blockedNotifiedAt = now();
@@ -150,16 +218,19 @@ async function doPublish(state, post) {
       // Keep it queued: most failures here are transient (media still processing on
       // Instagram's side, a blip on LinkedIn). Give it a few minutes and try again.
       post.status = "approved";
+      post.publishStartedAt = "";
       post.publishAfter = new Date(Date.now() + 10 * 60_000).toISOString();
       console.log(`[run] publish failed for ${post.id} (${retriesLeft} retries left): ${res.error}`);
     } else {
       post.status = "failed";
+      post.publishStartedAt = "";
       if (telegramReady()) {
         await sendMessage(`⚠️ Failed to post to <b>${label(post)}</b> after ${post.attempts} tries\n${res.error}`);
       }
     }
   }
   saveState(state);
+  commitState(`social: state after ${post.id}`);
 }
 
 // Publish everything approved whose hold time has passed and whose media is already
@@ -177,6 +248,10 @@ async function publishApproved(state) {
       p.awaitingCdn !== thisRun &&
       (!p.publishAfter || new Date(p.publishAfter).getTime() <= Date.now()),
   );
+  // Oldest slot first, so a backlog drains in the order it was written rather than
+  // newest-first (state.posts is newest-first).
+  due.sort((a, b) => String(a.publishAfter || a.createdAt).localeCompare(String(b.publishAfter || b.createdAt)));
+
   let done = 0;
   for (const p of due) {
     const sent = publishedThisRun.get(p.platform) || 0;
@@ -185,6 +260,15 @@ async function publishApproved(state) {
       continue;
     }
     if (p.paced) {
+      if (!inMorningWindow()) {
+        console.log(`[run] holding ${p.id}: outside the ${DAILY_HOUR_UTC}:00–${DAILY_HOUR_UTC + DAILY_WINDOW_H}:00 UTC publishing window`);
+        continue;
+      }
+      const todayCount = publishedTodayIn(state, bucket(p));
+      if (todayCount >= DAILY_PER_BUCKET) {
+        console.log(`[run] holding ${p.id}: already published ${todayCount} ${bucket(p)} today`);
+        continue;
+      }
       const gap = hoursSince(lastPostedAt(state, p.platform));
       if (gap < MIN_GAP_H) {
         console.log(`[run] holding ${p.id}: last ${p.platform} post was ${gap.toFixed(1)}h ago (min ${MIN_GAP_H}h)`);
@@ -303,6 +387,7 @@ async function makeReelDraft(state) {
 async function approveAndPublish(state, post) {
   post.status = "approved";
   post.publishAfter = "";
+  post.publishStartedAt = "";
   post.attempts = 0;
   saveState(state);
   await doPublish(state, post);
@@ -321,7 +406,7 @@ const HELP = [
 ].join("\n");
 
 function statusText(state) {
-  const live = state.posts.filter((p) => ["pending", "approved", "failed"].includes(p.status));
+  const live = state.posts.filter((p) => ["pending", "approved", "publishing", "failed"].includes(p.status));
   if (!live.length) return "Nothing waiting. Next draft comes on schedule.";
   const lines = live.map((p) => {
     const age = Math.round(hoursSince(p.createdAt));
@@ -365,9 +450,11 @@ async function handleCommand(state, text) {
     saveState(state);
     await sendMessage("❌ Skipped.");
   } else if (cmd === "/retry") {
-    const failed = state.posts.filter((p) => p.status === "failed");
-    if (!failed.length) return void (await sendMessage("Nothing failed."));
-    for (const p of failed) await approveAndPublish(state, p);
+    // "publishing" means a run claimed it and we never learned the outcome. Only you
+    // can confirm it isn't on the account, so /retry is the deliberate release.
+    const stuck = state.posts.filter((p) => p.status === "failed" || p.status === "publishing");
+    if (!stuck.length) return void (await sendMessage("Nothing failed or on hold."));
+    for (const p of stuck) await approveAndPublish(state, p);
   } else if (cmd.startsWith("/")) {
     await sendMessage(`Unknown command.\n\n${HELP}`);
   }

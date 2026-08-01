@@ -118,7 +118,9 @@ export async function postToInstagram(post) {
     const url = await fetchPermalink(pubJson.id, token, `https://www.instagram.com/p/${pubJson.id}`);
     return { ok: true, url };
   } catch (e) {
-    return { ok: false, error: e.message };
+    // The request itself blew up, so we cannot know whether the platform accepted it.
+    // Flagged ambiguous: the engine holds the post rather than risking a duplicate.
+    return { ok: false, error: e.message, ambiguous: true };
   }
 }
 
@@ -165,6 +167,8 @@ export async function postReelToInstagram(post) {
     const url = await fetchPermalink(pubJson.id, token, `https://www.instagram.com/reel/${pubJson.id}`);
     return { ok: true, url };
   } catch (e) {
-    return { ok: false, error: e.message };
+    // The request itself blew up, so we cannot know whether the platform accepted it.
+    // Flagged ambiguous: the engine holds the post rather than risking a duplicate.
+    return { ok: false, error: e.message, ambiguous: true };
   }
 }

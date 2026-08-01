@@ -118,6 +118,33 @@ Send these to the bot in the same chat:
 | `/retry` | retry anything that failed |
 | `/help` | the list above |
 
+### Daily morning publishing
+Queued content goes out in **one morning window**, not round the clock:
+
+| Repo variable | Default | Meaning |
+|---|---|---|
+| `DAILY_HOUR_UTC` | `5` | window opens (05:00 UTC = 09:00 Gulf time) |
+| `DAILY_WINDOW_HOURS` | `4` | how long it stays open |
+| `DAILY_PER_BUCKET` | `1` | posts per bucket per day |
+
+Buckets are **LinkedIn**, **Instagram feed** and **Instagram Reels** — so a normal
+morning is one LinkedIn post, one Instagram post and one Reel, roughly an hour apart
+(`MIN_GAP_HOURS`). Dedicated hourly crons cover the window so GitHub's throttling of the
+`*/5` schedule can't make it miss a day.
+
+This paces the **queue** only. Anything you approve by tapping ✅ publishes immediately.
+
+### Never posts the same thing twice
+Publishing is not undoable, so the engine records its intent **before** it publishes and
+pushes that record straight away. If a run publishes and then loses its state — a
+rejected push, a cancelled job, a dead runner — the next run still sees the post as
+handled and leaves it alone. Two safeguards follow from this:
+- If the intent can't be recorded, **the post is not published** and is retried later.
+  A missed post is recoverable; a duplicate on a live account isn't.
+- If an upload fails in a way that doesn't say whether it landed (a network error rather
+  than an API rejection), the post is held in `publishing` and Telegram asks you to
+  check. `/retry` releases it, `/skip <id>` drops it.
+
 ### Recovering a backlog
 If drafts piled up unanswered, Actions → **Callnomic Social → Run workflow** and set
 **backlog**:

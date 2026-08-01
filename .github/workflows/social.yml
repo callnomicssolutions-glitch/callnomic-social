@@ -8,6 +8,13 @@ name: Callnomic Social
 on:
   schedule:
     - cron: "*/5 * * * *" # every 5 minutes (UTC) — GitHub's minimum cron interval. May still be delayed under load.
+    # The daily publishing run. GitHub throttles a */5 cron down to roughly one run an
+    # hour, so the morning window can't rely on it alone; a once-a-day cron is far less
+    # likely to be dropped. 05:00–08:00 UTC = 09:00–12:00 Gulf time.
+    - cron: "0 5 * * *"
+    - cron: "0 6 * * *"
+    - cron: "0 7 * * *"
+    - cron: "0 8 * * *"
   workflow_dispatch:
     inputs:
       force_draft:
@@ -108,6 +115,11 @@ jobs:
           MAX_PENDING: ${{ vars.MAX_PENDING }}
           MIN_GAP_HOURS: ${{ vars.MIN_GAP_HOURS }}
           MAX_PER_PLATFORM_PER_RUN: ${{ vars.MAX_PER_PLATFORM_PER_RUN }}
+          # Daily morning publishing window (UTC) and how many of each content type
+          # go out per day. Defaults: 05:00–09:00 UTC, 1 LinkedIn + 1 Instagram + 1 Reel.
+          DAILY_HOUR_UTC: ${{ vars.DAILY_HOUR_UTC }}
+          DAILY_WINDOW_HOURS: ${{ vars.DAILY_WINDOW_HOURS }}
+          DAILY_PER_BUCKET: ${{ vars.DAILY_PER_BUCKET }}
           FORCE_DRAFT: ${{ inputs.force_draft && '1' || '' }}
           REMIND_AFTER_HOURS: ${{ vars.REMIND_AFTER_HOURS }}
           REMIND_REPEAT_HOURS: ${{ vars.REMIND_REPEAT_HOURS }}

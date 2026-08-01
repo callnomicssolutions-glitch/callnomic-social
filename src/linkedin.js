@@ -87,6 +87,8 @@ export async function postToLinkedIn(post) {
     const url = postId ? `https://www.linkedin.com/feed/update/${postId}` : "https://www.linkedin.com/company";
     return { ok: true, url };
   } catch (e) {
-    return { ok: false, error: e.message };
+    // The request itself blew up, so we cannot know whether the platform accepted it.
+    // Flagged ambiguous: the engine holds the post rather than risking a duplicate.
+    return { ok: false, error: e.message, ambiguous: true };
   }
 }
