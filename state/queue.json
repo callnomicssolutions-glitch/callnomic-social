@@ -399,16 +399,18 @@
       "headline": "See your AI employee in action.",
       "caption": "Curious what an AI agent would sound like handling YOUR customers?\n\nWe'll show you a live demo built around your business — chat, calls, bookings — so you can judge it for real, not on a slide.\n\nDM us \"demo\" or visit callnomicsolutions.com.\n\n#AIagent #bookademo #GCCbusiness #Callnomic",
       "imageFile": "mry0tn3we5h7-linkedin.png",
-      "status": "publishing",
+      "status": "posted",
       "createdAt": "2026-07-23T21:26:06.206Z",
       "telegramMessageId": 270,
-      "url": "",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7489567215059361792",
       "error": "",
       "remindedAt": "2026-07-25T17:37:32.403Z",
       "attempts": 1,
       "paced": true,
       "publishAfter": "2026-08-02T05:05:00.000Z",
-      "publishStartedAt": "2026-08-02T06:26:11.419Z"
+      "publishStartedAt": "",
+      "postedAt": "2026-08-02T06:26:13.782Z",
+      "awaitingCdn": ""
     },
     {
       "id": "mrwqekf2a8lg",
