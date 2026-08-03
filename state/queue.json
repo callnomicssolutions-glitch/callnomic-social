@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 25,
+  "rotationIndex": 28,
   "recentPillars": [
-    "myth-bust",
     "behind-the-build",
     "quick-tip",
-    "offer"
+    "offer",
+    "pain-point"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mscjfs3dfc7t",
+      "platform": "instagram",
+      "pillar": "pain-point",
+      "headline": "Ramadan hours. Eid rush. Your inbox doesn't rest.",
+      "caption": "Seasonal peaks are when you make the year — and when your team is most stretched thin.\n\nAn AI agent absorbs the surge: it answers the flood of \"are you open?\" and \"do you deliver for Eid?\" instantly, so no order is lost while everyone's busy.\n\nBusy season should feel like opportunity, not chaos.\n\n🔗 callnomicsolutions.com\n\n#Ramadan #Eid #GCCbusiness #automation #customerservice",
+      "imageFile": "mscjfs3dfc7t-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-08-03T01:15:58.667Z",
+      "telegramMessageId": null,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "msbskrwc1rzn",
       "platform": "linkedin",
@@ -998,8 +1011,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 53,
-  "lastDraftAt": "2026-08-02T12:44:02.045Z",
+  "slotCount": 54,
+  "lastDraftAt": "2026-08-03T01:15:58.667Z",
   "reelRotationIndex": 8,
   "recentReelPillars": [
     "signs-you-need-ai",
