@@ -19,7 +19,8 @@
       "createdAt": "2026-08-03T01:15:58.667Z",
       "telegramMessageId": null,
       "url": "",
-      "error": ""
+      "error": "",
+      "remindedAt": "2026-08-03T04:51:39.475Z"
     },
     {
       "id": "msbskrwc1rzn",
@@ -33,7 +34,7 @@
       "telegramMessageId": 425,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-02T21:39:38.132Z"
+      "remindedAt": "2026-08-03T04:51:39.606Z"
     },
     {
       "id": "msb1mqe59akh",
@@ -47,7 +48,7 @@
       "telegramMessageId": 419,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-02T22:39:18.626Z"
+      "remindedAt": "2026-08-03T04:51:39.727Z"
     },
     {
       "id": "msabj5dt3hno",
@@ -196,16 +197,16 @@
       "headline": "Somewhere in your market, a competitor already replies in seconds.",
       "caption": "Somewhere in your market, a competitor already replies in seconds.\nNot because they work harder.\nBecause an AI agent is doing it for them, around the clock.\nSpeed is quietly becoming the deciding factor in who wins the customer.\nThe businesses adopting AI first aren't smarter — they're just earlier.\n\n🔗 callnomicsolutions.com\n\n#AIforbusiness #GCCbusiness #competition",
       "imageFile": "ms55uyf10yro-instagram-reel.mp4",
-      "status": "approved",
+      "status": "publishing",
       "createdAt": "2026-07-28T21:21:33.506Z",
       "telegramMessageId": 349,
       "url": "",
       "error": "",
       "remindedAt": "2026-07-30T17:53:32.061Z",
-      "attempts": 0,
+      "attempts": 1,
       "paced": true,
       "publishAfter": "2026-08-03T05:05:00.000Z",
-      "publishStartedAt": ""
+      "publishStartedAt": "2026-08-03T05:05:08.929Z"
     },
     {
       "id": "ms4wvd6efnuq",
