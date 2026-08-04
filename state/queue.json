@@ -19,7 +19,8 @@
       "createdAt": "2026-08-04T04:29:43.020Z",
       "telegramMessageId": 449,
       "url": "",
-      "error": ""
+      "error": "",
+      "remindedAt": "2026-08-04T07:17:07.095Z"
     },
     {
       "id": "msdaz5lkjtrz",
@@ -33,7 +34,7 @@
       "telegramMessageId": 440,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-03T23:43:39.748Z"
+      "remindedAt": "2026-08-04T07:17:07.263Z"
     },
     {
       "id": "mscjfs3dfc7t",
@@ -47,7 +48,7 @@
       "telegramMessageId": null,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-04T01:08:42.763Z"
+      "remindedAt": "2026-08-04T07:17:07.404Z"
     },
     {
       "id": "msbskrwc1rzn",
@@ -61,7 +62,7 @@
       "telegramMessageId": 425,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-04T01:08:42.880Z"
+      "remindedAt": "2026-08-04T07:17:07.522Z"
     },
     {
       "id": "msb1mqe59akh",
@@ -75,7 +76,7 @@
       "telegramMessageId": 419,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-04T01:08:42.997Z"
+      "remindedAt": "2026-08-04T07:17:07.637Z"
     },
     {
       "id": "msabj5dt3hno",
@@ -103,16 +104,16 @@
       "headline": "\"Customers won't want to talk to AI.\"",
       "caption": "\"Customers won't want to talk to AI.\"\nMost customers don't care WHO answers.\nThey care that someone answers now, in their language, correctly.\nA slow human reply loses to a fast, accurate AI reply — every time.\nSpeed and accuracy win. Not who's on the other end.\n\n🔗 callnomicsolutions.com\n\n#AImyths #customerexperience #GCCbusiness",
       "imageFile": "msa970z7jpyd-instagram-reel.mp4",
-      "status": "approved",
+      "status": "publishing",
       "createdAt": "2026-08-01T10:53:46.363Z",
       "telegramMessageId": 407,
       "url": "",
       "error": "container 400: {\"message\":\"User access is restricted\",\"type\":\"OAuthException\",\"code\":25,\"error_subcode\":2207050,\"is_transient\":false,\"error_user_title\":\"User is restricted\",\"error_user_msg\":\"The Instagram account is",
       "remindedAt": "2026-08-01T13:45:57.996Z",
-      "attempts": 0,
+      "attempts": 1,
       "publishAfter": "2026-08-04T05:05:00.000Z",
       "paced": true,
-      "publishStartedAt": ""
+      "publishStartedAt": "2026-08-04T07:17:07.646Z"
     },
     {
       "id": "ms9kxsajoaks",
