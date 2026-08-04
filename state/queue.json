@@ -9,6 +9,20 @@
   "telegramOffset": 206298156,
   "posts": [
     {
+      "id": "msfarxmuot2a",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "cost-of-inaction",
+      "headline": "Hiring is slow. Customer demand isn't.",
+      "caption": "Hiring is slow. Customer demand isn't.\nEvery growing business hits the same wall:\nyou need more hands before you can afford more salaries.\nThat gap is exactly where leads go cold.\nAn AI employee covers the front-desk work from day one — no notice period, no sick days.\n\n🔗 callnomicsolutions.com\n\n#hiring #AIemployee #scaling #GCCbusiness",
+      "imageFile": "msfarxmuot2a-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-08-04T23:36:52.385Z",
+      "telegramMessageId": 470,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "msevl1kwykzr",
       "platform": "linkedin",
       "pillar": "myth-bust",
@@ -1068,12 +1082,12 @@
   ],
   "slotCount": 57,
   "lastDraftAt": "2026-08-04T16:31:31.978Z",
-  "reelRotationIndex": 8,
+  "reelRotationIndex": 9,
   "recentReelPillars": [
-    "signs-you-need-ai",
     "how-it-works",
     "competitor-fear",
-    "myth-bust"
+    "myth-bust",
+    "cost-of-inaction"
   ],
-  "lastReelAt": "2026-08-01T10:53:46.363Z"
+  "lastReelAt": "2026-08-04T23:36:52.385Z"
 }
