@@ -237,16 +237,18 @@
       "headline": "\"Setting this up will take my team months.\"",
       "caption": "Not with us. Callnomics is done-for-you.\n\nWe build it, deploy it and run it. Your only job: tweak the greeting and upload what you already know about your business.\n\nNo dev team. No integrations to babysit. No system for your staff to maintain.\n\ncallnomicsolutions.com\n\n#doneforyou #AIforbusiness #smallbusiness #GCC #Callnomic",
       "imageFile": "ms5r8j3foboz-linkedin.png",
-      "status": "publishing",
+      "status": "posted",
       "createdAt": "2026-07-29T07:19:54.092Z",
       "telegramMessageId": 355,
-      "url": "",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7490665072743346176",
       "error": "",
       "remindedAt": "2026-07-31T01:52:16.993Z",
       "attempts": 1,
       "paced": true,
       "publishAfter": "2026-08-05T05:05:00.000Z",
-      "publishStartedAt": "2026-08-05T07:08:41.316Z"
+      "publishStartedAt": "",
+      "postedAt": "2026-08-05T07:08:43.517Z",
+      "awaitingCdn": ""
     },
     {
       "id": "ms55uyf10yro",
