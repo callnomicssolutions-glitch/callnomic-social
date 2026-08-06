@@ -21,7 +21,7 @@
       "telegramMessageId": 470,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-05T23:39:54.343Z"
+      "remindedAt": "2026-08-06T07:16:52.084Z"
     },
     {
       "id": "msevl1kwykzr",
@@ -35,7 +35,7 @@
       "telegramMessageId": 463,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-05T23:39:54.533Z"
+      "remindedAt": "2026-08-06T07:16:52.238Z"
     },
     {
       "id": "mse5ss60wapd",
@@ -49,7 +49,7 @@
       "telegramMessageId": 449,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-05T23:39:54.707Z"
+      "remindedAt": "2026-08-06T07:16:52.398Z"
     },
     {
       "id": "msdaz5lkjtrz",
@@ -63,7 +63,7 @@
       "telegramMessageId": 440,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-05T23:39:54.897Z"
+      "remindedAt": "2026-08-06T07:16:52.556Z"
     },
     {
       "id": "mscjfs3dfc7t",
@@ -77,7 +77,7 @@
       "telegramMessageId": null,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-05T23:39:55.078Z"
+      "remindedAt": "2026-08-06T07:16:52.715Z"
     },
     {
       "id": "msbskrwc1rzn",
@@ -91,7 +91,7 @@
       "telegramMessageId": 425,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-05T23:39:55.284Z"
+      "remindedAt": "2026-08-06T07:16:52.871Z"
     },
     {
       "id": "msb1mqe59akh",
@@ -105,7 +105,7 @@
       "telegramMessageId": 419,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-05T23:39:55.462Z"
+      "remindedAt": "2026-08-06T07:16:53.025Z"
     },
     {
       "id": "msabj5dt3hno",
@@ -219,16 +219,16 @@
       "headline": "See your own AI concierge, live.",
       "caption": "It's easier to believe when you talk to it.\n\nWe'll set up a working AI concierge on your catalogue and let you message it yourself — before you commit to anything.\n\nBook a walkthrough: callnomicsolutions.com\n\n🔗 callnomicsolutions.com\n\n#demo #AIconcierge #GCCbusiness #Callnomic #conversationalAI",
       "imageFile": "ms6ia4nd040s-instagram.png",
-      "status": "approved",
+      "status": "publishing",
       "createdAt": "2026-07-29T19:56:58.333Z",
       "telegramMessageId": 364,
       "url": "",
       "error": "",
       "remindedAt": "2026-07-31T15:27:48.302Z",
-      "attempts": 0,
+      "attempts": 1,
       "paced": true,
       "publishAfter": "2026-08-06T05:05:00.000Z",
-      "publishStartedAt": ""
+      "publishStartedAt": "2026-08-06T07:16:53.026Z"
     },
     {
       "id": "ms5r8j3foboz",
