@@ -9,6 +9,20 @@
   "telegramOffset": 206298156,
   "posts": [
     {
+      "id": "mskb7578xpxz",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "quick-tip",
+      "headline": "One question to ask before you lose another lead:",
+      "caption": "One question to ask before you lose another lead:\n\"What happens to a message that comes in at 11 PM?\"\nIf the honest answer is \"it waits until morning\" —\nthat's a gap your competitor's AI agent doesn't have.\nClose that gap. Every hour it's open, someone else is answering your customer.\n\n🔗 callnomicsolutions.com\n\n#businesstips #AIforbusiness #GCCbusiness",
+      "imageFile": "mskb7578xpxz-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-08-08T11:47:32.941Z",
+      "telegramMessageId": 566,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "msfarxmuot2a",
       "type": "reel",
       "platform": "instagram",
@@ -1091,12 +1105,12 @@
   ],
   "slotCount": 57,
   "lastDraftAt": "2026-08-04T16:31:31.978Z",
-  "reelRotationIndex": 9,
+  "reelRotationIndex": 10,
   "recentReelPillars": [
-    "how-it-works",
     "competitor-fear",
     "myth-bust",
-    "cost-of-inaction"
+    "cost-of-inaction",
+    "quick-tip"
   ],
-  "lastReelAt": "2026-08-04T23:36:52.385Z"
+  "lastReelAt": "2026-08-08T11:47:32.941Z"
 }
