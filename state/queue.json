@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 42,
+  "rotationIndex": 45,
   "recentPillars": [
-    "how-it-works",
     "outcome",
     "myth-bust",
-    "behind-the-build"
+    "behind-the-build",
+    "quick-tip"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "msnd9goqfajv",
+      "platform": "linkedin",
+      "pillar": "quick-tip",
+      "headline": "Tip: reply in the language they messaged in.",
+      "caption": "Small thing, big trust: answer Arabic with Arabic, English with English.\n\nSwitching a customer's language mid-conversation is a subtle way to lose them.\n\nA bilingual AI agent gets this right automatically — every time, on every channel.\n\n#customerexperience #Arabic #salestip #GCC",
+      "imageFile": "msnd9goqfajv-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-08-10T15:08:34.175Z",
+      "telegramMessageId": 627,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "msmn74bq83et",
       "platform": "instagram",
@@ -87,7 +100,7 @@
       "headline": "It knows when to call a human.",
       "caption": "The smartest thing an AI agent does isn't answering — it's knowing its limits.\n\nWhen a conversation gets complex, sensitive, or high-value, ours hands it to your team with the full context attached.\n\nAI for the routine. Humans for the moments that matter. That's the whole design.\n\n#AIagent #humanhandoff #customerexperience #GCC",
       "imageFile": "msdaz5lkjtrz-linkedin.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-03T14:06:52.252Z",
       "telegramMessageId": 440,
       "url": "",
@@ -1118,8 +1131,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 58,
-  "lastDraftAt": "2026-08-10T02:58:54.842Z",
+  "slotCount": 59,
+  "lastDraftAt": "2026-08-10T15:08:34.175Z",
   "reelRotationIndex": 10,
   "recentReelPillars": [
     "competitor-fear",
