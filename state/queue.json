@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 39,
+  "rotationIndex": 42,
   "recentPillars": [
-    "pain-point",
     "how-it-works",
     "outcome",
-    "myth-bust"
+    "myth-bust",
+    "behind-the-build"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "msmn74bq83et",
+      "platform": "instagram",
+      "pillar": "behind-the-build",
+      "headline": "We test our agents by trying to break them.",
+      "caption": "Before an agent meets your customers, we throw the worst at it: trick questions, mixed languages, angry messages, nonsense.\n\nIf it stays calm, accurate and helpful under pressure, it ships. If not, it doesn't.\n\nYour customers should only ever meet the version that passed.\n\n🔗 callnomicsolutions.com\n\n#buildinpublic #reliability #AIagent #Callnomic",
+      "imageFile": "msmn74bq83et-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-08-10T02:58:54.842Z",
+      "telegramMessageId": 609,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mskb7578xpxz",
       "type": "reel",
@@ -87,7 +100,7 @@
       "headline": "Ramadan hours. Eid rush. Your inbox doesn't rest.",
       "caption": "Seasonal peaks are when you make the year — and when your team is most stretched thin.\n\nAn AI agent absorbs the surge: it answers the flood of \"are you open?\" and \"do you deliver for Eid?\" instantly, so no order is lost while everyone's busy.\n\nBusy season should feel like opportunity, not chaos.\n\n🔗 callnomicsolutions.com\n\n#Ramadan #Eid #GCCbusiness #automation #customerservice",
       "imageFile": "mscjfs3dfc7t-instagram.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-03T01:15:58.667Z",
       "telegramMessageId": null,
       "url": "",
@@ -1104,8 +1117,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 57,
-  "lastDraftAt": "2026-08-04T16:31:31.978Z",
+  "slotCount": 58,
+  "lastDraftAt": "2026-08-10T02:58:54.842Z",
   "reelRotationIndex": 10,
   "recentReelPillars": [
     "competitor-fear",
