@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 48,
+  "rotationIndex": 52,
   "recentPillars": [
-    "myth-bust",
     "behind-the-build",
     "quick-tip",
-    "offer"
+    "offer",
+    "how-it-works"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "msoy42vmcw0m",
+      "platform": "linkedin",
+      "pillar": "how-it-works",
+      "headline": "One inbox for every channel.",
+      "caption": "WhatsApp. Instagram. Messenger. Your website chat.\n\nMost businesses juggle them in four different apps — and miss messages in all four.\n\nThe Callnomics portal puts every conversation in one place, answered by one AI concierge that knows your business. Your team stops app-switching and starts closing.\n\ncallnomicsolutions.com\n\n#omnichannel #WhatsApp #customerexperience #GCCbusiness #Callnomic",
+      "imageFile": "msoy42vmcw0m-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-08-11T17:40:01.107Z",
+      "telegramMessageId": 654,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mso7pvd7yp9w",
       "platform": "instagram",
@@ -1146,8 +1159,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 60,
-  "lastDraftAt": "2026-08-11T05:21:08.192Z",
+  "slotCount": 61,
+  "lastDraftAt": "2026-08-11T17:40:01.107Z",
   "reelRotationIndex": 10,
   "recentReelPillars": [
     "competitor-fear",
