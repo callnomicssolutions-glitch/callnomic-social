@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 45,
+  "rotationIndex": 48,
   "recentPillars": [
-    "outcome",
     "myth-bust",
     "behind-the-build",
-    "quick-tip"
+    "quick-tip",
+    "offer"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mso7pvd7yp9w",
+      "platform": "instagram",
+      "pillar": "offer",
+      "headline": "We'll build a demo on YOUR business.",
+      "caption": "Not a generic sales call — a working AI agent set up around your actual services, so you can talk to it like your customer would.\n\nJudge it for real. If it's not obviously useful, no hard feelings.\n\nStart here: callnomicsolutions.com\n\n🔗 callnomicsolutions.com\n\n#bookademo #AIagent #GCCbusiness #Callnomic",
+      "imageFile": "mso7pvd7yp9w-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-08-11T05:21:08.192Z",
+      "telegramMessageId": 640,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "msnd9goqfajv",
       "platform": "linkedin",
@@ -87,7 +100,7 @@
       "headline": "A full calendar, not a full inbox.",
       "caption": "The dream isn't fewer messages. It's messages that turn into booked appointments while you focus on the work.\n\nAn AI agent qualifies, answers and books straight into your calendar — so you wake up to a schedule, not a backlog.\n\nLess triage. More business.\n\n🔗 callnomicsolutions.com\n\n#booking #productivity #AIagent #GCC",
       "imageFile": "mse5ss60wapd-instagram.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-04T04:29:43.020Z",
       "telegramMessageId": 449,
       "url": "",
@@ -1132,8 +1145,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 59,
-  "lastDraftAt": "2026-08-10T15:08:34.175Z",
+  "slotCount": 60,
+  "lastDraftAt": "2026-08-11T05:21:08.192Z",
   "reelRotationIndex": 10,
   "recentReelPillars": [
     "competitor-fear",
