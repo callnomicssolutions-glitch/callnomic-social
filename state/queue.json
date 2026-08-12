@@ -9,6 +9,20 @@
   "telegramOffset": 206298156,
   "posts": [
     {
+      "id": "mspbfx5gmcp7",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "how-it-works",
+      "headline": "Here's what actually happens when a lead messages your AI agent.",
+      "caption": "Here's what actually happens when a lead messages your AI agent.\nIt answers instantly, in their language.\nIt asks the right qualifying questions.\nIt books the call or hands a hot lead straight to your team.\nNo manual follow-up. No lead falling through the cracks.\n\n🔗 callnomicsolutions.com\n\n#AIagent #leadgeneration #GCCbusiness #automation",
+      "imageFile": "mspbfx5gmcp7-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-08-11T23:53:13.242Z",
+      "telegramMessageId": 661,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "msoy42vmcw0m",
       "platform": "linkedin",
       "pillar": "how-it-works",
@@ -87,7 +101,7 @@
       "headline": "Hiring is slow. Customer demand isn't.",
       "caption": "Hiring is slow. Customer demand isn't.\nEvery growing business hits the same wall:\nyou need more hands before you can afford more salaries.\nThat gap is exactly where leads go cold.\nAn AI employee covers the front-desk work from day one — no notice period, no sick days.\n\n🔗 callnomicsolutions.com\n\n#hiring #AIemployee #scaling #GCCbusiness",
       "imageFile": "msfarxmuot2a-instagram-reel.mp4",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-04T23:36:52.385Z",
       "telegramMessageId": 470,
       "url": "",
@@ -1162,12 +1176,12 @@
   ],
   "slotCount": 61,
   "lastDraftAt": "2026-08-11T17:40:01.107Z",
-  "reelRotationIndex": 10,
+  "reelRotationIndex": 12,
   "recentReelPillars": [
-    "competitor-fear",
     "myth-bust",
     "cost-of-inaction",
-    "quick-tip"
+    "quick-tip",
+    "how-it-works"
   ],
-  "lastReelAt": "2026-08-08T11:47:32.941Z"
+  "lastReelAt": "2026-08-11T23:53:13.242Z"
 }
