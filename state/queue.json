@@ -20,7 +20,8 @@
       "createdAt": "2026-08-15T12:11:19.332Z",
       "telegramMessageId": 748,
       "url": "",
-      "error": ""
+      "error": "",
+      "remindedAt": "2026-08-15T14:14:52.366Z"
     },
     {
       "id": "msuc4nix06we",
@@ -33,7 +34,8 @@
       "createdAt": "2026-08-15T12:11:13.383Z",
       "telegramMessageId": 747,
       "url": "",
-      "error": ""
+      "error": "",
+      "remindedAt": "2026-08-15T14:14:52.561Z"
     },
     {
       "id": "mspbfx5gmcp7",
