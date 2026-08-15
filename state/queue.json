@@ -1,13 +1,40 @@
 {
-  "rotationIndex": 52,
+  "rotationIndex": 55,
   "recentPillars": [
-    "behind-the-build",
     "quick-tip",
     "offer",
-    "how-it-works"
+    "how-it-works",
+    "outcome"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "msuc4okw4fqs",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "urgency",
+      "headline": "The businesses that win the next 5 years won't be the biggest.",
+      "caption": "The businesses that win the next 5 years won't be the biggest.\nThey'll be the fastest to respond.\nAI is what makes \"instant\" possible without hiring an army.\nThis shift is already happening in the GCC — quietly, business by business.\nThe only question is whether you adopt it now, or after your competitor does.\n\n🔗 callnomicsolutions.com\n\n#futureofbusiness #AIforbusiness #GCCbusiness",
+      "imageFile": "msuc4okw4fqs-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-08-15T12:11:19.332Z",
+      "telegramMessageId": 748,
+      "url": "",
+      "error": ""
+    },
+    {
+      "id": "msuc4nix06we",
+      "platform": "instagram",
+      "pillar": "outcome",
+      "headline": "\"Where's my order?\" — answered instantly.",
+      "caption": "The most common message any store gets. Usually it means a staff member stops what they're doing to go check.\n\nIn the Callnomics portal, the AI reads your live order system and answers in seconds — day or night, in the customer's language.\n\nLess busywork for your team. Calmer customers.\n\ncallnomicsolutions.com\n\n🔗 callnomicsolutions.com\n\n#ecommerce #customersupport #ordertracking #GCCbusiness #Callnomic",
+      "imageFile": "msuc4nix06we-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-08-15T12:11:13.383Z",
+      "telegramMessageId": 747,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mspbfx5gmcp7",
       "type": "reel",
@@ -87,7 +114,7 @@
       "headline": "One question to ask before you lose another lead:",
       "caption": "One question to ask before you lose another lead:\n\"What happens to a message that comes in at 11 PM?\"\nIf the honest answer is \"it waits until morning\" —\nthat's a gap your competitor's AI agent doesn't have.\nClose that gap. Every hour it's open, someone else is answering your customer.\n\n🔗 callnomicsolutions.com\n\n#businesstips #AIforbusiness #GCCbusiness",
       "imageFile": "mskb7578xpxz-instagram-reel.mp4",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-08T11:47:32.941Z",
       "telegramMessageId": 566,
       "url": "",
@@ -1175,14 +1202,14 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 61,
-  "lastDraftAt": "2026-08-11T17:40:01.107Z",
-  "reelRotationIndex": 12,
+  "slotCount": 62,
+  "lastDraftAt": "2026-08-15T12:11:13.383Z",
+  "reelRotationIndex": 14,
   "recentReelPillars": [
-    "myth-bust",
     "cost-of-inaction",
     "quick-tip",
-    "how-it-works"
+    "how-it-works",
+    "urgency"
   ],
-  "lastReelAt": "2026-08-11T23:53:13.242Z"
+  "lastReelAt": "2026-08-15T12:11:19.332Z"
 }
