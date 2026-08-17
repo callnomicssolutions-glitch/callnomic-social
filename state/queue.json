@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 55,
+  "rotationIndex": 58,
   "recentPillars": [
-    "quick-tip",
     "offer",
     "how-it-works",
-    "outcome"
+    "outcome",
+    "myth-bust"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "msxdh6bxkzhr",
+      "platform": "linkedin",
+      "pillar": "myth-bust",
+      "headline": "\"Setting this up will take my team months.\"",
+      "caption": "Not with us. Callnomics is done-for-you.\n\nWe build it, deploy it and run it. Your only job: tweak the greeting and upload what you already know about your business.\n\nNo dev team. No integrations to babysit. No system for your staff to maintain.\n\ncallnomicsolutions.com\n\n#doneforyou #AIforbusiness #smallbusiness #GCC #Callnomic",
+      "imageFile": "msxdh6bxkzhr-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-08-17T15:12:15.747Z",
+      "telegramMessageId": 821,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "msuc4okw4fqs",
       "type": "reel",
@@ -87,7 +100,7 @@
       "headline": "Tip: reply in the language they messaged in.",
       "caption": "Small thing, big trust: answer Arabic with Arabic, English with English.\n\nSwitching a customer's language mid-conversation is a subtle way to lose them.\n\nA bilingual AI agent gets this right automatically — every time, on every channel.\n\n#customerexperience #Arabic #salestip #GCC",
       "imageFile": "msnd9goqfajv-linkedin.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-10T15:08:34.175Z",
       "telegramMessageId": 627,
       "url": "",
@@ -1204,8 +1217,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 62,
-  "lastDraftAt": "2026-08-15T12:11:13.383Z",
+  "slotCount": 63,
+  "lastDraftAt": "2026-08-17T15:12:15.747Z",
   "reelRotationIndex": 14,
   "recentReelPillars": [
     "cost-of-inaction",
