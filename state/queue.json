@@ -9,15 +9,15 @@
   "telegramOffset": 206298156,
   "posts": [
     {
-      "id": "msy8fqbg72bu",
+      "id": "msy96gck2dxr",
       "platform": "instagram",
       "pillar": "offer",
       "headline": "See your own AI concierge, live.",
       "caption": "It's easier to believe when you talk to it.\n\nWe'll set up a working AI concierge on your catalogue and let you message it yourself — before you commit to anything.\n\nBook a walkthrough: callnomicsolutions.com\n\n🔗 callnomicsolutions.com\n\n#demo #AIconcierge #GCCbusiness #Callnomic #conversationalAI",
-      "imageFile": "msy8fqbg72bu-instagram.png",
+      "imageFile": "msy96gck2dxr-instagram.png",
       "status": "pending",
-      "createdAt": "2026-08-18T05:38:56.463Z",
-      "telegramMessageId": 839,
+      "createdAt": "2026-08-18T05:59:43.254Z",
+      "telegramMessageId": 840,
       "url": "",
       "error": ""
     },
@@ -1232,7 +1232,7 @@
     }
   ],
   "slotCount": 64,
-  "lastDraftAt": "2026-08-18T05:38:56.463Z",
+  "lastDraftAt": "2026-08-18T05:59:43.254Z",
   "reelRotationIndex": 14,
   "recentReelPillars": [
     "cost-of-inaction",
