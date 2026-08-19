@@ -9,6 +9,20 @@
   "telegramOffset": 206298156,
   "posts": [
     {
+      "id": "mszfnnwrtdu2",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "signs-you-need-ai",
+      "headline": "If your team dreads checking messages on Monday morning —",
+      "caption": "If your team dreads checking messages on Monday morning —\nthat backlog built up over the weekend.\nEvery one of those messages was a customer waiting.\nSome of them already found someone else by Monday.\nAn AI agent clears that backlog in real time, all weekend, every weekend.\n\n🔗 callnomicsolutions.com\n\n#businesstips #customerexperience #GCCbusiness",
+      "imageFile": "mszfnnwrtdu2-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-08-19T01:48:52.885Z",
+      "telegramMessageId": 866,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "msyz5zyiphcb",
       "platform": "linkedin",
       "pillar": "pain-point",
@@ -48,7 +62,7 @@
       "telegramMessageId": 821,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-18T19:47:17.287Z"
+      "remindedAt": "2026-08-19T01:48:49.959Z"
     },
     {
       "id": "msuc4okw4fqs",
@@ -1248,12 +1262,12 @@
   ],
   "slotCount": 65,
   "lastDraftAt": "2026-08-18T18:07:11.999Z",
-  "reelRotationIndex": 14,
+  "reelRotationIndex": 15,
   "recentReelPillars": [
-    "cost-of-inaction",
     "quick-tip",
     "how-it-works",
-    "urgency"
+    "urgency",
+    "signs-you-need-ai"
   ],
-  "lastReelAt": "2026-08-15T12:11:19.332Z"
+  "lastReelAt": "2026-08-19T01:48:52.885Z"
 }
