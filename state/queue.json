@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 1,
+  "rotationIndex": 6,
   "recentPillars": [
-    "outcome",
     "myth-bust",
     "offer",
-    "pain-point"
+    "pain-point",
+    "how-it-works"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mt4cp7zrj866",
+      "platform": "instagram",
+      "pillar": "how-it-works",
+      "headline": "An AI employee, not just a chatbot.",
+      "caption": "A chatbot follows a script. An AI employee reasons.\n\nOurs reads your live business data, remembers the customer across visits, thinks before it speaks, and knows when to hand a hot lead to a human.\n\nThat's the difference between \"press 1 for sales\" and an assistant that actually helps.\n\n🔗 callnomicsolutions.com\n\n#AIemployee #conversationalAI #customerexperience #GCC",
+      "imageFile": "mt4cp7zrj866-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-08-22T12:24:54.796Z",
+      "telegramMessageId": 964,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mszfnnwrtdu2",
       "type": "reel",
@@ -63,7 +76,7 @@
       "telegramMessageId": 821,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-22T05:54:09.553Z"
+      "remindedAt": "2026-08-22T12:24:54.710Z"
     },
     {
       "id": "msuc4okw4fqs",
@@ -73,7 +86,7 @@
       "headline": "The businesses that win the next 5 years won't be the biggest.",
       "caption": "The businesses that win the next 5 years won't be the biggest.\nThey'll be the fastest to respond.\nAI is what makes \"instant\" possible without hiring an army.\nThis shift is already happening in the GCC — quietly, business by business.\nThe only question is whether you adopt it now, or after your competitor does.\n\n🔗 callnomicsolutions.com\n\n#futureofbusiness #AIforbusiness #GCCbusiness",
       "imageFile": "msuc4okw4fqs-instagram-reel.mp4",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-15T12:11:19.332Z",
       "telegramMessageId": 748,
       "url": "",
@@ -87,7 +100,7 @@
       "headline": "\"Where's my order?\" — answered instantly.",
       "caption": "The most common message any store gets. Usually it means a staff member stops what they're doing to go check.\n\nIn the Callnomics portal, the AI reads your live order system and answers in seconds — day or night, in the customer's language.\n\nLess busywork for your team. Calmer customers.\n\ncallnomicsolutions.com\n\n🔗 callnomicsolutions.com\n\n#ecommerce #customersupport #ordertracking #GCCbusiness #Callnomic",
       "imageFile": "msuc4nix06we-instagram.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-15T12:11:13.383Z",
       "telegramMessageId": 747,
       "url": "",
@@ -1261,8 +1274,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 65,
-  "lastDraftAt": "2026-08-18T18:07:11.999Z",
+  "slotCount": 66,
+  "lastDraftAt": "2026-08-22T12:24:54.796Z",
   "reelRotationIndex": 15,
   "recentReelPillars": [
     "quick-tip",
