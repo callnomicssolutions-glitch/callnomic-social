@@ -9,6 +9,20 @@
   "telegramOffset": 206298156,
   "posts": [
     {
+      "id": "mt4g9922rcxt",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "quick-tip",
+      "headline": "Quick gut-check for business owners:",
+      "caption": "Quick gut-check for business owners:\nCount how many times today you or your team typed the same answer twice.\nOpening hours. Pricing. \"Do you deliver?\"\nThat repetition is exactly what an AI agent should be handling instead.\nFree your team for the conversations that actually need a human.\n\n🔗 callnomicsolutions.com\n\n#productivity #AIforbusiness #GCCbusiness #businesstips",
+      "imageFile": "mt4g9922rcxt-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-08-22T14:04:32.759Z",
+      "telegramMessageId": 965,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "mt4cp7zrj866",
       "platform": "instagram",
       "pillar": "how-it-works",
@@ -1276,12 +1290,12 @@
   ],
   "slotCount": 66,
   "lastDraftAt": "2026-08-22T12:24:54.796Z",
-  "reelRotationIndex": 15,
+  "reelRotationIndex": 16,
   "recentReelPillars": [
-    "quick-tip",
     "how-it-works",
     "urgency",
-    "signs-you-need-ai"
+    "signs-you-need-ai",
+    "quick-tip"
   ],
-  "lastReelAt": "2026-08-19T01:48:52.885Z"
+  "lastReelAt": "2026-08-22T14:04:32.759Z"
 }
