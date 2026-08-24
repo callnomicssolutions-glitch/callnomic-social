@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 6,
+  "rotationIndex": 11,
   "recentPillars": [
-    "myth-bust",
     "offer",
     "pain-point",
-    "how-it-works"
+    "how-it-works",
+    "outcome"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mt7eq110f2ph",
+      "platform": "linkedin",
+      "pillar": "outcome",
+      "headline": "Reply time: hours → seconds.",
+      "caption": "The single biggest lever on conversion isn't a better pitch. It's answering first.\n\nWhen your reply time drops from hours to seconds, more leads stay warm, more calls get booked, more deals close — with the same marketing spend.\n\nYou're not getting more leads. You're finally keeping the ones you have.\n\n#conversion #sales #responsetime #GCC #automation",
+      "imageFile": "mt7eq110f2ph-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-08-24T15:44:50.153Z",
+      "telegramMessageId": 1031,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mt4g9922rcxt",
       "type": "reel",
@@ -87,7 +100,7 @@
       "headline": "\"Setting this up will take my team months.\"",
       "caption": "Not with us. Callnomics is done-for-you.\n\nWe build it, deploy it and run it. Your only job: tweak the greeting and upload what you already know about your business.\n\nNo dev team. No integrations to babysit. No system for your staff to maintain.\n\ncallnomicsolutions.com\n\n#doneforyou #AIforbusiness #smallbusiness #GCC #Callnomic",
       "imageFile": "msxdh6bxkzhr-linkedin.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-17T15:12:15.747Z",
       "telegramMessageId": 821,
       "url": "",
@@ -1295,8 +1308,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 66,
-  "lastDraftAt": "2026-08-22T12:24:54.796Z",
+  "slotCount": 67,
+  "lastDraftAt": "2026-08-24T15:44:50.153Z",
   "reelRotationIndex": 16,
   "recentReelPillars": [
     "how-it-works",
