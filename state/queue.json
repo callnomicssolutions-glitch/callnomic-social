@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 15,
+  "rotationIndex": 19,
   "recentPillars": [
-    "pain-point",
     "how-it-works",
     "outcome",
-    "myth-bust"
+    "myth-bust",
+    "behind-the-build"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mt918f6nx77c",
+      "platform": "linkedin",
+      "pillar": "behind-the-build",
+      "headline": "We build the AI we'd want to hire.",
+      "caption": "Every agent we ship has to pass one test: would we put it in front of our own customers?\n\nThat's why ours think before they speak, remember returning customers, and hand off to a human at the right moment.\n\nWe're not shipping demos. We're shipping employees.\n\n#buildinpublic #AIemployee #Callnomic #GCC",
+      "imageFile": "mt918f6nx77c-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-08-25T19:02:46.051Z",
+      "telegramMessageId": 1061,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mt8b3dhz8yu7",
       "platform": "instagram",
@@ -1323,8 +1336,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 68,
-  "lastDraftAt": "2026-08-25T06:51:00.586Z",
+  "slotCount": 69,
+  "lastDraftAt": "2026-08-25T19:02:46.051Z",
   "reelRotationIndex": 16,
   "recentReelPillars": [
     "how-it-works",
