@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 11,
+  "rotationIndex": 15,
   "recentPillars": [
-    "offer",
     "pain-point",
     "how-it-works",
-    "outcome"
+    "outcome",
+    "myth-bust"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mt8b3dhz8yu7",
+      "platform": "instagram",
+      "pillar": "myth-bust",
+      "headline": "\"AI will sound robotic.\" Not anymore.",
+      "caption": "The old chatbots earned their bad reputation — rigid, scripted, useless past the second question.\n\nModern AI agents hold a real conversation, understand context, and switch languages naturally. Most customers can't tell until you tell them.\n\nJudge today's AI by today's AI, not the 2019 version.\n\n🔗 callnomicsolutions.com\n\n#AImyths #conversationalAI #customerexperience #GCC",
+      "imageFile": "mt8b3dhz8yu7-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-08-25T06:51:00.586Z",
+      "telegramMessageId": 1051,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mt7eq110f2ph",
       "platform": "linkedin",
@@ -20,7 +33,7 @@
       "telegramMessageId": 1031,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-25T00:25:16.457Z"
+      "remindedAt": "2026-08-25T06:51:00.216Z"
     },
     {
       "id": "mt4g9922rcxt",
@@ -49,7 +62,7 @@
       "telegramMessageId": 964,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-25T00:25:16.582Z"
+      "remindedAt": "2026-08-25T06:51:00.354Z"
     },
     {
       "id": "mszfnnwrtdu2",
@@ -78,7 +91,7 @@
       "telegramMessageId": 857,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-25T00:25:16.748Z"
+      "remindedAt": "2026-08-25T06:51:00.502Z"
     },
     {
       "id": "msy96gck2dxr",
@@ -87,7 +100,7 @@
       "headline": "See your own AI concierge, live.",
       "caption": "It's easier to believe when you talk to it.\n\nWe'll set up a working AI concierge on your catalogue and let you message it yourself — before you commit to anything.\n\nBook a walkthrough: callnomicsolutions.com\n\n🔗 callnomicsolutions.com\n\n#demo #AIconcierge #GCCbusiness #Callnomic #conversationalAI",
       "imageFile": "msy96gck2dxr-instagram.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-18T05:59:43.254Z",
       "telegramMessageId": 840,
       "url": "",
@@ -1309,8 +1322,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 67,
-  "lastDraftAt": "2026-08-24T15:44:50.153Z",
+  "slotCount": 68,
+  "lastDraftAt": "2026-08-25T06:51:00.586Z",
   "reelRotationIndex": 16,
   "recentReelPillars": [
     "how-it-works",
