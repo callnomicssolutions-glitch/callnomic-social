@@ -9,6 +9,20 @@
   "telegramOffset": 206298156,
   "posts": [
     {
+      "id": "mt9hgx97sz1o",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "portal-omnichannel",
+      "headline": "You're running your business from 4 different inboxes.",
+      "caption": "You're running your business from 4 different inboxes.\nWhatsApp on one phone. Instagram DMs on another.\nMessenger somewhere. Website chat nobody's watching.\nMessages slip through every crack between them.\nOne portal. Every channel. One AI concierge answering all of it.\n\n🔗 callnomicsolutions.com\n\n#omnichannel #WhatsApp #GCCbusiness #AIforbusiness",
+      "imageFile": "mt9hgx97sz1o-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-08-26T02:37:21.163Z",
+      "telegramMessageId": 1070,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "mt918f6nx77c",
       "platform": "linkedin",
       "pillar": "behind-the-build",
@@ -48,7 +62,7 @@
       "telegramMessageId": 1031,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-25T19:40:34.810Z"
+      "remindedAt": "2026-08-26T02:37:15.753Z"
     },
     {
       "id": "mt4g9922rcxt",
@@ -77,7 +91,7 @@
       "telegramMessageId": 964,
       "url": "",
       "error": "",
-      "remindedAt": "2026-08-25T19:40:34.940Z"
+      "remindedAt": "2026-08-26T02:37:15.880Z"
     },
     {
       "id": "mszfnnwrtdu2",
@@ -87,7 +101,7 @@
       "headline": "If your team dreads checking messages on Monday morning —",
       "caption": "If your team dreads checking messages on Monday morning —\nthat backlog built up over the weekend.\nEvery one of those messages was a customer waiting.\nSome of them already found someone else by Monday.\nAn AI agent clears that backlog in real time, all weekend, every weekend.\n\n🔗 callnomicsolutions.com\n\n#businesstips #customerexperience #GCCbusiness",
       "imageFile": "mszfnnwrtdu2-instagram-reel.mp4",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-19T01:48:52.885Z",
       "telegramMessageId": 866,
       "url": "",
@@ -1339,12 +1353,12 @@
   ],
   "slotCount": 69,
   "lastDraftAt": "2026-08-25T19:02:46.051Z",
-  "reelRotationIndex": 16,
+  "reelRotationIndex": 17,
   "recentReelPillars": [
-    "how-it-works",
     "urgency",
     "signs-you-need-ai",
-    "quick-tip"
+    "quick-tip",
+    "portal-omnichannel"
   ],
-  "lastReelAt": "2026-08-22T14:04:32.759Z"
+  "lastReelAt": "2026-08-26T02:37:21.163Z"
 }
