@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 19,
+  "rotationIndex": 22,
   "recentPillars": [
-    "how-it-works",
     "outcome",
     "myth-bust",
-    "behind-the-build"
+    "behind-the-build",
+    "quick-tip"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mtedykree002",
+      "platform": "instagram",
+      "pillar": "quick-tip",
+      "headline": "Tip: answer within 5 minutes.",
+      "caption": "A lead contacted in the first 5 minutes is dramatically more likely to convert than one contacted an hour later.\n\nMost businesses can't hit that consistently with humans alone — lunch, calls, sleep get in the way.\n\nThe fix isn't \"try harder.\" It's a system that never has an off-hour.\n\n🔗 callnomicsolutions.com\n\n#salestip #leadresponse #conversion #GCC",
+      "imageFile": "mtedykree002-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-08-29T12:57:52.623Z",
+      "telegramMessageId": 1131,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mt9hgx97sz1o",
       "type": "reel",
@@ -87,7 +100,7 @@
       "headline": "An AI employee, not just a chatbot.",
       "caption": "A chatbot follows a script. An AI employee reasons.\n\nOurs reads your live business data, remembers the customer across visits, thinks before it speaks, and knows when to hand a hot lead to a human.\n\nThat's the difference between \"press 1 for sales\" and an assistant that actually helps.\n\n🔗 callnomicsolutions.com\n\n#AIemployee #conversationalAI #customerexperience #GCC",
       "imageFile": "mt4cp7zrj866-instagram.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-22T12:24:54.796Z",
       "telegramMessageId": 964,
       "url": "",
@@ -1352,8 +1365,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 69,
-  "lastDraftAt": "2026-08-25T19:02:46.051Z",
+  "slotCount": 70,
+  "lastDraftAt": "2026-08-29T12:57:52.623Z",
   "reelRotationIndex": 17,
   "recentReelPillars": [
     "urgency",
