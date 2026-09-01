@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 28,
+  "rotationIndex": 32,
   "recentPillars": [
-    "behind-the-build",
     "quick-tip",
     "offer",
-    "pain-point"
+    "pain-point",
+    "how-it-works"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mtj2rrmq9ewu",
+      "platform": "linkedin",
+      "pillar": "how-it-works",
+      "headline": "It knows when to call a human.",
+      "caption": "The smartest thing an AI agent does isn't answering — it's knowing its limits.\n\nWhen a conversation gets complex, sensitive, or high-value, ours hands it to your team with the full context attached.\n\nAI for the routine. Humans for the moments that matter. That's the whole design.\n\n#AIagent #humanhandoff #customerexperience #GCC",
+      "imageFile": "mtj2rrmq9ewu-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-09-01T19:43:30.008Z",
+      "telegramMessageId": 1196,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mtibkoij0goz",
       "platform": "instagram",
@@ -87,7 +100,7 @@
       "headline": "We build the AI we'd want to hire.",
       "caption": "Every agent we ship has to pass one test: would we put it in front of our own customers?\n\nThat's why ours think before they speak, remember returning customers, and hand off to a human at the right moment.\n\nWe're not shipping demos. We're shipping employees.\n\n#buildinpublic #AIemployee #Callnomic #GCC",
       "imageFile": "mt918f6nx77c-linkedin.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-25T19:02:46.051Z",
       "telegramMessageId": 1061,
       "url": "",
@@ -1409,8 +1422,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 72,
-  "lastDraftAt": "2026-09-01T07:02:09.760Z",
+  "slotCount": 73,
+  "lastDraftAt": "2026-09-01T19:43:30.008Z",
   "reelRotationIndex": 18,
   "recentReelPillars": [
     "signs-you-need-ai",
