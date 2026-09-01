@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 25,
+  "rotationIndex": 28,
   "recentPillars": [
-    "myth-bust",
     "behind-the-build",
     "quick-tip",
-    "offer"
+    "offer",
+    "pain-point"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mtibkoij0goz",
+      "platform": "instagram",
+      "pillar": "pain-point",
+      "headline": "Ramadan hours. Eid rush. Your inbox doesn't rest.",
+      "caption": "Seasonal peaks are when you make the year — and when your team is most stretched thin.\n\nAn AI agent absorbs the surge: it answers the flood of \"are you open?\" and \"do you deliver for Eid?\" instantly, so no order is lost while everyone's busy.\n\nBusy season should feel like opportunity, not chaos.\n\n🔗 callnomicsolutions.com\n\n#Ramadan #Eid #GCCbusiness #automation #customerservice",
+      "imageFile": "mtibkoij0goz-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-09-01T07:02:09.760Z",
+      "telegramMessageId": 1183,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mthf52lzdwii",
       "platform": "linkedin",
@@ -87,7 +100,7 @@
       "headline": "\"AI will sound robotic.\" Not anymore.",
       "caption": "The old chatbots earned their bad reputation — rigid, scripted, useless past the second question.\n\nModern AI agents hold a real conversation, understand context, and switch languages naturally. Most customers can't tell until you tell them.\n\nJudge today's AI by today's AI, not the 2019 version.\n\n🔗 callnomicsolutions.com\n\n#AImyths #conversationalAI #customerexperience #GCC",
       "imageFile": "mt8b3dhz8yu7-instagram.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-25T06:51:00.586Z",
       "telegramMessageId": 1051,
       "url": "",
@@ -1395,8 +1408,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 71,
-  "lastDraftAt": "2026-08-31T15:54:13.804Z",
+  "slotCount": 72,
+  "lastDraftAt": "2026-09-01T07:02:09.760Z",
   "reelRotationIndex": 18,
   "recentReelPillars": [
     "signs-you-need-ai",
