@@ -9,6 +9,20 @@
   "telegramOffset": 206298156,
   "posts": [
     {
+      "id": "mtjle6eh15d0",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "portal-grounded",
+      "headline": "The real reason business owners don't trust AI:",
+      "caption": "The real reason business owners don't trust AI:\nThey've seen it confidently make up a wrong answer.\nOurs reads your actual catalogue and policies before it replies.\nAnd it says \"let me get a person\" when it should.\nGrounded answers, in Arabic or English, every single time.\n\n🔗 callnomicsolutions.com\n\n#AIforbusiness #trust #customersupport #GCC",
+      "imageFile": "mtjle6eh15d0-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-09-02T04:24:53.343Z",
+      "telegramMessageId": 1204,
+      "url": "",
+      "error": ""
+    },
+    {
       "id": "mtj2rrmq9ewu",
       "platform": "linkedin",
       "pillar": "how-it-works",
@@ -20,7 +34,7 @@
       "telegramMessageId": 1196,
       "url": "",
       "error": "",
-      "remindedAt": "2026-09-01T22:05:59.917Z"
+      "remindedAt": "2026-09-02T04:24:48.266Z"
     },
     {
       "id": "mtibkoij0goz",
@@ -87,7 +101,7 @@
       "headline": "You're running your business from 4 different inboxes.",
       "caption": "You're running your business from 4 different inboxes.\nWhatsApp on one phone. Instagram DMs on another.\nMessenger somewhere. Website chat nobody's watching.\nMessages slip through every crack between them.\nOne portal. Every channel. One AI concierge answering all of it.\n\n🔗 callnomicsolutions.com\n\n#omnichannel #WhatsApp #GCCbusiness #AIforbusiness",
       "imageFile": "mt9hgx97sz1o-instagram-reel.mp4",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-26T02:37:21.163Z",
       "telegramMessageId": 1070,
       "url": "",
@@ -1425,12 +1439,12 @@
   ],
   "slotCount": 73,
   "lastDraftAt": "2026-09-01T19:43:30.008Z",
-  "reelRotationIndex": 18,
+  "reelRotationIndex": 19,
   "recentReelPillars": [
-    "signs-you-need-ai",
     "quick-tip",
     "portal-omnichannel",
-    "portal-concierge"
+    "portal-concierge",
+    "portal-grounded"
   ],
-  "lastReelAt": "2026-08-29T15:12:47.431Z"
+  "lastReelAt": "2026-09-02T04:24:53.343Z"
 }
