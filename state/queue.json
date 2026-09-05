@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 32,
+  "rotationIndex": 36,
   "recentPillars": [
-    "quick-tip",
     "offer",
     "pain-point",
-    "how-it-works"
+    "how-it-works",
+    "outcome"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mtoip18t5erm",
+      "platform": "instagram",
+      "pillar": "outcome",
+      "headline": "A full calendar, not a full inbox.",
+      "caption": "The dream isn't fewer messages. It's messages that turn into booked appointments while you focus on the work.\n\nAn AI agent qualifies, answers and books straight into your calendar — so you wake up to a schedule, not a backlog.\n\nLess triage. More business.\n\n🔗 callnomicsolutions.com\n\n#booking #productivity #AIagent #GCC",
+      "imageFile": "mtoip18t5erm-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-09-05T15:08:07.263Z",
+      "telegramMessageId": 1271,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mtjle6eh15d0",
       "type": "reel",
@@ -87,7 +100,7 @@
       "headline": "Tip: answer within 5 minutes.",
       "caption": "A lead contacted in the first 5 minutes is dramatically more likely to convert than one contacted an hour later.\n\nMost businesses can't hit that consistently with humans alone — lunch, calls, sleep get in the way.\n\nThe fix isn't \"try harder.\" It's a system that never has an off-hour.\n\n🔗 callnomicsolutions.com\n\n#salestip #leadresponse #conversion #GCC",
       "imageFile": "mtedykree002-instagram.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-29T12:57:52.623Z",
       "telegramMessageId": 1131,
       "url": "",
@@ -1438,8 +1451,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 73,
-  "lastDraftAt": "2026-09-01T19:43:30.008Z",
+  "slotCount": 74,
+  "lastDraftAt": "2026-09-05T15:08:07.263Z",
   "reelRotationIndex": 19,
   "recentReelPillars": [
     "quick-tip",
