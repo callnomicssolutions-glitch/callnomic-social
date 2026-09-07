@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 36,
+  "rotationIndex": 39,
   "recentPillars": [
-    "offer",
     "pain-point",
     "how-it-works",
-    "outcome"
+    "outcome",
+    "myth-bust"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mtrmapxj1eal",
+      "platform": "linkedin",
+      "pillar": "myth-bust",
+      "headline": "\"AI can't handle Arabic properly.\"",
+      "caption": "A fair worry — most tools treat Arabic as an afterthought and it shows.\n\nWe build Arabic in from the start: correct right-to-left, the way people actually phrase things locally, switching to English when the customer does.\n\nTest it in Arabic. That's the point.\n\n#Arabic #AImyths #GCC #bilingual #UAE",
+      "imageFile": "mtrmapxj1eal-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-09-07T19:12:16.380Z",
+      "telegramMessageId": 1324,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mtoned974oi4",
       "type": "reel",
@@ -21,7 +34,7 @@
       "telegramMessageId": 1277,
       "url": "",
       "error": "",
-      "remindedAt": "2026-09-07T11:05:22.398Z"
+      "remindedAt": "2026-09-07T19:12:15.697Z"
     },
     {
       "id": "mtoip18t5erm",
@@ -35,7 +48,7 @@
       "telegramMessageId": 1271,
       "url": "",
       "error": "",
-      "remindedAt": "2026-09-07T11:05:22.564Z"
+      "remindedAt": "2026-09-07T19:12:15.826Z"
     },
     {
       "id": "mtjle6eh15d0",
@@ -50,7 +63,7 @@
       "telegramMessageId": 1204,
       "url": "",
       "error": "",
-      "remindedAt": "2026-09-07T11:05:22.726Z"
+      "remindedAt": "2026-09-07T19:12:15.989Z"
     },
     {
       "id": "mtj2rrmq9ewu",
@@ -64,7 +77,7 @@
       "telegramMessageId": 1196,
       "url": "",
       "error": "",
-      "remindedAt": "2026-09-07T11:05:22.890Z"
+      "remindedAt": "2026-09-07T19:12:16.142Z"
     },
     {
       "id": "mtibkoij0goz",
@@ -78,7 +91,7 @@
       "telegramMessageId": 1183,
       "url": "",
       "error": "",
-      "remindedAt": "2026-09-07T11:05:23.047Z"
+      "remindedAt": "2026-09-07T19:12:16.326Z"
     },
     {
       "id": "mthf52lzdwii",
@@ -87,7 +100,7 @@
       "headline": "See your AI employee in action.",
       "caption": "Curious what an AI agent would sound like handling YOUR customers?\n\nWe'll show you a live demo built around your business — chat, calls, bookings — so you can judge it for real, not on a slide.\n\nDM us \"demo\" or visit callnomicsolutions.com.\n\n#AIagent #bookademo #GCCbusiness #Callnomic",
       "imageFile": "mthf52lzdwii-linkedin.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-08-31T15:54:13.804Z",
       "telegramMessageId": 1170,
       "url": "",
@@ -1467,8 +1480,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 74,
-  "lastDraftAt": "2026-09-05T15:08:07.263Z",
+  "slotCount": 75,
+  "lastDraftAt": "2026-09-07T19:12:16.380Z",
   "reelRotationIndex": 20,
   "recentReelPillars": [
     "portal-omnichannel",
