@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 42,
+  "rotationIndex": 45,
   "recentPillars": [
-    "how-it-works",
     "outcome",
     "myth-bust",
-    "behind-the-build"
+    "behind-the-build",
+    "quick-tip"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mtt967t1hia3",
+      "platform": "linkedin",
+      "pillar": "quick-tip",
+      "headline": "Tip: reply in the language they messaged in.",
+      "caption": "Small thing, big trust: answer Arabic with Arabic, English with English.\n\nSwitching a customer's language mid-conversation is a subtle way to lose them.\n\nA bilingual AI agent gets this right automatically — every time, on every channel.\n\n#customerexperience #Arabic #salestip #GCC",
+      "imageFile": "mtt967t1hia3-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-09-08T22:40:23.622Z",
+      "telegramMessageId": 1345,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mtsh07ei9nv5",
       "platform": "instagram",
@@ -1495,8 +1508,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 76,
-  "lastDraftAt": "2026-09-08T09:31:53.937Z",
+  "slotCount": 77,
+  "lastDraftAt": "2026-09-08T22:40:23.622Z",
   "reelRotationIndex": 20,
   "recentReelPillars": [
     "portal-omnichannel",
