@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 39,
+  "rotationIndex": 42,
   "recentPillars": [
-    "pain-point",
     "how-it-works",
     "outcome",
-    "myth-bust"
+    "myth-bust",
+    "behind-the-build"
   ],
   "telegramOffset": 206298156,
   "posts": [
+    {
+      "id": "mtsh07ei9nv5",
+      "platform": "instagram",
+      "pillar": "behind-the-build",
+      "headline": "We test our agents by trying to break them.",
+      "caption": "Before an agent meets your customers, we throw the worst at it: trick questions, mixed languages, angry messages, nonsense.\n\nIf it stays calm, accurate and helpful under pressure, it ships. If not, it doesn't.\n\nYour customers should only ever meet the version that passed.\n\n🔗 callnomicsolutions.com\n\n#buildinpublic #reliability #AIagent #Callnomic",
+      "imageFile": "mtsh07ei9nv5-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-09-08T09:31:53.937Z",
+      "telegramMessageId": 1333,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mtrmapxj1eal",
       "platform": "linkedin",
@@ -87,7 +100,7 @@
       "headline": "Ramadan hours. Eid rush. Your inbox doesn't rest.",
       "caption": "Seasonal peaks are when you make the year — and when your team is most stretched thin.\n\nAn AI agent absorbs the surge: it answers the flood of \"are you open?\" and \"do you deliver for Eid?\" instantly, so no order is lost while everyone's busy.\n\nBusy season should feel like opportunity, not chaos.\n\n🔗 callnomicsolutions.com\n\n#Ramadan #Eid #GCCbusiness #automation #customerservice",
       "imageFile": "mtibkoij0goz-instagram.png",
-      "status": "pending",
+      "status": "expired",
       "createdAt": "2026-09-01T07:02:09.760Z",
       "telegramMessageId": 1183,
       "url": "",
@@ -1481,8 +1494,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 75,
-  "lastDraftAt": "2026-09-07T19:12:16.380Z",
+  "slotCount": 76,
+  "lastDraftAt": "2026-09-08T09:31:53.937Z",
   "reelRotationIndex": 20,
   "recentReelPillars": [
     "portal-omnichannel",
