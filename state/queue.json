@@ -6,8 +6,22 @@
     "behind-the-build",
     "quick-tip"
   ],
-  "telegramOffset": 206298156,
+  "telegramOffset": 206298174,
   "posts": [
+    {
+      "id": "mttwdgo39qbu",
+      "type": "reel",
+      "platform": "instagram",
+      "pillar": "portal-analytics",
+      "headline": "\"We sent the campaign\" is not a result.",
+      "caption": "\"We sent the campaign\" is not a result.\n127 read it. 41 replied. 9 bought.\nTHAT'S a result you can act on.\nThe portal shows the real funnel behind every broadcast.\nStop guessing which message worked. Start seeing it.\n\n🔗 callnomicsolutions.com\n\n#marketinganalytics #WhatsAppmarketing #ROI #GCCbusiness",
+      "imageFile": "mttwdgo39qbu-instagram-reel.mp4",
+      "status": "pending",
+      "createdAt": "2026-09-09T09:29:58.878Z",
+      "telegramMessageId": 1353,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mtt967t1hia3",
       "platform": "linkedin",
@@ -1511,12 +1525,12 @@
   ],
   "slotCount": 77,
   "lastDraftAt": "2026-09-08T22:40:23.622Z",
-  "reelRotationIndex": 20,
+  "reelRotationIndex": 21,
   "recentReelPillars": [
-    "portal-omnichannel",
     "portal-concierge",
     "portal-grounded",
-    "portal-doneforyou"
+    "portal-doneforyou",
+    "portal-analytics"
   ],
-  "lastReelAt": "2026-09-05T17:19:52.088Z"
+  "lastReelAt": "2026-09-09T09:29:58.878Z"
 }
