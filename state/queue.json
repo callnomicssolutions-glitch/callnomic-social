@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 48,
+  "rotationIndex": 53,
   "recentPillars": [
-    "myth-bust",
     "behind-the-build",
     "quick-tip",
-    "offer"
+    "offer",
+    "how-it-works"
   ],
   "telegramOffset": 206298174,
   "posts": [
+    {
+      "id": "mtymf71px8qn",
+      "platform": "linkedin",
+      "pillar": "how-it-works",
+      "headline": "Not a chatbot. A concierge that sells.",
+      "caption": "A chatbot answers FAQs. Our concierge closes.\n\nIt's trained on your real catalogue and policies, recommends the right product, answers \"where's my order?\" from your live system, and passes a hot lead to a human at the right moment.\n\nThat's the difference between deflecting customers and converting them.\n\ncallnomicsolutions.com\n\n#conversationalcommerce #AIconcierge #sales #GCCbusiness #Callnomic",
+      "imageFile": "mtymf71px8qn-linkedin.png",
+      "status": "pending",
+      "createdAt": "2026-09-12T16:50:08.432Z",
+      "telegramMessageId": 1422,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mtyjzufvepj9",
       "platform": "instagram",
@@ -1545,8 +1558,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 78,
-  "lastDraftAt": "2026-09-12T15:42:13.039Z",
+  "slotCount": 79,
+  "lastDraftAt": "2026-09-12T16:50:08.432Z",
   "reelRotationIndex": 21,
   "recentReelPillars": [
     "portal-concierge",
