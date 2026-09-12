@@ -1,0 +1,67 @@
+name: Callnomic Social — Media Archive
+
+# A routine that keeps a durable archive of everything the social engine has created.
+# Once a day (and on demand) it:
+#   - checks which post media is still present vs. pruned from state/images
+#   - re-renders every post image from source (restoring pruned ones, identical bytes)
+#   - copies each reel video still on disk into archive/ — where it STAYS even after the
+#     live repo prunes it, so archive/ becomes the permanent home for every clip
+#   - refreshes archive/INDEX.md (human catalog with live links) + archive/manifest.json
+# It commits archive/ back to the repo. It never touches state/, so it can't interfere
+# with the posting engine. Free, runs in GitHub's cloud, no secrets needed.
+
+on:
+  schedule:
+    # 09:30 UTC = 13:30 Gulf — after the morning posting window, so the day's new posts
+    # are captured. A once-a-day cron is far less likely to be dropped than a frequent one.
+    - cron: "30 9 * * *"
+  workflow_dispatch: {} # run it by hand from the Actions tab any time
+
+# Its own group so it never blocks — or is blocked by — the posting engine.
+concurrency:
+  group: callnomic-archive
+  cancel-in-progress: false
+
+permissions:
+  contents: write # needed to commit archive/ back to the repo
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Refresh media archive
+        env:
+          ARCHIVE_OUT: archive # write into the repo, not a local path
+        run: node scripts/export-archive.mjs
+
+      - name: Commit archive
+        if: always()
+        run: |
+          git config user.name "callnomic-bot"
+          git config user.email "bot@callnomicsolutions.com"
+          git add archive/
+          if git diff --cached --quiet; then
+            echo "Archive already up to date — nothing to commit."
+            exit 0
+          fi
+          git commit -m "archive: refresh media archive + index [skip ci]"
+          # The posting engine pushes state/ constantly, so the branch can move under us.
+          # Retry with a merge (paths don't overlap, so this just folds in their state/
+          # commits); -X ours keeps our archive/ side if anything ever does conflict.
+          for i in 1 2 3; do
+            git push origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            git fetch origin "$GITHUB_REF_NAME"
+            git merge -X ours --no-edit "origin/$GITHUB_REF_NAME" || git merge --abort || true
+            sleep 5
+          done
+          git push origin "HEAD:$GITHUB_REF_NAME"

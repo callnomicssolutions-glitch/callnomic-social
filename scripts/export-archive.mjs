@@ -1,19 +1,36 @@
-// One-off: export every created post's media into a tidy archive folder with an index.
-// Images are re-rendered fresh from the same renderer that posted them (identical output),
-// so pruned images are fully restored. Reel videos are copied from state/images when present
-// (ffmpeg isn't local, so pruned videos can't be re-rendered here — noted in the index).
+// Export every created post's media into a tidy, durable archive folder + index.
+//
+// Runs two ways:
+//   • locally:  ARCHIVE_OUT=C:/path/to/folder node scripts/export-archive.mjs
+//   • as a routine: the archive.yml GitHub Action runs it with ARCHIVE_OUT=archive,
+//     so the archive lives IN the repo and is refreshed automatically.
+//
+// What it does, every run:
+//   • Re-renders every post image from the same renderer that published it, so images
+//     the engine has pruned out of state/images are fully restored (identical bytes).
+//   • Copies each reel video that is still on disk. Because archive filenames are stable
+//     (date_platform_slug), a video copied once STAYS in the archive even after the main
+//     repo prunes it from state/images — so the archive becomes the permanent home for
+//     every video, while the live repo stays small. Videos are tiny kinetic-caption clips.
+//   • Writes INDEX.md (human catalog with live links) + manifest.json (machine-readable),
+//     grouped Posted / Scheduled / Drafts-not-posted.
+//
+// No volatile run-timestamp is written, so the routine only produces a commit when the
+// posts themselves actually change — not on every scheduled tick.
 import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync } from "node:fs";
 import { join } from "node:path";
 import { renderCard } from "../src/image.js";
 import { imagePath } from "../src/state.js";
 
-const OUT = process.env.ARCHIVE_OUT || "C:/Users/zaink/Callnomics-Social-Media-Archive";
+const OUT = process.env.ARCHIVE_OUT || "archive";
+const COPY_VIDEOS = process.env.ARCHIVE_COPY_VIDEOS !== "0";
 const q = JSON.parse(readFileSync("state/queue.json", "utf8"));
 
 const STATUS_DIR = {
   posted: "Posted",
   approved: "Scheduled",
   pending: "Scheduled",
+  publishing: "Scheduled",
   expired: "Drafts-not-posted",
   failed: "Drafts-not-posted",
   skipped: "Drafts-not-posted",
@@ -42,20 +59,26 @@ for (const p of q.posts) {
   const base = `${datePart(p.postedAt || p.createdAt)}_${p.platform}_${type === "reel" ? "reel_" : ""}${slug(p.headline)}`;
   const rec = {
     status: p.status, type, platform: p.platform, date: datePart(p.postedAt || p.createdAt),
-    headline: p.headline, url: p.url || "", bucket, file: "",
+    headline: p.headline, url: p.url || "", bucket, file: "", mediaPresent: false,
   };
 
   if (type === "reel") {
     const src = imagePath(p.imageFile);
     const dest = join(OUT, bucket, base + ".mp4");
-    if (existsSync(src)) { copyFileSync(src, dest); rec.file = `${bucket}/${base}.mp4`; copied++; }
-    else { rec.file = "(video pruned locally — see live URL)"; missingVideo++; }
+    if (existsSync(src)) {
+      if (COPY_VIDEOS) copyFileSync(src, dest);
+      rec.file = `${bucket}/${base}.mp4`; rec.mediaPresent = true; copied++;
+    } else if (existsSync(dest)) {
+      // Already archived on an earlier run; the source was pruned since. Keep it.
+      rec.file = `${bucket}/${base}.mp4`; rec.mediaPresent = true;
+    } else {
+      rec.file = "(video pruned before it was archived — see live URL)"; missingVideo++;
+    }
   } else {
     const buf = await renderCard({ platform: p.platform, headline: p.headline, kicker: (p.pillar || "").replace(/-/g, " ") });
     const dest = join(OUT, bucket, base + ".png");
     writeFileSync(dest, buf);
-    rec.file = `${bucket}/${base}.png`;
-    rendered++;
+    rec.file = `${bucket}/${base}.png`; rec.mediaPresent = true; rendered++;
   }
   index.push(rec);
 }
@@ -65,13 +88,15 @@ const groups = { Posted: [], Scheduled: [], "Drafts-not-posted": [] };
 for (const r of index) groups[r.bucket].push(r);
 const line = (r) =>
   `| ${r.date} | ${r.type} | ${r.platform} | ${r.url ? `[live](${r.url})` : "—"} | ${r.file} | ${(r.headline || "").replace(/\|/g, "/")} |`;
-let md = `# Callnomics — Social Media Media Archive\n\nEvery image/video we've created for social, organized by status. Images are the exact branded cards we published (re-rendered from source); videos are the reel files. Generated ${new Date().toISOString().slice(0, 10)}.\n\n`;
+let md = `# Callnomics — Social Media Media Archive\n\n`;
+md += `Every image/video we've created for social, organized by status. Images are the exact branded cards we published (re-rendered from source); reel videos are the published clips. Refreshed automatically by the \`archive\` GitHub Action.\n\n`;
 md += `**Summary:** ${index.length} total · ${groups.Posted.length} posted · ${groups.Scheduled.length} scheduled · ${groups["Drafts-not-posted"].length} unused drafts.\n`;
 for (const g of ["Posted", "Scheduled", "Drafts-not-posted"]) {
   md += `\n## ${g} (${groups[g].length})\n\n| Date | Type | Platform | Live | File | Headline |\n|---|---|---|---|---|---|\n`;
   md += groups[g].sort((a, b) => b.date.localeCompare(a.date)).map(line).join("\n") + "\n";
 }
 writeFileSync(join(OUT, "INDEX.md"), md);
+writeFileSync(join(OUT, "manifest.json"), JSON.stringify({ total: index.length, items: index }, null, 2));
 
 console.log(`Archive written to: ${OUT}`);
-console.log(`  images re-rendered: ${rendered}  |  videos copied: ${copied}  |  videos pruned (link-only): ${missingVideo}`);
+console.log(`  images re-rendered: ${rendered}  |  videos copied: ${copied}  |  videos never archived (link-only): ${missingVideo}`);
