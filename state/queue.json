@@ -15,11 +15,15 @@
       "headline": "Not a chatbot. A concierge that sells.",
       "caption": "A chatbot answers FAQs. Our concierge closes.\n\nIt's trained on your real catalogue and policies, recommends the right product, answers \"where's my order?\" from your live system, and passes a hot lead to a human at the right moment.\n\nThat's the difference between deflecting customers and converting them.\n\ncallnomicsolutions.com\n\n#conversationalcommerce #AIconcierge #sales #GCCbusiness #Callnomic",
       "imageFile": "mtymf71px8qn-linkedin.png",
-      "status": "pending",
+      "status": "approved",
       "createdAt": "2026-09-12T16:50:08.432Z",
       "telegramMessageId": 1422,
       "url": "",
-      "error": ""
+      "error": "",
+      "paced": true,
+      "attempts": 0,
+      "publishStartedAt": "",
+      "publishAfter": "2026-09-13T05:05:00.000Z"
     },
     {
       "id": "mtyjzufvepj9",
