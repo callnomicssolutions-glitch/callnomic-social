@@ -7,8 +7,9 @@
 import { existsSync } from "node:fs";
 import { CONFIG } from "./config.js";
 import { loadState, saveState, commitState, pruneImages, shortId, imagePath } from "./state.js";
-import { pickFromLibrary, generateFresh, composeCaption, pickReelScript, composeReelCaption } from "./generate.js";
+import { pickFromLibrary, generateFresh, composeCaption, pickReelScript, composeReelCaption, recentlyUsed } from "./generate.js";
 import { REELS } from "../content/reels.js";
+import { assignDailySlots, bucketOf } from "./schedule.js";
 import { renderToFile } from "./image.js";
 import { renderReel, ffmpegAvailable } from "./reel.js";
 import {
@@ -53,6 +54,12 @@ const numEnv = (v, fallback) => (v === undefined || v === null || v === "" ? fal
 const DAILY_HOUR_UTC = numEnv(process.env.DAILY_HOUR_UTC, 5);
 const DAILY_WINDOW_H = Number(process.env.DAILY_WINDOW_HOURS || 4);
 const DAILY_PER_BUCKET = Number(process.env.DAILY_PER_BUCKET || 1);
+// Approval is opt-OUT, not opt-in. Drafts still arrive in Telegram with their buttons
+// and you can still ❌ Skip one before its slot, but a draft nobody answers now joins
+// the daily queue instead of expiring unpublished. Waiting for a tap is what left the
+// account silent for three weeks with 58 expired drafts behind it.
+const AUTO_QUEUE = process.env.AUTO_QUEUE !== "0";
+const AUTO_QUEUE_AFTER_H = Number(process.env.AUTO_QUEUE_AFTER_HOURS || 0);
 const forceDraft = process.argv.includes("--draft-only") || process.env.FORCE_DRAFT === "1";
 const forceReel = process.argv.includes("--reel-only") || process.env.FORCE_REEL === "1";
 
@@ -64,10 +71,6 @@ function now() { return new Date().toISOString(); }
 function hoursSince(iso) { return iso ? (Date.now() - new Date(iso).getTime()) / 3.6e6 : Infinity; }
 function label(post) { return post.type === "reel" ? "Instagram Reel" : post.platform; }
 
-// Reels are their own bucket: a Reel and a feed post on the same morning is a normal
-// day's output, two feed posts is not.
-function bucket(post) { return post.type === "reel" ? "instagram-reel" : post.platform; }
-
 function inMorningWindow(d = new Date()) {
   const h = d.getUTCHours();
   return h >= DAILY_HOUR_UTC && h < DAILY_HOUR_UTC + DAILY_WINDOW_H;
@@ -76,7 +79,7 @@ function inMorningWindow(d = new Date()) {
 function publishedTodayIn(state, b) {
   const today = new Date().toISOString().slice(0, 10);
   return state.posts.filter(
-    (p) => p.status === "posted" && (p.postedAt || "").slice(0, 10) === today && bucket(p) === b,
+    (p) => p.status === "posted" && (p.postedAt || "").slice(0, 10) === today && bucketOf(p) === b,
   ).length;
 }
 
@@ -264,9 +267,9 @@ async function publishApproved(state) {
         console.log(`[run] holding ${p.id}: outside the ${DAILY_HOUR_UTC}:00–${DAILY_HOUR_UTC + DAILY_WINDOW_H}:00 UTC publishing window`);
         continue;
       }
-      const todayCount = publishedTodayIn(state, bucket(p));
+      const todayCount = publishedTodayIn(state, bucketOf(p));
       if (todayCount >= DAILY_PER_BUCKET) {
-        console.log(`[run] holding ${p.id}: already published ${todayCount} ${bucket(p)} today`);
+        console.log(`[run] holding ${p.id}: already published ${todayCount} ${bucketOf(p)} today`);
         continue;
       }
       const gap = hoursSince(lastPostedAt(state, p.platform));
@@ -292,7 +295,7 @@ async function makeDraft(state, platform) {
   }
   let nextIndex = state.rotationIndex;
   if (!source) {
-    const picked = pickFromLibrary(state);
+    const picked = pickFromLibrary(state, platform);
     source = picked.item;
     nextIndex = picked.nextIndex;
   }
@@ -522,6 +525,52 @@ async function processApprovals(state, timeout = 0) {
   return updates.length;
 }
 
+// Move unanswered drafts into the daily queue rather than letting them rot.
+async function autoQueue(state) {
+  if (!AUTO_QUEUE) return;
+  let ready = state.posts.filter(
+    (p) => p.status === "pending" && hoursSince(p.createdAt) >= AUTO_QUEUE_AFTER_H,
+  );
+  if (!ready.length) return;
+
+  // Drafts written before the no-repeat guard existed can still carry a line this
+  // platform already ran. Auto-publishing is unattended, so drop those rather than
+  // put the same post up twice.
+  const dropped = [];
+  ready = ready.filter((p) => {
+    const used = recentlyUsed(state, p.platform);
+    // recentlyUsed counts this draft itself (it is pending), so look for another copy.
+    const clash = state.posts.some(
+      (q) => q !== p && q.platform === p.platform && q.headline === p.headline &&
+        (q.status === "posted" || q.status === "approved"),
+    );
+    if (clash && used.has(p.headline)) {
+      p.status = "skipped";
+      p.error = "already published on this platform recently";
+      dropped.push(p);
+      return false;
+    }
+    return true;
+  });
+  for (const p of dropped) console.log(`[run] auto-skipped ${p.id}: repeat of live ${p.platform} content`);
+  if (!ready.length) { if (dropped.length) saveState(state); return; }
+  // Oldest first so the queue drains in the order the drafts were written.
+  ready.sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
+  assignDailySlots(state, ready, { dailyHour: DAILY_HOUR_UTC, perBucket: DAILY_PER_BUCKET });
+  saveState(state);
+  for (const p of ready) {
+    console.log(`[run] auto-queued ${p.id} (${bucketOf(p)}) for ${p.publishAfter}`);
+    if (telegramReady()) {
+      const when = new Date(p.publishAfter).toUTCString().replace(":05:00 GMT", ":05 UTC");
+      await sendMessage(
+        `🗓 Queued for <b>${when}</b> — ${label(p)}: "${escapeish(p.headline)}"\n` +
+        `Nothing to do. To drop it, send <code>/skip ${p.id}</code> before then.`,
+      );
+    }
+  }
+  commitState("social: auto-queued drafts");
+}
+
 function expireStale(state) {
   let changed = false;
   for (const p of state.posts) {
@@ -592,7 +641,10 @@ async function main() {
   // 1) approvals from your taps since last run
   await processApprovals(state);
 
-  // 2) expire drafts you never answered so they don't block forever
+  // 2) unanswered drafts join the daily queue instead of expiring unpublished
+  await autoQueue(state);
+
+  // 2a) expire anything left pending (only reachable with AUTO_QUEUE=0)
   expireStale(state);
 
   // 2b) nudge about drafts that have been sitting pending a while
@@ -603,7 +655,12 @@ async function main() {
 
   // 4) generate the next draft if it's time — doesn't wait for prior drafts to be approved,
   // just caps how many can pile up unanswered so a long absence doesn't spam forever.
-  const pendingCount = state.posts.filter((p) => p.status === "pending").length;
+  // Queue depth, not just unanswered drafts: with AUTO_QUEUE on nothing stays "pending",
+  // so counting only that would let drafts pile up without limit whenever publishing is
+  // blocked. MAX_PENDING caps how far ahead the queue may run.
+  const pendingCount = state.posts.filter(
+    (p) => p.status === "pending" || (p.status === "approved" && p.paced),
+  ).length;
   const due = forceDraft || hoursSince(state.lastDraftAt) >= HOURS;
   if (pendingCount < MAX_PENDING && due && CONFIG.platforms.length) {
     // alternate platforms each slot so you get ~1 post per platform per cycle
@@ -615,7 +672,9 @@ async function main() {
   }
 
   // 5) educational Reels run on their own, slower cadence — Instagram only.
-  const pendingReelCount = state.posts.filter((p) => p.status === "pending" && p.type === "reel").length;
+  const pendingReelCount = state.posts.filter(
+    (p) => (p.status === "pending" || (p.status === "approved" && p.paced)) && p.type === "reel",
+  ).length;
   const reelDue = forceReel || hoursSince(state.lastReelAt) >= CONFIG.reels.intervalHours;
   if (CONFIG.reels.enabled && instagramReady() && pendingReelCount < MAX_PENDING_REELS && reelDue) {
     if (!ffmpegAvailable()) {

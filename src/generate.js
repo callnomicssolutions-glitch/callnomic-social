@@ -5,19 +5,44 @@ import { REELS } from "../content/reels.js";
 import { BRAND, PILLARS } from "../brand/brand.js";
 import { CONFIG } from "./config.js";
 
+// How long a headline is off-limits on a platform it already ran on. The library is
+// finite, so the rotation wraps every couple of months and would otherwise re-post the
+// same line — which is what put the same content on the feed more than once.
+const REPEAT_AFTER_DAYS = Number(process.env.REPEAT_AFTER_DAYS || 45);
+
+// Headlines already live on this platform inside the no-repeat window. Queued posts
+// count too: two drafts carrying the same line must not both go out.
+export function recentlyUsed(state, platform) {
+  const cutoff = new Date(Date.now() - REPEAT_AFTER_DAYS * 864e5).toISOString();
+  const used = new Set();
+  for (const p of state.posts || []) {
+    if (p.platform !== platform) continue;
+    const live = p.status === "posted" && (p.postedAt || "") >= cutoff;
+    const queued = p.status === "approved" || p.status === "pending" || p.status === "publishing";
+    if (live || queued) used.add(p.headline);
+  }
+  return used;
+}
+
 // Choose the next library item: walk forward from rotationIndex, skip anything whose
-// pillar was used in the last 2 posts, so the feed doesn't repeat a theme back-to-back.
-export function pickFromLibrary(state) {
+// pillar was used in the last 2 posts so the feed doesn't repeat a theme back-to-back,
+// and skip anything this platform has run recently.
+export function pickFromLibrary(state, platform) {
   const n = LIBRARY.length;
   const recent = state.recentPillars.slice(-2);
+  const used = platform ? recentlyUsed(state, platform) : new Set();
   let idx = state.rotationIndex % n;
-  for (let step = 0; step < n; step++) {
-    const cand = LIBRARY[(idx + step) % n];
-    if (!recent.includes(cand.pillar)) {
+  // First pass honours both guards; second drops the pillar guard rather than
+  // re-posting a headline; only if the whole library is exhausted do we repeat.
+  for (const strict of [true, false]) {
+    for (let step = 0; step < n; step++) {
+      const cand = LIBRARY[(idx + step) % n];
+      if (used.has(cand.headline)) continue;
+      if (strict && recent.includes(cand.pillar)) continue;
       return { item: cand, nextIndex: (idx + step + 1) % n };
     }
   }
-  // fallback: just take the next one
+  // fallback: everything has run recently on this platform — take the next one
   const item = LIBRARY[idx];
   return { item, nextIndex: (idx + 1) % n };
 }
@@ -26,10 +51,13 @@ export function pickFromLibrary(state) {
 export function pickReelScript(state) {
   const n = REELS.length;
   const recent = (state.recentReelPillars || []).slice(-3);
+  const used = recentlyUsed(state, "instagram");
   let idx = (state.reelRotationIndex || 0) % n;
-  for (let step = 0; step < n; step++) {
-    const cand = REELS[(idx + step) % n];
-    if (!recent.includes(cand.pillar)) {
+  for (const strict of [true, false]) {
+    for (let step = 0; step < n; step++) {
+      const cand = REELS[(idx + step) % n];
+      if (used.has(cand.hook)) continue;
+      if (strict && recent.includes(cand.pillar)) continue;
       return { item: cand, nextIndex: (idx + step + 1) % n };
     }
   }

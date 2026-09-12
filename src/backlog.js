@@ -11,6 +11,7 @@
 // revert away rather than a post on a live account.
 import { existsSync } from "node:fs";
 import { loadState, saveState, imagePath } from "./state.js";
+import { assignDailySlots, bucketOf } from "./schedule.js";
 
 const args = process.argv.slice(2);
 const has = (f) => args.includes(f);
@@ -79,41 +80,11 @@ if (skipDuplicates) {
   console.log(`[backlog] skipped ${before - staged.length} draft(s) already published on that platform`);
 }
 
-// One slot per bucket per day, at the morning hour. Buckets are LinkedIn, Instagram
-// feed and Instagram Reels, so a typical morning is one of each — they don't queue
-// behind one another. The engine enforces the same caps at publish time; these dates
-// just make the plan visible and fix the order.
-const bucket = (p) => (p.type === "reel" ? "instagram-reel" : p.platform);
-const DAY_MS = 86_400_000;
-
-// The first morning slot still ahead of us; every later slot is a whole day past it.
-// (Resolving "is it in the past?" per offset instead would put offsets 0 and 1 on the
-// same morning.)
-const firstMorning = (() => {
-  const d = new Date();
-  d.setUTCHours(dailyHour, 5, 0, 0);
-  return d.getTime() <= Date.now() ? d.getTime() + DAY_MS : d.getTime();
-})();
-
-function morningOn(dayOffset) {
-  return firstMorning + dayOffset * DAY_MS;
-}
-
-const dayIndex = new Map();
+assignDailySlots(state, staged, { dailyHour, perBucket });
 for (const p of staged) {
-  const b = bucket(p);
-  const i = dayIndex.get(b) || 0;
-  p.status = "approved";
-  p.attempts = 0;
-  p.paced = true;
-  p.publishStartedAt = "";
-  p.publishAfter = new Date(morningOn(i)).toISOString();
-  dayIndex.set(b, i + 1);
-  console.log(`  • ${p.publishAfter.slice(0, 16).replace("T", " ")}Z  ${bucket(p).padEnd(15)} ${p.id} — "${p.headline}"`);
+  console.log(`  • ${p.publishAfter.slice(0, 16).replace("T", " ")}Z  ${bucketOf(p).padEnd(15)} ${p.id} — "${p.headline}"`);
 }
-
-const days = Math.max(0, ...dayIndex.values());
-console.log(`[backlog] staged ${staged.length} post(s) — ${perBucket}/bucket/day from ${dailyHour}:00 UTC, clearing in ~${days} day(s)`);
+console.log(`[backlog] staged ${staged.length} post(s) — ${perBucket}/bucket/day from ${dailyHour}:00 UTC`);
 
 if (dryRun) {
   console.log("[backlog] dry run — state not written");

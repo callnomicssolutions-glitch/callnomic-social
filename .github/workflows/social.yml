@@ -120,6 +120,13 @@ jobs:
           DAILY_HOUR_UTC: ${{ vars.DAILY_HOUR_UTC }}
           DAILY_WINDOW_HOURS: ${{ vars.DAILY_WINDOW_HOURS }}
           DAILY_PER_BUCKET: ${{ vars.DAILY_PER_BUCKET }}
+          # Unanswered drafts join the daily queue instead of expiring. Approving in
+          # Telegram is opt-OUT now: ❌ Skip (or /skip <id>) before the slot drops one.
+          # Set the repo variable AUTO_QUEUE=0 to go back to tap-to-publish.
+          AUTO_QUEUE: ${{ vars.AUTO_QUEUE }}
+          AUTO_QUEUE_AFTER_HOURS: ${{ vars.AUTO_QUEUE_AFTER_HOURS }}
+          # Days a headline is off-limits on a platform it already ran on.
+          REPEAT_AFTER_DAYS: ${{ vars.REPEAT_AFTER_DAYS }}
           FORCE_DRAFT: ${{ inputs.force_draft && '1' || '' }}
           REMIND_AFTER_HOURS: ${{ vars.REMIND_AFTER_HOURS }}
           REMIND_REPEAT_HOURS: ${{ vars.REMIND_REPEAT_HOURS }}
