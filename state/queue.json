@@ -15,11 +15,11 @@
       "headline": "We'll build a demo on YOUR business.",
       "caption": "Not a generic sales call — a working AI agent set up around your actual services, so you can talk to it like your customer would.\n\nJudge it for real. If it's not obviously useful, no hard feelings.\n\nStart here: callnomicsolutions.com\n\n🔗 callnomicsolutions.com\n\n#bookademo #AIagent #GCCbusiness #Callnomic",
       "imageFile": "mtyjzufvepj9-instagram.png",
-      "status": "pending",
+      "status": "skipped",
       "createdAt": "2026-09-12T15:42:13.039Z",
       "telegramMessageId": 1419,
       "url": "",
-      "error": ""
+      "error": "already published on this platform recently"
     },
     {
       "id": "mttwdgo39qbu",
@@ -29,12 +29,16 @@
       "headline": "\"We sent the campaign\" is not a result.",
       "caption": "\"We sent the campaign\" is not a result.\n127 read it. 41 replied. 9 bought.\nTHAT'S a result you can act on.\nThe portal shows the real funnel behind every broadcast.\nStop guessing which message worked. Start seeing it.\n\n🔗 callnomicsolutions.com\n\n#marketinganalytics #WhatsAppmarketing #ROI #GCCbusiness",
       "imageFile": "mttwdgo39qbu-instagram-reel.mp4",
-      "status": "pending",
+      "status": "approved",
       "createdAt": "2026-09-09T09:29:58.878Z",
       "telegramMessageId": 1353,
       "url": "",
       "error": "",
-      "remindedAt": "2026-09-12T15:42:12.366Z"
+      "remindedAt": "2026-09-12T15:42:12.366Z",
+      "paced": true,
+      "attempts": 0,
+      "publishStartedAt": "",
+      "publishAfter": "2026-09-14T05:05:00.000Z"
     },
     {
       "id": "mtt967t1hia3",
@@ -43,11 +47,11 @@
       "headline": "Tip: reply in the language they messaged in.",
       "caption": "Small thing, big trust: answer Arabic with Arabic, English with English.\n\nSwitching a customer's language mid-conversation is a subtle way to lose them.\n\nA bilingual AI agent gets this right automatically — every time, on every channel.\n\n#customerexperience #Arabic #salestip #GCC",
       "imageFile": "mtt967t1hia3-linkedin.png",
-      "status": "pending",
+      "status": "skipped",
       "createdAt": "2026-09-08T22:40:23.622Z",
       "telegramMessageId": 1345,
       "url": "",
-      "error": "",
+      "error": "already published on this platform recently",
       "remindedAt": "2026-09-12T15:42:12.518Z"
     },
     {
@@ -57,11 +61,11 @@
       "headline": "We test our agents by trying to break them.",
       "caption": "Before an agent meets your customers, we throw the worst at it: trick questions, mixed languages, angry messages, nonsense.\n\nIf it stays calm, accurate and helpful under pressure, it ships. If not, it doesn't.\n\nYour customers should only ever meet the version that passed.\n\n🔗 callnomicsolutions.com\n\n#buildinpublic #reliability #AIagent #Callnomic",
       "imageFile": "mtsh07ei9nv5-instagram.png",
-      "status": "pending",
+      "status": "skipped",
       "createdAt": "2026-09-08T09:31:53.937Z",
       "telegramMessageId": 1333,
       "url": "",
-      "error": "",
+      "error": "already published on this platform recently",
       "remindedAt": "2026-09-12T15:42:12.659Z"
     },
     {
@@ -71,11 +75,11 @@
       "headline": "\"AI can't handle Arabic properly.\"",
       "caption": "A fair worry — most tools treat Arabic as an afterthought and it shows.\n\nWe build Arabic in from the start: correct right-to-left, the way people actually phrase things locally, switching to English when the customer does.\n\nTest it in Arabic. That's the point.\n\n#Arabic #AImyths #GCC #bilingual #UAE",
       "imageFile": "mtrmapxj1eal-linkedin.png",
-      "status": "pending",
+      "status": "skipped",
       "createdAt": "2026-09-07T19:12:16.380Z",
       "telegramMessageId": 1324,
       "url": "",
-      "error": "",
+      "error": "already published on this platform recently",
       "remindedAt": "2026-09-12T15:42:12.818Z"
     },
     {
@@ -86,12 +90,16 @@
       "headline": "\"We don't have a tech team to set this up.\"",
       "caption": "\"We don't have a tech team to set this up.\"\nYou don't need one.\nWe build it, deploy it, and run it for you.\nYour only job: tweak the greeting and upload what you already know.\nDone-for-you AI. You stay in sales — we handle the wiring.\n\n🔗 callnomicsolutions.com\n\n#doneforyou #AIforbusiness #smallbusiness #GCCbusiness",
       "imageFile": "mtoned974oi4-instagram-reel.mp4",
-      "status": "pending",
+      "status": "approved",
       "createdAt": "2026-09-05T17:19:52.088Z",
       "telegramMessageId": 1277,
       "url": "",
       "error": "",
-      "remindedAt": "2026-09-12T15:42:12.954Z"
+      "remindedAt": "2026-09-12T15:42:12.954Z",
+      "paced": true,
+      "attempts": 0,
+      "publishStartedAt": "",
+      "publishAfter": "2026-09-13T05:05:00.000Z"
     },
     {
       "id": "mtoip18t5erm",
