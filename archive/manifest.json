@@ -1,19 +1,52 @@
 {
-  "total": 100,
+  "total": 103,
   "items": [
     {
-      "status": "pending",
+      "status": "approved",
+      "type": "image",
+      "platform": "linkedin",
+      "date": "2026-09-13",
+      "headline": "Know which message actually sold.",
+      "url": "",
+      "bucket": "Scheduled",
+      "file": "Scheduled/2026-09-13_linkedin_know-which-message-actually-sold.png",
+      "mediaPresent": true
+    },
+    {
+      "status": "approved",
+      "type": "image",
+      "platform": "instagram",
+      "date": "2026-09-12",
+      "headline": "\"Setting this up will take my team months.\"",
+      "url": "",
+      "bucket": "Scheduled",
+      "file": "Scheduled/2026-09-12_instagram_setting-this-up-will-take-my-team-months.png",
+      "mediaPresent": true
+    },
+    {
+      "status": "approved",
+      "type": "image",
+      "platform": "linkedin",
+      "date": "2026-09-12",
+      "headline": "Not a chatbot. A concierge that sells.",
+      "url": "",
+      "bucket": "Scheduled",
+      "file": "Scheduled/2026-09-12_linkedin_not-a-chatbot-a-concierge-that-sells.png",
+      "mediaPresent": true
+    },
+    {
+      "status": "skipped",
       "type": "image",
       "platform": "instagram",
       "date": "2026-09-12",
       "headline": "We'll build a demo on YOUR business.",
       "url": "",
-      "bucket": "Scheduled",
-      "file": "Scheduled/2026-09-12_instagram_well-build-a-demo-on-your-business.png",
+      "bucket": "Drafts-not-posted",
+      "file": "Drafts-not-posted/2026-09-12_instagram_well-build-a-demo-on-your-business.png",
       "mediaPresent": true
     },
     {
-      "status": "pending",
+      "status": "approved",
       "type": "reel",
       "platform": "instagram",
       "date": "2026-09-09",
@@ -24,40 +57,40 @@
       "mediaPresent": true
     },
     {
-      "status": "pending",
+      "status": "skipped",
       "type": "image",
       "platform": "linkedin",
       "date": "2026-09-08",
       "headline": "Tip: reply in the language they messaged in.",
       "url": "",
-      "bucket": "Scheduled",
-      "file": "Scheduled/2026-09-08_linkedin_tip-reply-in-the-language-they-messaged-in.png",
+      "bucket": "Drafts-not-posted",
+      "file": "Drafts-not-posted/2026-09-08_linkedin_tip-reply-in-the-language-they-messaged-in.png",
       "mediaPresent": true
     },
     {
-      "status": "pending",
+      "status": "skipped",
       "type": "image",
       "platform": "instagram",
       "date": "2026-09-08",
       "headline": "We test our agents by trying to break them.",
       "url": "",
-      "bucket": "Scheduled",
-      "file": "Scheduled/2026-09-08_instagram_we-test-our-agents-by-trying-to-break-them.png",
+      "bucket": "Drafts-not-posted",
+      "file": "Drafts-not-posted/2026-09-08_instagram_we-test-our-agents-by-trying-to-break-them.png",
       "mediaPresent": true
     },
     {
-      "status": "pending",
+      "status": "skipped",
       "type": "image",
       "platform": "linkedin",
       "date": "2026-09-07",
       "headline": "\"AI can't handle Arabic properly.\"",
       "url": "",
-      "bucket": "Scheduled",
-      "file": "Scheduled/2026-09-07_linkedin_ai-cant-handle-arabic-properly.png",
+      "bucket": "Drafts-not-posted",
+      "file": "Drafts-not-posted/2026-09-07_linkedin_ai-cant-handle-arabic-properly.png",
       "mediaPresent": true
     },
     {
-      "status": "pending",
+      "status": "approved",
       "type": "reel",
       "platform": "instagram",
       "date": "2026-09-05",

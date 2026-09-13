@@ -2,7 +2,7 @@
 
 Every image/video we've created for social, organized by status. Images are the exact branded cards we published (re-rendered from source); reel videos are the published clips. Refreshed automatically by the `archive` GitHub Action.
 
-**Summary:** 100 total · 34 posted · 6 scheduled · 60 unused drafts.
+**Summary:** 103 total · 34 posted · 5 scheduled · 64 unused drafts.
 
 ## Posted (34)
 
@@ -43,21 +43,24 @@ Every image/video we've created for social, organized by status. Images are the 
 | 2026-07-05 | image | linkedin | [live](https://www.linkedin.com/feed/update/urn:li:share:7479578921533968386) | Posted/2026-07-05_linkedin_an-ai-employee-not-just-a-chatbot.png | An AI employee, not just a chatbot. |
 | 2026-07-05 | image | linkedin | [live](https://www.linkedin.com/feed/update/urn:li:share:7479343786427441152) | Posted/2026-07-05_linkedin_your-best-lead-just-messaged-at-1-am.png | Your best lead just messaged at 1 AM. |
 
-## Scheduled (6)
+## Scheduled (5)
 
 | Date | Type | Platform | Live | File | Headline |
 |---|---|---|---|---|---|
-| 2026-09-12 | image | instagram | — | Scheduled/2026-09-12_instagram_well-build-a-demo-on-your-business.png | We'll build a demo on YOUR business. |
+| 2026-09-13 | image | linkedin | — | Scheduled/2026-09-13_linkedin_know-which-message-actually-sold.png | Know which message actually sold. |
+| 2026-09-12 | image | instagram | — | Scheduled/2026-09-12_instagram_setting-this-up-will-take-my-team-months.png | "Setting this up will take my team months." |
+| 2026-09-12 | image | linkedin | — | Scheduled/2026-09-12_linkedin_not-a-chatbot-a-concierge-that-sells.png | Not a chatbot. A concierge that sells. |
 | 2026-09-09 | reel | instagram | — | Scheduled/2026-09-09_instagram_reel_we-sent-the-campaign-is-not-a-result.mp4 | "We sent the campaign" is not a result. |
-| 2026-09-08 | image | linkedin | — | Scheduled/2026-09-08_linkedin_tip-reply-in-the-language-they-messaged-in.png | Tip: reply in the language they messaged in. |
-| 2026-09-08 | image | instagram | — | Scheduled/2026-09-08_instagram_we-test-our-agents-by-trying-to-break-them.png | We test our agents by trying to break them. |
-| 2026-09-07 | image | linkedin | — | Scheduled/2026-09-07_linkedin_ai-cant-handle-arabic-properly.png | "AI can't handle Arabic properly." |
 | 2026-09-05 | reel | instagram | — | Scheduled/2026-09-05_instagram_reel_we-dont-have-a-tech-team-to-set-this-up.mp4 | "We don't have a tech team to set this up." |
 
-## Drafts-not-posted (60)
+## Drafts-not-posted (64)
 
 | Date | Type | Platform | Live | File | Headline |
 |---|---|---|---|---|---|
+| 2026-09-12 | image | instagram | — | Drafts-not-posted/2026-09-12_instagram_well-build-a-demo-on-your-business.png | We'll build a demo on YOUR business. |
+| 2026-09-08 | image | linkedin | — | Drafts-not-posted/2026-09-08_linkedin_tip-reply-in-the-language-they-messaged-in.png | Tip: reply in the language they messaged in. |
+| 2026-09-08 | image | instagram | — | Drafts-not-posted/2026-09-08_instagram_we-test-our-agents-by-trying-to-break-them.png | We test our agents by trying to break them. |
+| 2026-09-07 | image | linkedin | — | Drafts-not-posted/2026-09-07_linkedin_ai-cant-handle-arabic-properly.png | "AI can't handle Arabic properly." |
 | 2026-09-05 | image | instagram | — | Drafts-not-posted/2026-09-05_instagram_a-full-calendar-not-a-full-inbox.png | A full calendar, not a full inbox. |
 | 2026-09-02 | reel | instagram | — | Drafts-not-posted/2026-09-02_instagram_reel_the-real-reason-business-owners-dont-trust-ai.mp4 | The real reason business owners don't trust AI: |
 | 2026-09-01 | image | linkedin | — | Drafts-not-posted/2026-09-01_linkedin_it-knows-when-to-call-a-human.png | It knows when to call a human. |
