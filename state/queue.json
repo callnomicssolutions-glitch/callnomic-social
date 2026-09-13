@@ -15,11 +15,15 @@
       "headline": "Know which message actually sold.",
       "caption": "\"We sent the campaign\" isn't a result. \"127 read it, 41 replied, 9 bought\" is.\n\nThe Callnomics portal shows the real funnel behind every broadcast — sent, delivered, read, clicked, replied — so you stop guessing and start doubling down on what works.\n\ncallnomicsolutions.com\n\n#marketinganalytics #WhatsAppmarketing #ROI #GCCbusiness #Callnomic",
       "imageFile": "mtzfc2xdvhdu-linkedin.png",
-      "status": "pending",
+      "status": "approved",
       "createdAt": "2026-09-13T06:19:31.973Z",
       "telegramMessageId": 1427,
       "url": "",
-      "error": ""
+      "error": "",
+      "paced": true,
+      "attempts": 0,
+      "publishStartedAt": "",
+      "publishAfter": "2026-09-14T05:05:00.000Z"
     },
     {
       "id": "mtymg7gfhrwx",
