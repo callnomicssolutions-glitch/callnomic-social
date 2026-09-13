@@ -1,13 +1,26 @@
 {
-  "rotationIndex": 59,
+  "rotationIndex": 1,
   "recentPillars": [
-    "offer",
     "how-it-works",
     "myth-bust",
-    "outcome"
+    "outcome",
+    "pain-point"
   ],
   "telegramOffset": 206298174,
   "posts": [
+    {
+      "id": "mu0631paowvr",
+      "platform": "instagram",
+      "pillar": "pain-point",
+      "headline": "Your best lead just messaged at 1 AM.",
+      "caption": "Your best lead just messaged at 1 AM.\n\nBy 9 AM they've messaged three of your competitors too.\n\nIn the GCC, buyers expect an answer now — not next business day. An AI agent replies in seconds, in Arabic or English, captures the lead and books the call while you sleep.\n\nSpeed is the cheapest advantage you're not using yet.\n\n🔗 callnomicsolutions.com\n\n#GCCbusiness #AIautomation #customerexperience #UAE #SaudiArabia",
+      "imageFile": "mu0631paowvr-instagram.png",
+      "status": "pending",
+      "createdAt": "2026-09-13T18:48:20.146Z",
+      "telegramMessageId": 1429,
+      "url": "",
+      "error": ""
+    },
     {
       "id": "mtzfc2xdvhdu",
       "platform": "linkedin",
@@ -1596,8 +1609,8 @@
       "postedAt": "2026-07-05T01:21:58.431Z"
     }
   ],
-  "slotCount": 81,
-  "lastDraftAt": "2026-09-13T06:19:31.973Z",
+  "slotCount": 82,
+  "lastDraftAt": "2026-09-13T18:48:20.146Z",
   "reelRotationIndex": 21,
   "recentReelPillars": [
     "portal-concierge",
