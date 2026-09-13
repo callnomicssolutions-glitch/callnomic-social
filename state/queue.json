@@ -32,15 +32,15 @@
       "headline": "Not a chatbot. A concierge that sells.",
       "caption": "A chatbot answers FAQs. Our concierge closes.\n\nIt's trained on your real catalogue and policies, recommends the right product, answers \"where's my order?\" from your live system, and passes a hot lead to a human at the right moment.\n\nThat's the difference between deflecting customers and converting them.\n\ncallnomicsolutions.com\n\n#conversationalcommerce #AIconcierge #sales #GCCbusiness #Callnomic",
       "imageFile": "mtymf71px8qn-linkedin.png",
-      "status": "publishing",
+      "status": "approved",
       "createdAt": "2026-09-12T16:50:08.432Z",
       "telegramMessageId": 1422,
       "url": "",
-      "error": "",
+      "error": "init upload 401: {\"status\":401,\"serviceErrorCode\":65602,\"code\":\"EXPIRED_ACCESS_TOKEN\",\"message\":\"The token used in the request has expired\"}",
       "paced": true,
-      "attempts": 1,
-      "publishStartedAt": "2026-09-13T06:19:27.120Z",
-      "publishAfter": "2026-09-13T05:05:00.000Z"
+      "attempts": 0,
+      "publishStartedAt": "",
+      "publishAfter": "2026-09-13T09:19:28.500Z"
     },
     {
       "id": "mtyjzufvepj9",
