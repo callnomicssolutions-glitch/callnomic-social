@@ -2,7 +2,7 @@
 
 Every image/video we've created for social, organized by status. Images are the exact branded cards we published (re-rendered from source); reel videos are the published clips. Refreshed automatically by the `archive` GitHub Action.
 
-**Summary:** 103 total · 34 posted · 5 scheduled · 64 unused drafts.
+**Summary:** 104 total · 34 posted · 6 scheduled · 64 unused drafts.
 
 ## Posted (34)
 
@@ -43,10 +43,11 @@ Every image/video we've created for social, organized by status. Images are the 
 | 2026-07-05 | image | linkedin | [live](https://www.linkedin.com/feed/update/urn:li:share:7479578921533968386) | Posted/2026-07-05_linkedin_an-ai-employee-not-just-a-chatbot.png | An AI employee, not just a chatbot. |
 | 2026-07-05 | image | linkedin | [live](https://www.linkedin.com/feed/update/urn:li:share:7479343786427441152) | Posted/2026-07-05_linkedin_your-best-lead-just-messaged-at-1-am.png | Your best lead just messaged at 1 AM. |
 
-## Scheduled (5)
+## Scheduled (6)
 
 | Date | Type | Platform | Live | File | Headline |
 |---|---|---|---|---|---|
+| 2026-09-13 | image | instagram | — | Scheduled/2026-09-13_instagram_your-best-lead-just-messaged-at-1-am.png | Your best lead just messaged at 1 AM. |
 | 2026-09-13 | image | linkedin | — | Scheduled/2026-09-13_linkedin_know-which-message-actually-sold.png | Know which message actually sold. |
 | 2026-09-12 | image | instagram | — | Scheduled/2026-09-12_instagram_setting-this-up-will-take-my-team-months.png | "Setting this up will take my team months." |
 | 2026-09-12 | image | linkedin | — | Scheduled/2026-09-12_linkedin_not-a-chatbot-a-concierge-that-sells.png | Not a chatbot. A concierge that sells. |

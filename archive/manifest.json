@@ -1,6 +1,17 @@
 {
-  "total": 103,
+  "total": 104,
   "items": [
+    {
+      "status": "approved",
+      "type": "image",
+      "platform": "instagram",
+      "date": "2026-09-13",
+      "headline": "Your best lead just messaged at 1 AM.",
+      "url": "",
+      "bucket": "Scheduled",
+      "file": "Scheduled/2026-09-13_instagram_your-best-lead-just-messaged-at-1-am.png",
+      "mediaPresent": true
+    },
     {
       "status": "approved",
       "type": "image",
