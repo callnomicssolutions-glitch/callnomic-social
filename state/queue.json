@@ -32,14 +32,14 @@
       "headline": "Know which message actually sold.",
       "caption": "\"We sent the campaign\" isn't a result. \"127 read it, 41 replied, 9 bought\" is.\n\nThe Callnomics portal shows the real funnel behind every broadcast — sent, delivered, read, clicked, replied — so you stop guessing and start doubling down on what works.\n\ncallnomicsolutions.com\n\n#marketinganalytics #WhatsAppmarketing #ROI #GCCbusiness #Callnomic",
       "imageFile": "mtzfc2xdvhdu-linkedin.png",
-      "status": "approved",
+      "status": "publishing",
       "createdAt": "2026-09-13T06:19:31.973Z",
       "telegramMessageId": 1427,
       "url": "",
       "error": "init upload 401: {\"status\":401,\"serviceErrorCode\":65602,\"code\":\"EXPIRED_ACCESS_TOKEN\",\"message\":\"The token used in the request has expired\"}",
       "paced": true,
-      "attempts": 0,
-      "publishStartedAt": "",
+      "attempts": 1,
+      "publishStartedAt": "2026-09-15T05:00:16.799Z",
       "publishAfter": "2026-09-14T09:10:22.411Z"
     },
     {
