@@ -15,15 +15,15 @@
       "headline": "Your best lead just messaged at 1 AM.",
       "caption": "Your best lead just messaged at 1 AM.\n\nBy 9 AM they've messaged three of your competitors too.\n\nIn the GCC, buyers expect an answer now — not next business day. An AI agent replies in seconds, in Arabic or English, captures the lead and books the call while you sleep.\n\nSpeed is the cheapest advantage you're not using yet.\n\n🔗 callnomicsolutions.com\n\n#GCCbusiness #AIautomation #customerexperience #UAE #SaudiArabia",
       "imageFile": "mu0631paowvr-instagram.png",
-      "status": "publishing",
+      "status": "approved",
       "createdAt": "2026-09-13T18:48:20.146Z",
       "telegramMessageId": 1429,
       "url": "",
-      "error": "container 400: Error validating access token: Session has expired on Thursday, 03-Sep-26 09:48:29 PDT. The current time is Thursday, 17-Sep-26 22:01:19 PDT. · code 190",
+      "error": "container 400: Error validating access token: Session has expired on Thursday, 03-Sep-26 09:48:29 PDT. The current time is Saturday, 19-Sep-26 00:31:25 PDT. · code 190",
       "paced": true,
-      "attempts": 1,
-      "publishStartedAt": "2026-09-19T07:31:24.483Z",
-      "publishAfter": "2026-09-18T08:01:19.181Z"
+      "attempts": 0,
+      "publishStartedAt": "",
+      "publishAfter": "2026-09-19T10:31:25.753Z"
     },
     {
       "id": "mtzfc2xdvhdu",
