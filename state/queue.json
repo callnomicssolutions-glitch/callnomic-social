@@ -97,16 +97,16 @@
       "headline": "\"We sent the campaign\" is not a result.",
       "caption": "\"We sent the campaign\" is not a result.\n127 read it. 41 replied. 9 bought.\nTHAT'S a result you can act on.\nThe portal shows the real funnel behind every broadcast.\nStop guessing which message worked. Start seeing it.\n\n🔗 callnomicsolutions.com\n\n#marketinganalytics #WhatsAppmarketing #ROI #GCCbusiness",
       "imageFile": "mttwdgo39qbu-instagram-reel.mp4",
-      "status": "publishing",
+      "status": "approved",
       "createdAt": "2026-09-09T09:29:58.878Z",
       "telegramMessageId": 1353,
       "url": "",
-      "error": "container 400: Error validating access token: Session has expired on Thursday, 03-Sep-26 09:48:29 PDT. The current time is Tuesday, 22-Sep-26 22:14:02 PDT. · code 190",
+      "error": "container 400: Error validating access token: Session has expired on Thursday, 03-Sep-26 09:48:29 PDT. The current time is Wednesday, 23-Sep-26 22:02:17 PDT. · code 190",
       "remindedAt": "2026-09-12T15:42:12.366Z",
       "paced": true,
-      "attempts": 1,
-      "publishStartedAt": "2026-09-24T05:02:16.361Z",
-      "publishAfter": "2026-09-23T08:14:02.474Z"
+      "attempts": 0,
+      "publishStartedAt": "",
+      "publishAfter": "2026-09-24T08:02:17.481Z"
     },
     {
       "id": "mtt967t1hia3",
