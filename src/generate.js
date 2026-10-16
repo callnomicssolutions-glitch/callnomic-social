@@ -127,3 +127,88 @@ export function composeReelCaption(item) {
   const tags = (item.tags || []).join(" ");
   return `${body}\n\n🔗 ${BRAND.site}${tags ? "\n\n" + tags : ""}`.trim();
 }
+
+// A post written from what actually happened this week: notes Fadil sent the bot, and
+// commits from the repos he works in.
+//
+// The hard rule in the prompt is the whole point. An engine that invents plausible
+// founder content will produce the generic slop nobody reads, and sooner or later it
+// will state something untrue about the business under his name. So: every claim must
+// trace to the material below, and if the material is too thin it returns {skip:true}
+// rather than filling the gap. Unlike generateFresh this is not gated behind AI_FRESH —
+// asking for a digest IS the opt-in — but it still needs a Groq key.
+export async function generateFromActivity(notes, commits) {
+  if (!CONFIG.groq.key) return null;
+  const material = [
+    notes.length ? "NOTES Fadil sent (newest first):" : "NOTES: none.",
+    ...notes.map((n) => `- [${n.at.slice(0, 10)}] ${n.text}`),
+    "",
+    commits.length ? "COMMITS (what he built):" : "COMMITS: none.",
+    ...commits.map((c) => `- [${c.at.slice(0, 10)}] ${c.repo}: ${c.subject}`),
+  ].join("\n");
+
+  const sys = [
+    `You write LinkedIn posts for ${BRAND.name}'s founder, Fadil Muhammad, in the first person.`,
+    ``,
+    `ABSOLUTE RULE: every concrete claim, number, name and event in the post must appear`,
+    `in the MATERIAL below. Invent nothing. Do not estimate, round up, or add a statistic`,
+    `that is not there. If the material is too thin for an honest post, return`,
+    `{"skip": true, "reason": "<one line>"} and nothing else.`,
+    ``,
+    `Background facts you may rely on:`,
+    ...BRAND.facts.map((f) => "- " + f),
+    ``,
+    `Voice DO: ${BRAND.voice.do.join("; ")}. Write like a person talking, not a brand.`,
+    `Voice DON'T: ${BRAND.voice.dont.join("; ")}.`,
+    `Also avoid: "excited to share", "thrilled", "journey", "learnings", "game-changer",`,
+    `rhetorical questions as openers, and three-item lists. Vary sentence length.`,
+    `Specifics beat adjectives. A real number is worth a paragraph of description.`,
+    ``,
+    `Structure: open with the most concrete thing that happened. Say what it cost or`,
+    `taught. End with something useful to another operator, or a genuine question.`,
+    `Do not pitch. No call to action asking for business.`,
+    ``,
+    `Return STRICT JSON: {"headline": string (max 60 chars, goes on the image),`,
+    `"caption": string (120-280 words, short lines, blank line between paragraphs),`,
+    `"tags": string[] (3-5 hashtags, no spaces)}. JSON only, no markdown.`,
+  ].join("\n");
+
+  try {
+    const r = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${CONFIG.groq.key}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: CONFIG.groq.model,
+        temperature: 0.6, // lower than generateFresh: this one must stay on the facts
+        response_format: { type: "json_object" },
+        messages: [
+          { role: "system", content: sys },
+          { role: "user", content: `MATERIAL\n\n${material}` },
+        ],
+      }),
+    });
+    if (!r.ok) {
+      console.warn("[digest] groq failed", r.status);
+      return null;
+    }
+    const data = await r.json();
+    const parsed = JSON.parse(data.choices?.[0]?.message?.content || "{}");
+    if (parsed.skip) {
+      console.log(`[digest] model declined: ${parsed.reason || "thin material"}`);
+      return { skip: true, reason: parsed.reason || "not enough to write about yet" };
+    }
+    if (!parsed.headline || !parsed.caption) return null;
+    return {
+      pillar: "activity",
+      headline: String(parsed.headline).slice(0, 90),
+      caption: String(parsed.caption),
+      tags: Array.isArray(parsed.tags) ? parsed.tags.slice(0, 5) : [],
+    };
+  } catch (e) {
+    console.warn("[digest] groq error", e.message);
+    return null;
+  }
+}

@@ -7,7 +7,9 @@
 import { existsSync } from "node:fs";
 import { CONFIG } from "./config.js";
 import { loadState, saveState, commitState, pruneImages, shortId, imagePath } from "./state.js";
-import { pickFromLibrary, generateFresh, composeCaption, pickReelScript, composeReelCaption, recentlyUsed } from "./generate.js";
+import { pickFromLibrary, generateFresh, generateFromActivity, composeCaption, pickReelScript, composeReelCaption, recentlyUsed } from "./generate.js";
+import { addNote, unusedNotes, markNotesUsed, transcribeVoice, notesSummary } from "./notes.js";
+import { recentCommits, commitsSummary } from "./activity.js";
 import { REELS } from "../content/reels.js";
 import { assignDailySlots, bucketOf } from "./schedule.js";
 import { renderToFile } from "./image.js";
@@ -287,10 +289,58 @@ async function publishApproved(state) {
   return done;
 }
 
+
+// Draft a post from the week Fadil actually had: notes he sent the bot plus commits
+// from the repos he works in. Returns the post, or null with a reason sent to Telegram.
+const DIGEST_DAYS = Number(process.env.DIGEST_DAYS || 7);
+
+async function makeDigestDraft(state, platform = "linkedin") {
+  const notes = unusedNotes(state, DIGEST_DAYS);
+  const commits = await recentCommits(DIGEST_DAYS);
+  console.log(`[digest] ${notes.length} note(s), ${commits.length} commit(s) in ${DIGEST_DAYS}d`);
+
+  if (!notes.length && !commits.length) {
+    if (telegramReady()) {
+      await sendMessage(
+        `Nothing to write about from the last ${DIGEST_DAYS} days.
+
+` +
+        `Send me a line or a voice note whenever something happens and I'll bank it.`
+      );
+    }
+    return null;
+  }
+
+  const source = await generateFromActivity(notes, commits);
+  if (!source) {
+    if (telegramReady()) await sendMessage("Digest failed — check GROQ_API_KEY and the run log.");
+    return null;
+  }
+  // The model is allowed to refuse. A thin week should produce silence, not filler.
+  if (source.skip) {
+    if (telegramReady()) {
+      await sendMessage(`No digest this week — ${source.reason}
+
+Notes are kept, not spent.`);
+    }
+    return null;
+  }
+
+  const post = await makeDraft(state, platform, source);
+  if (post) {
+    post.fromDigest = true;
+    markNotesUsed(state, notes, post.id);
+    saveState(state);
+  }
+  return post;
+}
+
 // Build one draft for a platform, render its image, send to Telegram.
-async function makeDraft(state, platform) {
-  let source;
-  if (CONFIG.groq.enabled) {
+async function makeDraft(state, platform, presetSource = null) {
+  // A digest arrives already written from real material; only library/fresh posts
+  // need picking here.
+  let source = presetSource;
+  if (!source && CONFIG.groq.enabled) {
     source = await generateFresh();
   }
   let nextIndex = state.rotationIndex;
@@ -403,7 +453,12 @@ const HELP = [
   "/approve &lt;id&gt; — publish one (id from /status)",
   "/skip &lt;id&gt; — drop one",
   "/retry — retry anything that failed",
+  "/notes — what I've banked about your week",
+  "/digest — write a post from your notes + commits now",
   "/help — this message",
+  "",
+  "Just send me a line or a voice note any time — no command needed.",
+  "That is what the weekly digest is written from.",
   "",
   "The ✅ / ✏️ / ❌ buttons on a draft still work — including on old drafts.",
 ].join("\n");
@@ -458,6 +513,15 @@ async function handleCommand(state, text) {
     const stuck = state.posts.filter((p) => p.status === "failed" || p.status === "publishing");
     if (!stuck.length) return void (await sendMessage("Nothing failed or on hold."));
     for (const p of stuck) await approveAndPublish(state, p);
+  } else if (cmd === "/notes") {
+    const commits = await recentCommits(DIGEST_DAYS);
+    await sendMessage(
+      `${notesSummary(state, DIGEST_DAYS)}\n\n<b>Commits</b>\n${commitsSummary(commits)}`
+    );
+  } else if (cmd === "/digest") {
+    await sendMessage("Writing from your week...");
+    await makeDigestDraft(state, "linkedin");
+    saveState(state);
   } else if (cmd.startsWith("/")) {
     await sendMessage(`Unknown command.\n\n${HELP}`);
   }
@@ -476,6 +540,31 @@ async function processApprovals(state, timeout = 0) {
       if (typeof m.text === "string" && m.text.startsWith("/")) {
         console.log(`[telegram] command: ${m.text}`);
         await handleCommand(state, m.text);
+        continue;
+      }
+      // Anything else he sends is a note about what he's doing. This used to be
+      // dropped on the floor, which is why the engine could only ever post from the
+      // evergreen library — it had no idea what had actually happened.
+      if (m.voice || m.audio) {
+        const fileId = (m.voice || m.audio).file_id;
+        await sendMessage("Transcribing...");
+        const text = await transcribeVoice(fileId);
+        if (!text) {
+          await sendMessage("Couldn't transcribe that one. Type it instead?");
+          continue;
+        }
+        const note = addNote(state, text, "voice");
+        saveState(state);
+        await sendMessage(`Noted: <i>${escapeish(text.slice(0, 180))}</i>`);
+        console.log(`[notes] voice note banked (${note.id})`);
+        continue;
+      }
+      if (typeof m.text === "string" && m.text.trim()) {
+        const note = addNote(state, m.text, "text");
+        saveState(state);
+        const banked = (state.notes || []).filter((n) => !n.usedIn).length;
+        await sendMessage(`Noted. ${banked} banked for the next digest.`);
+        console.log(`[notes] text note banked (${note.id})`);
       }
       continue;
     }
@@ -652,6 +741,20 @@ async function main() {
 
   // 3) publish anything already approved but not yet posted (safety net)
   await publishApproved(state);
+
+  // 3b) the weekly digest: a post written from his own notes and commits rather than
+  // the evergreen library. Fires on its own cron (DIGEST=1), never on the normal tick,
+  // because it costs Groq tokens and spends banked notes.
+  if (process.env.DIGEST === "1") {
+    const post = await makeDigestDraft(state, process.env.DIGEST_PLATFORM || "linkedin");
+    if (post) console.log(`[run] digest draft: "${post.headline}"`);
+    pruneImages(state);
+    saveState(state);
+    if (WATCH_MINUTES > 0 && telegramReady()) await watch(state, WATCH_MINUTES);
+    saveState(state);
+    console.log("[run] done (digest).");
+    return;
+  }
 
   // 4) generate the next draft if it's time — doesn't wait for prior drafts to be approved,
   // just caps how many can pile up unanswered so a long absence doesn't spam forever.

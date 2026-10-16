@@ -26,7 +26,7 @@ export const BRAND = {
   facts: [
     "Callnomic builds custom AI systems for GCC businesses: AI chat agents, AI phone callers, AI dashboards, CRMs and workflow automation.",
     "Business model: a one-time setup fee to build it, then a monthly service fee for hosting, support and improvements. Clients do not buy or own the software; they subscribe to a managed service.",
-    "Bilingual by default — English and Arabic, with full RTL support.",
+    "Answers in whatever language the customer writes in, with full RTL support.",
     "Serves the GCC (UAE, Saudi, Oman, Qatar, Bahrain, Kuwait) and Chennai, India.",
     "Products include Callnomic Assist (AI support + lead capture + booking agent) and an AI phone caller that answers and books over the phone.",
     "Founder: Fadil Muhammad.",

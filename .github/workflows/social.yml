@@ -15,8 +15,16 @@ on:
     - cron: "0 6 * * *"
     - cron: "0 7 * * *"
     - cron: "0 8 * * *"
+    # Weekly digest: a post written from Fadil's own notes and commits, not the
+    # library. Sunday 06:00 UTC = 10:00 Gulf, start of the UAE working week, so the
+    # draft is waiting when he opens Telegram on Monday morning.
+    - cron: "0 6 * * 0"
   workflow_dispatch:
     inputs:
+      digest:
+        description: "Write a post from your banked notes + recent commits"
+        type: boolean
+        default: false
       force_draft:
         description: "Force a new image-post draft this run (ignore the timer)"
         type: boolean
@@ -142,6 +150,15 @@ jobs:
           # So Instagram can fetch the committed image from this repo
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_REF_NAME: ${{ github.ref_name }}
+          # Weekly digest. On by the Sunday cron, or by hand from the Actions tab.
+          # Everything else about the run is unchanged.
+          DIGEST: ${{ (inputs.digest || github.event.schedule == '0 6 * * 0') && '1' || '' }}
+          DIGEST_DAYS: ${{ vars.DIGEST_DAYS }}
+          # Read-only commit history for the repos he works in. The default token can
+          # read this repo; set ACTIVITY_GITHUB_TOKEN to reach the private ones too.
+          ACTIVITY_GITHUB_TOKEN: ${{ secrets.ACTIVITY_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
+          ACTIVITY_REPOS: ${{ vars.ACTIVITY_REPOS }}
+          GITHUB_REPO_OWNER: ${{ github.repository_owner }}
         run: node src/run.js
 
       - name: Commit updated state
