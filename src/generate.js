@@ -138,7 +138,12 @@ export function composeReelCaption(item) {
 // rather than filling the gap. Unlike generateFresh this is not gated behind AI_FRESH —
 // asking for a digest IS the opt-in — but it still needs a Groq key.
 export async function generateFromActivity(notes, commits) {
-  if (!CONFIG.groq.key) return null;
+  if (!CONFIG.groq.key) {
+    // Returning null silently here cost an hour of looking in the wrong place: the run
+    // went green, the step logged a material count, and nothing said the model was missing.
+    console.warn("[digest] no GROQ_API_KEY set — the digest cannot write anything without it");
+    return null;
+  }
   const material = [
     notes.length ? "NOTES Fadil sent (newest first):" : "NOTES: none.",
     ...notes.map((n) => `- [${n.at.slice(0, 10)}] ${n.text}`),

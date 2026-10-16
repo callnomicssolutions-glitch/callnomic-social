@@ -313,7 +313,11 @@ async function makeDigestDraft(state, platform = "linkedin") {
 
   const source = await generateFromActivity(notes, commits);
   if (!source) {
-    if (telegramReady()) await sendMessage("Digest failed — check GROQ_API_KEY and the run log.");
+    const why = CONFIG.groq.key ? "the model call failed" : "GROQ_API_KEY is not set";
+    console.warn(`[digest] no draft produced: ${why}`);
+    if (telegramReady()) {
+      await sendMessage(`Digest produced nothing — ${why}. Nothing was spent; notes are kept.`);
+    }
     return null;
   }
   // The model is allowed to refuse. A thin week should produce silence, not filler.
