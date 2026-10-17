@@ -154,8 +154,11 @@ jobs:
           # Everything else about the run is unchanged.
           DIGEST: ${{ (inputs.digest || github.event.schedule == '0 6 * * 0') && '1' || '' }}
           DIGEST_DAYS: ${{ vars.DIGEST_DAYS }}
-          # Read-only commit history for the repos he works in. The default token can
-          # read this repo; set ACTIVITY_GITHUB_TOKEN to reach the private ones too.
+          # Read-only commit history, OFF unless vars.ACTIVITY_REPOS names a repo.
+          # Do not switch the product repos on to "give the digest more material":
+          # their commit logs are a record of our own bot failing in front of real
+          # customers, and a post written from one would be true and unsellable.
+          # See the long comment in src/activity.js before changing either of these.
           ACTIVITY_GITHUB_TOKEN: ${{ secrets.ACTIVITY_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           ACTIVITY_REPOS: ${{ vars.ACTIVITY_REPOS }}
           GITHUB_REPO_OWNER: ${{ github.repository_owner }}

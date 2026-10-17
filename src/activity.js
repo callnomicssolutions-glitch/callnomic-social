@@ -9,10 +9,22 @@
 // run — a missing repo should cost one input, not the digest.
 const owner = () => process.env.GITHUB_REPO_OWNER || "callnomicssolutions-glitch";
 
-// Which repos count as "what I'm working on". Override with ACTIVITY_REPOS.
+// Which repos count as "what I'm working on". Opt in by name via ACTIVITY_REPOS. The
+// default is NONE, deliberately.
+//
+// Listing every repo here is tempting and wrong. These commit logs are a debugging diary:
+// "never promise a cart that is not there", "Stop telling customers we do not sell what the
+// catalogue just returned", "the address the model made up". Every line is true, and every
+// line describes our own product failing in front of a real customer - on the product we
+// are selling, against a client's own catalogue and checkout. The SKIP filter below strips
+// bot noise; it cannot tell honest-but-commercially-fatal from honest-and-safe, and it
+// would wave all of that through as prime material for a public post.
+//
+// So commits stay off unless someone names a repo whose log they have read and would be
+// happy to see quoted on LinkedIn. Notes (src/notes.js) are the intended input, because
+// there Fadil chooses what goes in - the only filter that actually works here.
 const repos = () =>
-  (process.env.ACTIVITY_REPOS ||
-    "callnomic-website,callnomics-platform-suite,callnomic-social")
+  (process.env.ACTIVITY_REPOS || "")
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean);
@@ -56,9 +68,15 @@ async function repoCommits(repo, sinceIso) {
 }
 
 export async function recentCommits(days = 7) {
+  const list = repos();
+  if (!list.length) {
+    // Say so. A silent empty list is how the GROQ key went missing for two runs.
+    console.log("[activity] no ACTIVITY_REPOS set - digest will write from notes only");
+    return [];
+  }
   const sinceIso = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
   const all = [];
-  for (const repo of repos()) {
+  for (const repo of list) {
     try {
       all.push(...(await repoCommits(repo, sinceIso)));
     } catch (e) {
