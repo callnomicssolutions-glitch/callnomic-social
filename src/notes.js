@@ -57,6 +57,27 @@ async function downloadVoice(fileId) {
   return Buffer.from(await bin.arrayBuffer());
 }
 
+// Is this transcript usable here at all?
+//
+// NO language hint is sent on purpose. English scores 100% unhinted, so there is nothing
+// to win, and a wrong hint actively harms - it tells the transcriber to spell an English
+// speaker's words in another alphabet. See the measurements in the platform work.
+//
+// But Groq CANNOT transcribe Malayalam - 15%, hint or no hint - and Groq is the only
+// provider on this key. The failure is not a garbled word here and there: the words come
+// back correct in the WRONG SCRIPT. Confidence will not catch it, because a completely
+// wrong transcript scores as high as a right one. The alphabet is the only tell.
+//
+// These notes exist solely to write English LinkedIn posts, so a non-Latin transcript is
+// unusable by definition. Refuse it. Banking it would put a sentence Fadil never said
+// into the material the digest writes from, which is the one thing this engine must not do.
+export function usableTranscript(text) {
+  const letters = [...String(text || "")].filter((ch) => /\p{L}/u.test(ch));
+  if (!letters.length) return false; // no letters at all - nothing was said
+  const latin = letters.filter((ch) => /\p{Script=Latin}/u.test(ch)).length;
+  return latin / letters.length >= 0.8; // a stray loanword is fine; a whole script is not
+}
+
 // Groq Whisper. Returns null rather than throwing: a failed transcription should cost
 // the note, not the whole run.
 export async function transcribeVoice(fileId) {

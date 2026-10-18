@@ -8,7 +8,7 @@ import { existsSync } from "node:fs";
 import { CONFIG } from "./config.js";
 import { loadState, saveState, commitState, pruneImages, shortId, imagePath } from "./state.js";
 import { pickFromLibrary, generateFresh, generateFromActivity, composeCaption, pickReelScript, composeReelCaption, recentlyUsed } from "./generate.js";
-import { addNote, unusedNotes, markNotesUsed, transcribeVoice, notesSummary } from "./notes.js";
+import { addNote, unusedNotes, markNotesUsed, transcribeVoice, notesSummary, usableTranscript } from "./notes.js";
 import { recentCommits, commitsSummary } from "./activity.js";
 import { REELS } from "../content/reels.js";
 import { assignDailySlots, bucketOf } from "./schedule.js";
@@ -555,6 +555,15 @@ async function processApprovals(state, timeout = 0) {
         const text = await transcribeVoice(fileId);
         if (!text) {
           await sendMessage("Couldn't transcribe that one. Type it instead?");
+          continue;
+        }
+        if (!usableTranscript(text)) {
+          // Wrong alphabet, not wrong words. Banking it would invent a sentence.
+          await sendMessage(
+            "That came back in a non-Latin alphabet, so I can't write an English post " +
+              "from it (Groq mishandles Malayalam in particular). Say it in English, or type it."
+          );
+          console.warn("[notes] non-Latin transcript refused, not banked");
           continue;
         }
         const note = addNote(state, text, "voice");
