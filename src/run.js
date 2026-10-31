@@ -250,6 +250,9 @@ async function publishApproved(state) {
   const due = state.posts.filter(
     (p) =>
       p.status === "approved" &&
+      // A platform dropped from PLATFORMS is paused, not just starved of new drafts:
+      // its already-approved posts hold until it is switched back on.
+      CONFIG.platforms.includes(p.platform) &&
       p.awaitingCdn !== thisRun &&
       (!p.publishAfter || new Date(p.publishAfter).getTime() <= Date.now()),
   );
